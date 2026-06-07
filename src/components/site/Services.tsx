@@ -15,18 +15,18 @@ const services = [
   },
   {
     icon: Zap,
-    title: "GPU Performance Engineering",
+    title: "GPU Data Center & Performance",
     to: "/gpu-performance-engineering",
-    desc: "Maximize AI infrastructure performance through advanced GPU optimization.",
-    tags: ["CUDA", "TensorRT", "Quantization", "NCCL", "H100"],
+    desc: "Maximize AI infrastructure performance through advanced GPU fabric and kernel optimization.",
+    tags: ["CUDA", "Blackwell", "InfiniBand", "RoCEv2", "TensorRT"],
     accent: true,
   },
   {
     icon: Bot,
     title: "Agentic AI & Autonomous Systems",
     to: "/agentic-ai-development",
-    desc: "Build autonomous AI agents capable of planning, reasoning, learning and acting.",
-    tags: ["Single Agent", "Multi-Agent", "Tool Use", "Governance"],
+    desc: "Build autonomous AI agents capable of planning, reasoning, tool use, and gating.",
+    tags: ["LangGraph", "Multi-Agent", "MCP", "Action Gating"],
   },
   {
     icon: Network,
@@ -51,17 +51,17 @@ const services = [
   },
   {
     icon: Shield,
-    title: "AI Security & Governance",
+    title: "AI Security & Cyber Dom",
     to: "/ai-security",
-    desc: "Secure AI deployment through Zero Trust Architecture and enterprise governance.",
-    tags: ["Confidential Compute", "IAM", "Compliance", "Audit"],
+    desc: "Secure AI deployment through Cyber Dom guardrails and dynamic script sandboxing.",
+    tags: ["Cyber Dom", "Bash Sandbox", "Zero Trust", "FedRAMP"],
   },
   {
     icon: Cpu,
-    title: "MLOps · LLMOps · AgentOps",
+    title: "LLMOps & LLM Engineering",
     to: "/llmops-services",
-    desc: "Operate the full AI lifecycle — from model training to autonomous agent fleets.",
-    tags: ["CI/CD", "Observability", "Evaluation", "Lineage"],
+    desc: "Operate the full LLM lifecycle — from custom fine-tuning and evaluation to serving.",
+    tags: ["Fine-Tuning", "vLLM", "Evaluation", "Guardrails"],
   },
 ];
 

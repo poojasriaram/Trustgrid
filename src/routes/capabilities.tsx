@@ -205,6 +205,105 @@ const capabilitiesData: SectionData[] = [
       { label: "Carbon Footprint", value: "-45%" },
       { label: "Cooling Efficiency", value: "2x" }
     ]
+  },
+  {
+    title: "AI Security & Cyber Dom Protection Mesh",
+    description: "Continuous Zero-Trust shielding and threat isolation",
+    introduction: "Deploy generative AI and autonomous systems with absolute peace of mind. We protect applications, models, and execution hosts from adversarial threats, jailbreaks, and exfiltration attempts.",
+    capabilities: [
+      "Cyber Dom guardrails for real-time prompt injection blocking",
+      "Zero-Trust policy enforcement for models and tools",
+      "Cryptographic activity logging for every database read/write",
+      "Automated red-teaming and adversarial simulation engines"
+    ],
+    solutions: [
+      "Cyber Dom runtime injection filter mesh integration",
+      "PII redaction and exfiltration prevention gateways",
+      "Audit compliance tracking suites (SOC2, EU AI Act)",
+      "Confidential computing and TEE infrastructure setups"
+    ],
+    useCases: [
+      "Regulated banking systems deploying user-facing conversational LLMs",
+      "Federal databases integrated with generative search engines",
+      "SaaS systems executing user-supplied prompts with tool bindings"
+    ],
+    outcomes: [
+      "Neutralize prompt injections and model jailbreaks at the gateway",
+      "Maintain strict compliance standards in highly audited industries",
+      "Guarantee privacy and zero leaks of proprietary enterprise data"
+    ],
+    metrics: [
+      { label: "Jailbreak Block Rate", value: "99.9%" },
+      { label: "Filter Latency Overhead", value: "< 5ms" },
+      { label: "PII Leak Probability", value: "0%" },
+      { label: "Compliance Score", value: "100%" }
+    ]
+  },
+  {
+    title: "Hardened Sandbox Shell & Agent Execution",
+    description: "Hyper-secure runtimes for dynamic agent-generated code",
+    introduction: "Unlock the full potential of shell automation and scripting. We build ephemeral, isolated execution environments that allow agents to write and run code securely without exposing host servers.",
+    capabilities: [
+      "gVisor, WebAssembly, and MicroVM container isolation",
+      "Dynamic pre-execution Bash script parsing and syntax auditing",
+      "Strict CPU, memory, and network namespace restrictions",
+      "Real-time process telemetry and system call monitoring"
+    ],
+    solutions: [
+      "Ephemeral runner sandboxes integrated with agent pipelines",
+      "Blacklisted command and namespace isolation policies",
+      "Automatic file system cleanup immediately post-execution",
+      "MCP server bindings with restricted execution contexts"
+    ],
+    useCases: [
+      "AI agents performing code correction and running automated tests",
+      "Systems deploying shell-capable automation agents for server configs",
+      "Data analytics agents writing and executing dynamic Python/Bash scripts"
+    ],
+    outcomes: [
+      "Safe execution of dynamic, AI-generated terminal commands",
+      "Zero host contamination or unauthorized lateral network movements",
+      "Prevention of infinite loops, memory leaks, and CPU exhaustion"
+    ],
+    metrics: [
+      { label: "Sandbox Breakout", value: "0%" },
+      { label: "Container Boot Time", value: "< 10ms" },
+      { label: "Blocked Banned Syscalls", value: "100%" },
+      { label: "Resource Limits Enforced", value: "100%" }
+    ]
+  },
+  {
+    title: "Multi-Agent Fleet Orchestration",
+    description: "Stateful coordination of specialist agent teams",
+    introduction: "Decompose complex, long-running processes into reliable worker fleets. We engineer distributed multi-agent state machines with robust routing, conflict resolution, and human approval gates.",
+    capabilities: [
+      "Hierarchical and network multi-agent orchestration design",
+      "LangGraph and CrewAI distributed workflow development",
+      "Human-in-the-Loop Slack/Email action approval gates",
+      "Model Context Protocol (MCP) server resource bindings"
+    ],
+    solutions: [
+      "Stateful multi-agent supervisor systems",
+      "Automated exception handling and compensation routines",
+      "Interactive agent trace observability dashboards",
+      "Real-time cost governance and token attribution controls"
+    ],
+    useCases: [
+      "Autonomous coding, testing, and devops pipeline agents",
+      "Multi-document financial report reconciliation systems",
+      "Autonomous procurement workflows with authorization loops"
+    ],
+    outcomes: [
+      "Scale operational automation without losing governance",
+      "Prevent infinite agent loops and execution drift",
+      "Seamlessly gate high-risk writes with real-time human reviews"
+    ],
+    metrics: [
+      { label: "Complex Task Success", value: "92-96%" },
+      { label: "Loop Failures Blocked", value: "85%+" },
+      { label: "Tool Selector Accuracy", value: "98.5%" },
+      { label: "Integration Speedup", value: "3x Faster" }
+    ]
   }
 ];
 

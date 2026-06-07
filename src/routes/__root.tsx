@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { Chatbot } from "@/components/site/Chatbot";
 
 function NotFoundComponent() {
   return (
@@ -157,6 +158,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <Footer />
+        <Chatbot />
       </div>
     </QueryClientProvider>
   );

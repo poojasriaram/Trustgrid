@@ -163,6 +163,138 @@ const detailedOfferings: OfferingDetail[] = [
       "Optimized, production-grade pipelines for specific workloads.",
       "Maximum efficiency and ROI tailored to your dominant AI applications."
     ]
+  },
+  {
+    title: "7. Production-Grade LLM Fine-Tuning & Quantization",
+    subtitle: "Domain-specific adaptation and compression",
+    description: "Custom training pipelines for fine-tuning open weights models (Llama-3, Qwen, Mistral) using parameter-efficient methods (LoRA, QLoRA) and preference alignment (DPO, RLHF), coupled with post-training quantization (FP8, INT4) for high-throughput execution.",
+    keySituations: [
+      "Generic models failing to grasp proprietary terminologies, business rules, or tone of voice.",
+      "High inference latency and API costs scaling linearly with volume, hurting gross margins.",
+      "Strict data residency rules preventing the transfer of raw data to third-party model APIs."
+    ],
+    keyStatistics: [
+      "Inference cost-per-token: Reduced by 50-80% compared to frontier APIs",
+      "Throughput boost: 4-8x faster token generation via vLLM/TRT-LLM optimization",
+      "Accuracy retention: 99%+ performance match to FP16 baselines under FP8 quantization",
+      "Training cycle speed: 3x faster using optimized 3D parallelism"
+    ],
+    offeringValue: "Own your models and run them at a fraction of third-party API costs with tailored enterprise capability.",
+    expectedOutcomes: [
+      "Proprietary, domain-adapted model weights optimized for your specific tasks.",
+      "High-throughput inference stack configured for instant scaling.",
+      "Quantized models running efficiently on cost-effective hardware (e.g. single-GPU nodes)."
+    ]
+  },
+  {
+    title: "8. Enterprise LLM Evaluation & Guardrails Gateway",
+    subtitle: "Reliable, secure, and compliant model deployment",
+    description: "Deployment of comprehensive prompt-eval harnesses and real-time proxy gateways that filter inputs/outputs for prompt injection, PII leakages, model hallucinations, and corporate policy compliance.",
+    keySituations: [
+      "Security teams blocking LLM features due to potential data leaks or prompt injection concerns.",
+      "Lack of objective metrics to measure regression when prompts or model versions change.",
+      "Unpredictable or offensive output risk in user-facing customer support applications."
+    ],
+    keyStatistics: [
+      "Prompt injection mitigation: 99.8% capture rate at the gateway",
+      "Gateway latency overhead: Under 15ms addition to token latency",
+      "PII leakage probability: Reduced to 0% through context-aware filtering",
+      "Regression detection: Automated verification of 100+ business rules per release"
+    ],
+    offeringValue: "Enables safe, confident deployment of generative AI features under a Zero Trust security framework.",
+    expectedOutcomes: [
+      "Continuous testing pipelines matching model upgrades to performance criteria.",
+      "Real-time guardrail gateway blocking malicious prompts and monitoring usage.",
+      "Audit logs of model compliance, hallucination rates, and security health."
+    ]
+  },
+  {
+    title: "9. Cyber Dom – AI Security & Guardrails Mesh",
+    subtitle: "Continuous runtime protection and policy enforcement for enterprise AI",
+    description: "Architecting and deploying Cyber Dom, a highly resilient security and monitoring mesh that wraps around model inputs, API integrations, and agent workflows. Features include active threat analysis, exfiltration blockades, and strict Zero Trust network boundaries.",
+    keySituations: [
+      "AI systems connecting to high-privilege corporate databases without automated activity guardrails.",
+      "Vulnerability to prompt injection, jailbreaking, or toxic payloads targeting enterprise LLMs.",
+      "Lack of compliance records for model and agent database/tool executions."
+    ],
+    keyStatistics: [
+      "Jailbreak and prompt injection detection: 99.9% block rate",
+      "Network routing overhead: <5ms response latency",
+      "Regulatory compliance coverage: SOC2, FedRAMP, and EU AI Act readiness mapped automatically",
+      "Incident alert response time: Instantaneous runtime isolation of compromised sessions"
+    ],
+    offeringValue: "Provides an impenetrable security perimeter around model contexts, tool bindings, and data stores.",
+    expectedOutcomes: [
+      "Fully audited, secure execution mesh for all internal and external-facing AI endpoints.",
+      "Real-time monitoring panel displaying injection alerts, policy violations, and compliance state.",
+      "Immutable cryptographic audit trails tracking every database read/write executed by AI components."
+    ]
+  },
+  {
+    title: "10. Bash Shell Hardening & Secure Sandbox Execution",
+    subtitle: "Dynamic command isolation for executing agent-generated scripts safely",
+    description: "Custom-built, hyper-secure command execution environments (leveraging gVisor, WebAssembly sandboxes, and MicroVMs) to execute shell command sequences and dynamic Bash scripts generated by AI agents without risking host or cloud architecture compromises.",
+    keySituations: [
+      "Agents requiring terminal access (e.g. executing bash commands, configuring systems) to perform their jobs.",
+      "Risks of agents writing malicious loop scripts, running resource exhaustion processes, or executing `rm -rf /` commands.",
+      "Vulnerability to privilege escalation or lateral network movements from compromised runner containers."
+    ],
+    keyStatistics: [
+      "Sandbox breakout incidents: 0% historical escape rate",
+      "Execution latency overhead: <10ms boot time for containerized MicroVMs",
+      "CPU/Memory limit enforcement: Strict resource capping prevents Denials of Service",
+      "Command filtering efficiency: 100% of banned system calls blocked instantly"
+    ],
+    offeringValue: "Allows systems to tap into the full potential of shell automation and scripting safely, protecting base systems.",
+    expectedOutcomes: [
+      "Micro-segmented Bash execution sandbox integrated with agent tooling pathways.",
+      "Pre-execution syntax auditing and blacklisted command filters.",
+      "Ephemeral container architecture that completely destroys filesystems immediately post-execution."
+    ]
+  },
+  {
+    title: "11. Multi-Agent Workflow Orchestration & Coordination",
+    subtitle: "Complex task decomposition through specialized agent teams",
+    description: "Designing and building advanced multi-agent systems where specialized agents (e.g. planners, executors, validators) collaborate, deliberate, and orchestrate business operations via structured routing, debate, and consensus mechanisms.",
+    keySituations: [
+      "Single-prompt or standard RAG agents stalling, repeating, or failing when handling complex multi-step processes.",
+      "Need to run parallel research, analysis, and validation tasks with cross-validation gates.",
+      "High rate of execution drift in long-running agent workflows."
+    ],
+    keyStatistics: [
+      "Complex task completion rate: Improved to 92-96%",
+      "Workflow execution loop failures: Reduced by 85%",
+      "Task decomposition latency: Optimized for sub-second agent routing",
+      "Resource coordination efficiency: Enhanced with Ray-based parallel orchestrations"
+    ],
+    offeringValue: "Solves complex business logic that single agents fail to navigate, producing deterministic enterprise outcomes.",
+    expectedOutcomes: [
+      "Stateful agent workflows designed on LangGraph or CrewAI.",
+      "Supervised debate layers ensuring multi-agent output verification.",
+      "Operational dashboards showing agent collaboration traces and state transitions."
+    ]
+  },
+  {
+    title: "12. Agent Tool Integration & Action Gating (Human-in-the-Loop)",
+    subtitle: "Secure enterprise API bindings and action governance",
+    description: "Developing robust Model Context Protocol (MCP) servers and tool-integration connectors, wrapped in a compliance-oriented governance gateway that requires explicit human validation for high-risk actions (e.g. database edits, API writes, transactions).",
+    keySituations: [
+      "AI agents requiring write permissions to core business systems without guardrail oversight.",
+      "Integration challenges when binding legacy enterprise databases and software APIs to LLMs.",
+      "Risks of agents running unverified external API writes or database transactions."
+    ],
+    keyStatistics: [
+      "Unauthorized action executions: 0% through strict action gating",
+      "Integration development velocity: 3x faster utilizing standardized MCP servers",
+      "Human-in-the-loop review friction: Minimized with unified email/slack action approvals",
+      "Tool call routing accuracy: 98.5% precision on function selector schemas"
+    ],
+    offeringValue: "Enables agents to perform real-world actions on production systems while maintaining absolute business control.",
+    expectedOutcomes: [
+      "Custom MCP servers connecting agents securely to databases and APIs.",
+      "Interactive human-approval dashboard for gating high-risk agent operations.",
+      "Granular permission scopes for each agent, tool, and database execution."
+    ]
   }
 ];
 
@@ -289,11 +421,11 @@ function OfferingsPage() {
         eyebrow="Professional Service Portfolio – 2026"
         title={
           <>
-            GPU Optimization & <br />
-            AI Infrastructure <span className="text-accent">Offerings</span>
+            Full-Stack AI Engineering & <br />
+            Infrastructure <span className="text-accent">Offerings</span>
           </>
         }
-        description="Tailored solutions for Large-Scale Data Centers (10,000+ GPUs: sovereign AI, hyperscalers, national initiatives) and Enterprise-Scale Data Centers (hundreds to several thousand GPUs). Offerings also include Workload-Specific Optimizations for dominant AI use cases."
+        description="Tailored offerings across our core engineering pillars: GPU Data Centers, Production LLMs & LLMOps, Cyber Dom AI Security, and Autonomous Agent Orchestration. Engineered for extreme efficiency, reliability, and Zero-Trust safety."
       />
 
       <div className="bg-background">
@@ -308,7 +440,7 @@ function OfferingsPage() {
             Implementation Approach
           </h2>
           <p className="text-lg text-muted-foreground">
-            Offerings can be engaged modularly or as integrated full-stack programs. We tailor solutions precisely to your scale (mega vs. enterprise), power constraints, and primary workloads.
+            Offerings can be engaged modularly or as integrated full-stack programs. We tailor solutions precisely to your scale, security constraints, and operational workloads.
             Contact us for a complimentary assessment and customized roadmap.
           </p>
         </div>
