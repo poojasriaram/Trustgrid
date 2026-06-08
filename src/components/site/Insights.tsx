@@ -15,7 +15,7 @@ const categories = ["Agentic AI", "GPU Engineering", "AI Infrastructure", "MLOps
 
 export function Insights() {
   return (
-    <section className="relative border-b border-border/40">
+    <section id="insights" className="relative border-b border-border/40 scroll-mt-20">
       <div className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading

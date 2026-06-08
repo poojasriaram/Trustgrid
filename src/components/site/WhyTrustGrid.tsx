@@ -34,7 +34,7 @@ const differentiators = [
 
 export function WhyTrustGrid() {
   return (
-    <section className="relative border-b border-border/40">
+    <section id="why-trustgrid" className="relative border-b border-border/40 scroll-mt-20">
       <div className="mx-auto max-w-7xl px-6 py-24">
         <SectionHeading
           eyebrow="Why TRUSTGRID.AI"

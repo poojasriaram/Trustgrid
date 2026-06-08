@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
+import { SectionLink } from "./Header";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   MessageSquare,
@@ -19,7 +20,7 @@ interface Message {
   id: string;
   sender: "user" | "bot";
   text: string;
-  links?: { label: string; to: string }[];
+  links?: { label: string; href: string }[];
   suggestions?: string[];
   isStreaming?: boolean;
 }
@@ -28,7 +29,7 @@ interface ResponseEntry {
   keywords: string[];
   response: string;
   suggestions: string[];
-  links?: { label: string; to: string }[];
+  links?: { label: string; href: string }[];
 }
 
 const RESPONSE_DATABASE: ResponseEntry[] = [
@@ -37,8 +38,8 @@ const RESPONSE_DATABASE: ResponseEntry[] = [
     response: "At TrustGrid.AI, we optimize GPU workloads at the lowest layers. We empower enterprises to achieve peak hardware efficiency, delivering up to **3-15x performance gains** and **40-75% cost reduction** through:\n\n* **White-Box Optimization**: Transparent custom CUDA kernels, advanced CUDA stream concurrency, and TensorRT graph fusion.\n* **Black-Box Optimization**: Autonomous workload profiling, tuning, and cluster orchestration.\n\nWould you like to read about our GPU Optimization capabilities?",
     suggestions: ["What about cloud GPUs?", "LLM Optimization", "Book strategy session"],
     links: [
-      { label: "View Capabilities", to: "/capabilities" },
-      { label: "GPU Offerings", to: "/offerings" },
+      { label: "GPU Engineering", href: "/gpu-performance-engineering" },
+      { label: "GPU Optimization", href: "/capabilities#gpu-optimization" },
     ],
   },
   {
@@ -46,8 +47,8 @@ const RESPONSE_DATABASE: ResponseEntry[] = [
     response: "**GPU-phi** is our proprietary, cloud-neutral multi-cluster orchestration platform. It transforms fragmented multi-cloud deployments into a unified AI factory.\n\nKey features include:\n* **Automated cost-aware scheduling** and instance selection policies.\n* **Advanced GPU autoscaling** integrated with Kubernetes and Ray.\n* **Cross-region workload mobility** with zero lock-in.\n* **Multi-tenant resource isolation** and strict priority queuing.\n\nIt typically reduces infrastructure spend by **50%+** with zero downtime.",
     suggestions: ["How do we integrate?", "Energy Optimization", "Contact an Engineer"],
     links: [
-      { label: "Explore GPU-phi Platform", to: "/platform" },
-      { label: "Solutions Overview", to: "/solutions" },
+      { label: "Explore GPU-phi Platform", href: "/platform" },
+      { label: "Solutions Overview", href: "/solutions" },
     ],
   },
   {
@@ -55,45 +56,51 @@ const RESPONSE_DATABASE: ResponseEntry[] = [
     response: "We specialize in custom Large Language Model (LLM) Optimization to drastically compress memory footprint and accelerate inference speeds. Typically, we deliver:\n\n* **80% reduction** in cost per token.\n* **70% faster** inference latency.\n* **60% smaller** memory footprint using advanced INT8/FP16/AWQ quantization.\n* **PEFT/LoRA/QLoRA** deployment setups optimized for on-premise foundation models.\n* **High-performance RAG pipeline** acceleration and context-window memory management.",
     suggestions: ["GPU Optimization", "AI Security", "Book strategy session"],
     links: [
-      { label: "LLM Solutions", to: "/solutions" },
-      { label: "Services Portfolio", to: "/offerings" },
+      { label: "LLM Engineering & Tuning", href: "/llmops-services" },
+      { label: "LLM Solutions", href: "/solutions#production-grade-llm-engineering-finetuning-systems" },
     ],
   },
   {
     keywords: ["network", "infiniband", "rdma", "nvlink", "latency", "fabric", "topology", "congestion", "data center"],
     response: "For massive AI cluster scaling, networking is often the bottleneck. TrustGrid.AI designs and optimizes high-performance fabrics to deliver **sub-microsecond network latency** at multi-megawatt scale.\n\nWe provide:\n* **RDMA over InfiniBand** network architecture design.\n* **NVLink topology optimization** to maximize multi-node GPU communications.\n* **AI-driven routing controllers** and traffic management layers to prevent packet loss.\n* **Adaptive network reflex layers** that make fabrics self-healing.",
     suggestions: ["Energy Efficiency", "GPU-phi Platform", "Book strategy session"],
-    links: [{ label: "Core Capabilities", to: "/capabilities" }],
+    links: [
+      { label: "Network Automation", href: "/capabilities#data-center-network-automation" },
+      { label: "AI Infrastructure", href: "/ai-infrastructure-engineering" },
+    ],
   },
   {
     keywords: ["energy", "esg", "sustainability", "power", "carbon", "green", "liquid", "cooling", "thermal"],
     response: "Scaling AI shouldn't conflict with green initiatives. TrustGrid.AI drives sustainable AI engineering to help enterprises cut datacenter power consumption by **30%** and meet strict ESG compliance guidelines:\n\n* **Energy-Aware Scheduling**: Algorithmic workload time-shifting to run intensive jobs during off-peak power grid hours.\n* **Dynamic Power Capping**: Power profiling and advanced thermal mapping.\n* **Liquid Cooling**: Complete integration with liquid-cooled infrastructure.\n* **ESG Compliance Suites**: Real-time carbon footprint metrics and audit-ready reporting.",
     suggestions: ["GPU-phi Platform", "What's the cost?", "Contact Us"],
-    links: [{ label: "About TrustGrid", to: "/about" }],
+    links: [{ label: "Energy Optimization", href: "/capabilities#energy-optimization" }],
   },
   {
     keywords: ["security", "safety", "governance", "audit", "secure", "protection", "compliance", "vulnerability", "leak"],
     response: "Enterprise AI demands airtight security. We integrate advanced security frameworks across the infrastructure stack:\n\n* **Model Guardrails**: Automated input/output validation, prompt injection prevention, and PII protection.\n* **Secure Infrastructure**: Zero-Trust network segmentation and secure multi-tenant isolation.\n* **Regulatory Compliance**: Building systems ready for SOC2, HIPAA, and EU AI Act auditing.\n\nAll of our engineering deployments undergo comprehensive internal security reviews.",
     suggestions: ["LLM Optimization", "Book strategy session", "Capabilities"],
-    links: [{ label: "Browse Services", to: "/offerings" }],
+    links: [
+      { label: "NextGen AI Security", href: "/ai-security" },
+      { label: "Zero-Trust AI Governance", href: "/ai-security#tech-stack" },
+    ],
   },
   {
     keywords: ["price", "cost", "billing", "fee", "free", "hire", "consult", "strategy", "engagement", "nda", "rate"],
     response: "Every enterprise collaboration with TrustGrid.AI begins with a tailored **48-hour capability assessment** led by our Principal Engineers.\n\n* All consultations are conducted under a mutual Non-Disclosure Agreement (NDA).\n* We focus on creating clear ROI-driven outcomes (lowering GPU waste, accelerating model deployments).\n* Direct contact is available via email at **enterprise@trustgrid.ai** or through our Booking page.\n\nWould you like to schedule a strategy session now?",
     suggestions: ["Book strategy session", "What services do you offer?", "About the company"],
-    links: [{ label: "Go to Contact", to: "/contact" }],
+    links: [{ label: "Contact Us", href: "/contact" }],
   },
   {
     keywords: ["about", "who", "team", "company", "location", "headquarter", "headquarters", "office", "delivery"],
     response: "TrustGrid.AI is a Full-Spectrum AI Engineering Company. We serve Fortune 500 organizations, government institutions, and high-performance labs across 20+ regulated industries.\n\n* **5 Global Delivery Centers**: Continuous follow-the-sun engineering support.\n* **Principal-Led Teams**: We assign senior engineers with actual scale experience to every engagement.\n* **Audit-Ready Systems**: Every line of code and network configuration is documented and hardened.",
     suggestions: ["View Capabilities", "Book strategy session", "How do you optimize LLMs?"],
-    links: [{ label: "About Us", to: "/about" }],
+    links: [{ label: "About Us", href: "/about" }],
   },
   {
     keywords: ["contact", "email", "phone", "support", "address", "reach", "talk", "sales"],
     response: "You can reach the TrustGrid.AI team in several ways:\n\n* **Direct Email**: [enterprise@trustgrid.ai](mailto:enterprise@trustgrid.ai)\n* **Global Support**: 24/7 client-accessible emergency channels.\n* **Consultation Request**: Complete our interactive form on the Contact page, and a principal engineer will review it within 48 hours.",
     suggestions: ["Book consultation now", "What is GPU-phi?", "GPU optimization"],
-    links: [{ label: "Contact Form", to: "/contact" }],
+    links: [{ label: "Book Strategy Session", href: "/contact" }],
   },
 ];
 
@@ -122,7 +129,7 @@ export function Chatbot() {
   }, [messages, isTyping, streamingText]);
 
   // Handle typing simulation
-  const simulateBotResponse = (targetText: string, links?: { label: string; to: string }[], suggestions?: string[]) => {
+  const simulateBotResponse = (targetText: string, links?: { label: string; href: string }[], suggestions?: string[]) => {
     setIsTyping(true);
 
     // Simulate "thinking" time
@@ -189,7 +196,7 @@ export function Chatbot() {
     if (hasFile && !text.trim()) {
       simulateBotResponse(
         `I've received your file **${attachedFile!.name}**. Our engineering team can analyse it as part of your consultation.\n\nFor a formal review, share it via our secure contact form or email **enterprise@trustgrid.ai** — a Principal Engineer will respond within 48 hours.`,
-        [{ label: "Open Contact Form", to: "/contact" }],
+        [{ label: "Open Contact Form", href: "/contact" }],
         ["Book strategy session", "GPU optimization", "LLM Engineering"]
       );
       return;
@@ -213,7 +220,7 @@ export function Chatbot() {
         }
         simulateBotResponse(
           "I can assist with specialized inquiries regarding:\n\n* **GPU Optimization** (kernel tuning, CUDA stream concurrency)\n* **GPU-phi Platform** (multi-cloud Ray/K8s orchestrator)\n* **LLM Engineering** (quantization, PEFT/LoRA models)\n* **Sub-microsecond Fabrics** (InfiniBand/RDMA networks)\n* **Sustainability** (energy-aware workload time-shifting)\n\nCould you specify which of these domains you'd like to explore?",
-          [{ label: "Browse Offerings", to: "/offerings" }, { label: "Contact Us", to: "/contact" }],
+          [{ label: "Browse Offerings", href: "/offerings" }, { label: "Contact Us", href: "/contact" }],
           ["GPU performance tuning", "What is GPU-phi?", "Accelerating LLMs", "Book strategy session"]
         );
       }, 900);
@@ -239,8 +246,8 @@ export function Chatbot() {
       simulateBotResponse(
         fallbackText,
         [
-          { label: "Browse Offerings", to: "/offerings" },
-          { label: "Contact Us", to: "/contact" },
+          { label: "Browse Offerings", href: "/offerings" },
+          { label: "Contact Us", href: "/contact" },
         ],
         ["GPU performance tuning", "What is GPU-phi?", "Accelerating LLMs", "Book strategy session"]
       );
@@ -384,15 +391,15 @@ export function Chatbot() {
                       {msg.links && msg.links.length > 0 && (
                         <div className="mt-3 flex flex-wrap gap-2 pt-2 border-t border-border/20">
                           {msg.links.map((link, idx) => (
-                            <Link
+                            <SectionLink
                               key={idx}
-                              to={link.to}
+                              href={link.href}
                               onClick={() => setIsOpen(false)}
                               className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"
                             >
                               {link.label}
                               <ChevronRight className="h-3 w-3" />
-                            </Link>
+                            </SectionLink>
                           ))}
                         </div>
                       )}

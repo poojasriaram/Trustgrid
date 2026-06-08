@@ -33,7 +33,7 @@ const stats = [
 
 export function Metrics() {
   return (
-    <section className="relative border-b border-border/40 bg-surface/20">
+    <section id="metrics" className="relative border-b border-border/40 bg-surface/20 scroll-mt-20">
       <div className="mx-auto max-w-7xl px-6 py-24">
         <SectionHeading
           eyebrow="Trust"

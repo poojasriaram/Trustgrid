@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Cpu, Bot, Brain, Shield, Mail, MapPin, ExternalLink } from "lucide-react";
+import { SectionLink } from "./Header";
 
 /* ─── Featured Offerings (highlight row) ───────────────────── */
 const featuredOfferings = [
@@ -38,57 +39,57 @@ const footerCols = [
   {
     title: "GPU & Infrastructure",
     links: [
-      { to: "/gpu-performance-engineering", label: "GPU Performance Engineering" },
-      { to: "/ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
-      { to: "/platform", label: "GPU-phi Cloud Platform" },
-      { to: "/capabilities", label: "GPU Optimization" },
-      { to: "/capabilities", label: "Cloud GPU Orchestration" },
-      { to: "/capabilities", label: "Data Center Networking" },
-      { to: "/capabilities", label: "Energy Optimization & ESG" },
+      { href: "/gpu-performance-engineering", label: "GPU Performance Engineering" },
+      { href: "/ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
+      { href: "/platform#gpu-phi-cloud-neutral-orchestration", label: "GPU-phi Cloud Platform" },
+      { href: "/capabilities#gpu-optimization", label: "GPU Optimization" },
+      { href: "/capabilities#cloud-gpu-optimization", label: "Cloud GPU Orchestration" },
+      { href: "/capabilities#data-center-network-automation", label: "Data Center Networking" },
+      { href: "/capabilities#energy-optimization", label: "Energy Optimization & ESG" },
     ],
   },
   {
     title: "AI Agents",
     links: [
-      { to: "/agentic-ai-development", label: "Agentic AI Development" },
-      { to: "/multi-agent-systems", label: "Multi-Agent Systems" },
-      { to: "/long-memory-ai-systems", label: "Long-Memory AI Systems" },
-      { to: "/agentops-services", label: "AgentOps Services" },
-      { to: "/capabilities", label: "Agent Fleet Orchestration" },
-      { to: "/solutions", label: "Autonomous Workflows" },
+      { href: "/agentic-ai-development", label: "Agentic AI Development" },
+      { href: "/multi-agent-systems", label: "Multi-Agent Systems" },
+      { href: "/long-memory-ai-systems", label: "Long-Memory AI Systems" },
+      { href: "/agentops-services", label: "AgentOps Services" },
+      { href: "/capabilities#multi-agent-fleet-orchestration", label: "Agent Fleet Orchestration" },
+      { href: "/solutions#autonomous-agentic-workflows-multi-agent-orchestration", label: "Autonomous Workflows" },
     ],
   },
   {
     title: "LLM / RAG & Security",
     links: [
-      { to: "/llmops-services", label: "LLMOps & LLM Engineering" },
-      { to: "/llmops-services", label: "Fine-Tuning & Quantization" },
-      { to: "/llmops-services", label: "Guardrails Gateway" },
-      { to: "/ai-security", label: "AI Security & Cyber Dom" },
-      { to: "/ai-security", label: "Zero-Trust AI Governance" },
-      { to: "/ai-security", label: "Secure Sandbox Execution" },
+      { href: "/llmops-services", label: "LLMOps & LLM Engineering" },
+      { href: "/llmops-services#capabilities", label: "Fine-Tuning & Quantization" },
+      { href: "/llmops-services#offerings", label: "Guardrails Gateway" },
+      { href: "/ai-security", label: "AI Security & Cyber Dom" },
+      { href: "/ai-security#tech-stack", label: "Zero-Trust AI Governance" },
+      { href: "/ai-security#offerings", label: "Secure Sandbox Execution" },
     ],
   },
   {
     title: "Solutions & Use Cases",
     links: [
-      { to: "/solutions", label: "GPU Data Center Architecture" },
-      { to: "/solutions", label: "Enterprise LLM Systems" },
-      { to: "/solutions", label: "Cyber Dom Security Mesh" },
-      { to: "/use-cases", label: "Sovereign AI Initiatives" },
-      { to: "/use-cases", label: "High-Frequency Trading" },
-      { to: "/use-cases", label: "Regulated AI Security" },
+      { href: "/solutions#mega-scale-gpu-data-center-private-gpu-cloud-architecture", label: "GPU Data Center Architecture" },
+      { href: "/solutions#production-grade-llm-engineering-finetuning-systems", label: "Enterprise LLM Systems" },
+      { href: "/solutions#cyber-dom-ai-security-mesh-sandbox-execution", label: "Cyber Dom Security Mesh" },
+      { href: "/use-cases", label: "Sovereign AI Initiatives" },
+      { href: "/use-cases", label: "High-Frequency Trading" },
+      { href: "/use-cases", label: "Regulated AI Security" },
     ],
   },
   {
     title: "Company",
     links: [
-      { to: "/about", label: "About TrustGrid.AI" },
-      { to: "/case-studies", label: "Case Studies" },
-      { to: "/blog", label: "Insights & Blog" },
-      { to: "/contact", label: "Contact Us" },
-      { to: "/offerings", label: "All Offerings" },
-      { to: "/capabilities", label: "All Capabilities" },
+      { href: "/about", label: "About TrustGrid.AI" },
+      { href: "/case-studies", label: "Case Studies" },
+      { href: "/blog", label: "Insights & Blog" },
+      { href: "/contact", label: "Contact Us" },
+      { href: "/offerings", label: "All Offerings" },
+      { href: "/capabilities", label: "All Capabilities" },
     ],
   },
 ];
@@ -159,12 +160,12 @@ export function Footer() {
                 <ul className="space-y-2">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link
-                        to={l.to}
+                      <SectionLink
+                        href={l.href}
                         className="text-xs text-muted-foreground hover:text-foreground transition-colors leading-snug"
                       >
                         {l.label}
-                      </Link>
+                      </SectionLink>
                     </li>
                   ))}
                 </ul>

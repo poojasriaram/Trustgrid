@@ -137,10 +137,7 @@
 
 @layer utilities {
   .bg-grid {
-    background-image:
-      linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
-    background-size: 56px 56px;
+    background-image: none;
   }
   .bg-radial-glow {
     background: var(--gradient-hero);
