@@ -127,7 +127,7 @@ const offeringCategories: OfferingCategory[] = [
     ]
   },
   {
-    id: "ll-optimization-agents",
+    id: "llm-optimization-agents",
     title: "Category 2: LLM Optimization & AI Agents",
     description: "Domain-specific model fine-tuning, post-training compression, prompt evaluations, multi-agent orchestrations, and secure action governance.",
     offerings: [

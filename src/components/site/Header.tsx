@@ -74,29 +74,29 @@ const featuredOfferings = [
     icon: Cpu,
     color: "text-blue-500",
     bg: "bg-blue-500/10",
-    label: "GPU Performance Engineering",
-    to: "/gpu-performance-engineering",
+    label: "GPU Optimization",
+    href: "/offerings#gpu-optimization",
   },
   {
     icon: Bot,
     color: "text-violet-500",
     bg: "bg-violet-500/10",
-    label: "AI Agents & Multi-Agent Systems",
-    to: "/agentic-ai-development",
-  },
-  {
-    icon: Brain,
-    color: "text-cyan-500",
-    bg: "bg-cyan-500/10",
-    label: "LLM / RAG Optimization",
-    to: "/llmops-services",
+    label: "LLM Optimization & AI Agents",
+    href: "/offerings#llm-optimization-agents",
   },
   {
     icon: Shield,
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
-    label: "AI Security & Cyber Dom",
-    to: "/ai-security",
+    label: "AI Cybersecurity",
+    href: "/offerings#ai-cybersecurity",
+  },
+  {
+    icon: Layers,
+    color: "text-cyan-500",
+    bg: "bg-cyan-500/10",
+    label: "AI Infrastructure Engineering",
+    href: "/offerings#ai-infrastructure-engineering",
   },
 ];
 
@@ -518,9 +518,9 @@ export function Header() {
                 <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2">Key Offerings</p>
                 <div className="grid grid-cols-2 gap-2">
                   {featuredOfferings.map((item) => (
-                    <Link
+                    <SectionLink
                       key={item.label}
-                      to={item.to}
+                      href={item.href}
                       onClick={() => setMobileOpen(false)}
                       className="flex items-center gap-2 p-2 rounded-lg hover:bg-surface/60 transition-colors"
                     >
@@ -528,7 +528,7 @@ export function Header() {
                         <item.icon className={`h-3.5 w-3.5 ${item.color}`} />
                       </div>
                       <span className="text-xs font-medium text-foreground leading-tight">{item.label}</span>
-                    </Link>
+                    </SectionLink>
                   ))}
                 </div>
               </div>
