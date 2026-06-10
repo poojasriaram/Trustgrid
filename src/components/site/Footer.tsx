@@ -9,28 +9,28 @@ const featuredOfferings = [
     color: "text-blue-400",
     bg: "bg-blue-500/10",
     label: "GPU Performance Engineering",
-    to: "/offerings#gpu-performance-engineering",
+    to: "/gpu-performance-engineering",
   },
   {
     icon: Bot,
     color: "text-violet-400",
     bg: "bg-violet-500/10",
     label: "AI Agents & Multi-Agent Systems",
-    to: "/offerings#agentic-ai-development",
+    to: "/agentic-ai-development",
   },
   {
     icon: Brain,
     color: "text-cyan-400",
     bg: "bg-cyan-500/10",
     label: "LLM / RAG Optimization",
-    to: "/offerings#llmops-services",
+    to: "/llmops-services",
   },
   {
     icon: Shield,
     color: "text-emerald-400",
     bg: "bg-emerald-500/10",
     label: "NextGen AI Cybersecurity",
-    to: "/offerings#ai-security",
+    to: "/ai-security",
   },
 ];
 
@@ -39,9 +39,9 @@ const footerCols = [
   {
     title: "GPU & Infrastructure",
     links: [
-      { href: "/offerings#gpu-performance-engineering", label: "GPU Performance Engineering" },
-      { href: "/offerings#ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
-      { href: "/offerings#platform", label: "GPU-phi Cloud Platform" },
+      { href: "/gpu-performance-engineering", label: "GPU Performance Engineering" },
+      { href: "/ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
+      { href: "/platform", label: "GPU-phi Cloud Platform" },
       { href: "/capabilities#gpu-optimization", label: "GPU Optimization" },
       { href: "/capabilities#cloud-gpu-optimization", label: "Cloud GPU Orchestration" },
       { href: "/capabilities#data-center-network-automation", label: "Data Center Networking" },
@@ -51,10 +51,10 @@ const footerCols = [
   {
     title: "AI Agents",
     links: [
-      { href: "/offerings#agentic-ai-development", label: "Agentic AI Development" },
-      { href: "/offerings#multi-agent-systems", label: "Multi-Agent Systems" },
-      { href: "/offerings#long-memory-ai-systems", label: "Long-Memory AI Systems" },
-      { href: "/offerings#agentops-services", label: "AgentOps Services" },
+      { href: "/agentic-ai-development", label: "Agentic AI Development" },
+      { href: "/multi-agent-systems", label: "Multi-Agent Systems" },
+      { href: "/long-memory-ai-systems", label: "Long-Memory AI Systems" },
+      { href: "/agentops-services", label: "AgentOps Services" },
       { href: "/capabilities#multi-agent-fleet-orchestration", label: "Agent Fleet Orchestration" },
       { href: "/solutions#autonomous-agentic-workflows-multi-agent-orchestration", label: "Autonomous Workflows" },
     ],
@@ -62,9 +62,9 @@ const footerCols = [
   {
     title: "LLM / RAG & Security",
     links: [
-      { href: "/offerings#llmops-services", label: "LLMOps & LLM Engineering" },
+      { href: "/llmops-services", label: "LLMOps & LLM Engineering" },
       { href: "/capabilities#llm-optimization", label: "LLM Optimization" },
-      { href: "/offerings#ai-security", label: "AI Security & Cyber Dom" },
+      { href: "/ai-security", label: "AI Security & Cyber Dom" },
       { href: "/capabilities#ai-security-cyber-dom-protection-mesh", label: "Zero-Trust AI Governance" },
       { href: "/solutions#cyber-dom-ai-security-mesh-sandbox-execution", label: "Secure Sandbox Execution" },
     ],
@@ -84,9 +84,9 @@ const footerCols = [
     title: "Company",
     links: [
       { href: "/about", label: "About TrustGrid.AI" },
-      { href: "/about#case-studies", label: "Case Studies" },
-      { href: "/about#insights", label: "Insights & Blog" },
-      { href: "/about#contact", label: "Contact Us" },
+      { href: "/case-studies", label: "Case Studies" },
+      { href: "/blog", label: "Insights & Blog" },
+      { href: "/contact", label: "Contact Us" },
       { href: "/offerings", label: "All Offerings" },
       { href: "/capabilities", label: "All Capabilities" },
     ],

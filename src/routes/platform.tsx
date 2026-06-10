@@ -109,16 +109,6 @@ const platformData: SectionData[] = [
   }
 ];
 
-export function PlatformSection() {
-  return (
-    <div className="bg-background">
-      {platformData.map((data, index) => (
-        <SectionTemplate key={index} data={data} />
-      ))}
-    </div>
-  );
-}
-
 function PlatformPage() {
   return (
     <>
@@ -133,7 +123,11 @@ function PlatformPage() {
         description="Discover the intelligence behind our enterprise-scale optimizations. The GPU-phi platform delivers cloud-neutral scheduling, advanced GPU FinOps, and self-healing resilience for the modern AI data center."
       />
 
-      <PlatformSection />
+      <div className="bg-background">
+        {platformData.map((data, index) => (
+          <SectionTemplate key={index} data={data} />
+        ))}
+      </div>
 
       <CTA />
     </>

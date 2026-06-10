@@ -558,16 +558,6 @@ function OfferingSection({ offering }: { offering: ShieldOffering }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export function AiSecuritySection() {
-  return (
-    <div className="bg-background">
-      {offerings.map((offering) => (
-        <OfferingSection key={offering.id} offering={offering} />
-      ))}
-    </div>
-  );
-}
-
 function AiSecurityPage() {
   return (
     <>
@@ -582,7 +572,11 @@ function AiSecurityPage() {
         description="From AI governance and red teaming to zero-trust architecture and 24×7 managed detection — we secure every layer of your AI stack."
       />
 
-      <AiSecuritySection />
+      <div className="bg-background">
+        {offerings.map((offering) => (
+          <OfferingSection key={offering.id} offering={offering} />
+        ))}
+      </div>
 
       <CTA />
     </>

@@ -32,7 +32,10 @@ function ContactPage() {
             <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">Global Coverage</h3>
             <div className="mt-4 space-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-3"><Globe2 className="h-4 w-4 text-accent" /> 5 delivery centers worldwide</div>
-              <div className="flex items-center gap-3"><Mail className="h-4 w-4 text-accent" /> enterprise@trustgrid.ai</div>
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-accent" />
+                <a href="mailto:connect@trustgrid.ai" className="hover:text-foreground transition-colors">connect@trustgrid.ai</a>
+              </div>
               <div className="flex items-center gap-3"><Phone className="h-4 w-4 text-accent" /> 24/7 enterprise support</div>
             </div>
           </div>
@@ -44,6 +47,189 @@ function ContactPage() {
             </p>
           </div>
         </aside>
+      </section>
+
+      {/* Office Locations */}
+      <section className="border-t border-border/40 bg-surface/10 py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-[0.15] pointer-events-none" />
+        <div className="mx-auto max-w-7xl px-6 relative z-10">
+          <div className="max-w-3xl mb-16">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-[10px] uppercase tracking-widest font-semibold text-accent mb-4">
+              Global Presence
+            </span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-gradient font-display">
+              Our Global Offices
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground">
+              With offices spanning across multiple continents, our principal engineers provide 24/7 global support and collaboration.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* US Office */}
+            <div className="premium-card p-6 bg-card flex flex-col justify-between h-full relative overflow-hidden group border border-border/80 hover:border-blue-500/35 hover:shadow-[0_12px_30px_-10px_rgba(59,130,246,0.12)] transition-all duration-300 rounded-xl">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-40" />
+              <div>
+                <h3 className="text-base font-bold text-foreground tracking-tight mb-4 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-blue-500" />
+                  US Office
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-6 whitespace-pre-line">
+                  501 E Kennedy Blvd Suite 1400{"\n"}
+                  Tampa, FL 33602, United States
+                </p>
+              </div>
+              <div className="border-t border-border/45 pt-4 space-y-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2.5">
+                  <Mail className="h-3.5 w-3.5 text-accent" />
+                  <a href="mailto:connect@trustgrid.ai" className="hover:text-primary transition-colors">connect@trustgrid.ai</a>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="h-3.5 w-3.5 text-accent" />
+                  <a href="tel:+919513288612" className="hover:text-primary transition-colors">+91 9513288612</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Singapore Office */}
+            <div className="premium-card p-6 bg-card flex flex-col justify-between h-full relative overflow-hidden group border border-border/80 hover:border-violet-500/35 hover:shadow-[0_12px_30px_-10px_rgba(139,92,246,0.12)] transition-all duration-300 rounded-xl">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-violet-500 to-transparent opacity-40" />
+              <div>
+                <h3 className="text-base font-bold text-foreground tracking-tight mb-4 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-violet-500" />
+                  Singapore Office
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-6 whitespace-pre-line">
+                  5 Temasek Boulevard, 17th Floor{"\n"}
+                  Singapore 038985
+                </p>
+              </div>
+              <div className="border-t border-border/45 pt-4 space-y-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2.5">
+                  <Mail className="h-3.5 w-3.5 text-accent" />
+                  <a href="mailto:connect@trustgrid.ai" className="hover:text-primary transition-colors">connect@trustgrid.ai</a>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="h-3.5 w-3.5 text-accent" />
+                  <a href="tel:+6560505235" className="hover:text-primary transition-colors">+65 6050 5235</a>
+                </div>
+              </div>
+            </div>
+
+            {/* India Office (Registered) */}
+            <div className="premium-card p-6 bg-card flex flex-col justify-between h-full relative overflow-hidden group border border-border/80 hover:border-emerald-500/35 hover:shadow-[0_12px_30px_-10px_rgba(16,185,129,0.12)] transition-all duration-300 rounded-xl">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-40" />
+              <div>
+                <h3 className="text-base font-bold text-foreground tracking-tight mb-4 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                  India Office
+                </h3>
+                <p className="text-xs font-bold text-foreground/80 mb-2 leading-relaxed">
+                  TRUSTGRID.AI INNNOVATION PVT LTD
+                </p>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-6 whitespace-pre-line text-pretty">
+                  Suite : 32 , 235, BINNAMANGALA,{"\n"}
+                  2nd Floor, 13th Cross Road,{"\n"}
+                  Indira Nagar 2nd Stage, Hoysala Nagar,{"\n"}
+                  Bengaluru – 560038 , India
+                </p>
+              </div>
+              <div className="border-t border-border/45 pt-4 space-y-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2.5">
+                  <Mail className="h-3.5 w-3.5 text-accent" />
+                  <a href="mailto:connect@trustgrid.ai" className="hover:text-primary transition-colors">connect@trustgrid.ai</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Mumbai Office */}
+            <div className="premium-card p-6 bg-card flex flex-col justify-between h-full relative overflow-hidden group border border-border/80 hover:border-rose-500/35 hover:shadow-[0_12px_30px_-10px_rgba(244,63,94,0.12)] transition-all duration-300 rounded-xl">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-rose-500 to-transparent opacity-40" />
+              <div>
+                <h3 className="text-base font-bold text-foreground tracking-tight mb-4 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-rose-500" />
+                  Mumbai Office
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-6 whitespace-pre-line">
+                  WeWork, Raheja Platinum,{"\n"}
+                  Road, off Andheri - Kurla Road,{"\n"}
+                  Sag Baug, Marol, Andheri East,{"\n"}
+                  Mumbai, Maharashtra 400059
+                </p>
+              </div>
+              <div className="border-t border-border/45 pt-4 space-y-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2.5">
+                  <Mail className="h-3.5 w-3.5 text-accent" />
+                  <a href="mailto:cs@trustgrid.in" className="hover:text-primary transition-colors">cs@trustgrid.in</a>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="h-3.5 w-3.5 text-accent" />
+                  <a href="tel:+919513088612" className="hover:text-primary transition-colors">+91 9513088612</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Bangalore Office */}
+            <div className="premium-card p-6 bg-card flex flex-col justify-between h-full relative overflow-hidden group border border-border/80 hover:border-cyan-500/35 hover:shadow-[0_12px_30px_-10px_rgba(6,182,212,0.12)] transition-all duration-300 rounded-xl">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-40" />
+              <div>
+                <h3 className="text-base font-bold text-foreground tracking-tight mb-4 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-cyan-500" />
+                  Bangalore Office
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-6 whitespace-pre-line">
+                  WeWork, 13th floor, Tin Factory,{"\n"}
+                  Salarpuria Magnificia, 78, Old Madras Rd,{"\n"}
+                  next to KR Puram, Mahadevapura,{"\n"}
+                  Bengaluru, Karnataka 560016
+                </p>
+              </div>
+              <div className="border-t border-border/45 pt-4 space-y-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2.5">
+                  <Mail className="h-3.5 w-3.5 text-accent" />
+                  <a href="mailto:cs@trustgrid.in" className="hover:text-primary transition-colors">cs@trustgrid.in</a>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="h-3.5 w-3.5 text-accent" />
+                  <a href="tel:+919513088612" className="hover:text-primary transition-colors">+91 9513088612</a>
+                </div>
+              </div>
+            </div>
+
+            {/* General Contact */}
+            <div className="premium-card p-6 bg-card flex flex-col justify-between h-full relative overflow-hidden group border border-border/80 hover:border-amber-500/35 hover:shadow-[0_12px_30px_-10px_rgba(245,158,11,0.12)] transition-all duration-300 rounded-xl">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-40" />
+              <div>
+                <h3 className="text-base font-bold text-foreground tracking-tight mb-4 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-amber-500" />
+                  General Contact
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-6">
+                  For corporate inquiries, partner integrations, and primary assistance:
+                </p>
+              </div>
+              <div className="border-t border-border/45 pt-4 space-y-3.5 text-xs text-muted-foreground">
+                <div className="flex items-start gap-2.5">
+                  <Mail className="h-3.5 w-3.5 text-accent mt-0.5" />
+                  <div>
+                    <span className="text-[10px] font-mono text-muted-foreground/60 uppercase block leading-none mb-1">Email Us</span>
+                    <a href="mailto:connect@trustgrid.ai" className="hover:text-primary transition-colors font-semibold">connect@trustgrid.ai</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <Phone className="h-3.5 w-3.5 text-accent mt-0.5" />
+                  <div>
+                    <span className="text-[10px] font-mono text-muted-foreground/60 uppercase block leading-none mb-1">Call Us</span>
+                    <div className="flex flex-col gap-1 font-semibold">
+                      <a href="tel:+919513288612" className="hover:text-primary transition-colors">+91 9513288612</a>
+                      <a href="tel:+6560505235" className="hover:text-primary transition-colors">+65 6050 5235</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );

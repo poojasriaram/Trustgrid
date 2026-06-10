@@ -1,8 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetail } from "@/components/site/ServiceDetail";
 
-export function AgentOpsServicesSection({ excludeHeroAndCta = false }: { excludeHeroAndCta?: boolean }) {
-  return (
+export const Route = createFileRoute("/agentops-services")({
+  head: () => ({
+    meta: [
+      { title: "AgentOps Services — Operate Autonomous Agents | TrustGrid.AI" },
+      { name: "description", content: "AgentOps for production agent fleets: orchestration, observability, evaluation, cost control and governance for autonomous AI systems." },
+      { property: "og:title", content: "AgentOps Services | TrustGrid.AI" },
+      { property: "og:description", content: "Industrial operations for autonomous agent fleets." },
+      { property: "og:url", content: "/agentops-services" },
+    ],
+    links: [{ rel: "canonical", href: "/agentops-services" }],
+  }),
+  component: () => (
     <ServiceDetail
       eyebrow="AgentOps"
       title="Industrial operations for autonomous agent fleets"
@@ -16,21 +26,6 @@ export function AgentOpsServicesSection({ excludeHeroAndCta = false }: { exclude
         { title: "Lifecycle Management", desc: "Versioning, canary rollouts and rollback for agent fleets." },
       ]}
       stack={["Temporal", "LangSmith", "AgentOps.ai", "Datadog", "OpenTelemetry", "Kafka"]}
-      excludeHeroAndCta={excludeHeroAndCta}
     />
-  );
-}
-
-export const Route = createFileRoute("/agentops-services")({
-  head: () => ({
-    meta: [
-      { title: "AgentOps Services — Operate Autonomous Agents | TrustGrid.AI" },
-      { name: "description", content: "AgentOps for production agent fleets: orchestration, observability, evaluation, cost control and governance for autonomous AI systems." },
-      { property: "og:title", content: "AgentOps Services | TrustGrid.AI" },
-      { property: "og:description", content: "Industrial operations for autonomous agent fleets." },
-      { property: "og:url", content: "/agentops-services" },
-    ],
-    links: [{ rel: "canonical", href: "/agentops-services" }],
-  }),
-  component: () => <AgentOpsServicesSection />,
+  ),
 });

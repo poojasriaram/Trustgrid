@@ -21,7 +21,6 @@ export interface ServiceDetailProps {
   stack: string[];
   outcomes?: { value: string; label: string }[];
   detailedOfferings?: OfferingDetail[];
-  excludeHeroAndCta?: boolean;
 }
 
 export function ServiceDetail({
@@ -32,11 +31,10 @@ export function ServiceDetail({
   stack,
   outcomes,
   detailedOfferings,
-  excludeHeroAndCta = false,
 }: ServiceDetailProps) {
   return (
     <>
-      {!excludeHeroAndCta && <PageHero eyebrow={eyebrow} title={title} description={description} />}
+      <PageHero eyebrow={eyebrow} title={title} description={description} />
 
       {outcomes && (
         <section className="border-b border-border/40 bg-surface/20">
@@ -216,7 +214,7 @@ export function ServiceDetail({
         </div>
       </section>
 
-      {!excludeHeroAndCta && <CTA />}
+      <CTA />
     </>
   );
 }

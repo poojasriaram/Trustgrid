@@ -584,16 +584,6 @@ function OfferingSection({ offering }: { offering: GpuOffering }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export function GpuPerformanceEngineeringSection() {
-  return (
-    <div className="bg-background">
-      {gpuOfferings.map((offering) => (
-        <OfferingSection key={offering.id} offering={offering} />
-      ))}
-    </div>
-  );
-}
-
 function GpuPerformanceEngineeringPage() {
   return (
     <>
@@ -608,7 +598,11 @@ function GpuPerformanceEngineeringPage() {
         description="From infrastructure assessment to custom CUDA kernel engineering — we squeeze every FLOP out of your hardware."
       />
 
-      <GpuPerformanceEngineeringSection />
+      <div className="bg-background">
+        {gpuOfferings.map((offering) => (
+          <OfferingSection key={offering.id} offering={offering} />
+        ))}
+      </div>
 
       <CTA />
     </>

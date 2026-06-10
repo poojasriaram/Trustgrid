@@ -86,7 +86,7 @@ const RESPONSE_DATABASE: ResponseEntry[] = [
   },
   {
     keywords: ["price", "cost", "billing", "fee", "free", "hire", "consult", "strategy", "engagement", "nda", "rate"],
-    response: "Every enterprise collaboration with TrustGrid.AI begins with a tailored **48-hour capability assessment** led by our Principal Engineers.\n\n* All consultations are conducted under a mutual Non-Disclosure Agreement (NDA).\n* We focus on creating clear ROI-driven outcomes (lowering GPU waste, accelerating model deployments).\n* Direct contact is available via email at **enterprise@trustgrid.ai** or through our Booking page.\n\nWould you like to schedule a strategy session now?",
+    response: "Every enterprise collaboration with TrustGrid.AI begins with a tailored **48-hour capability assessment** led by our Principal Engineers.\n\n* All consultations are conducted under a mutual Non-Disclosure Agreement (NDA).\n* We focus on creating clear ROI-driven outcomes (lowering GPU waste, accelerating model deployments).\n* Direct contact is available via email at **connect@trustgrid.ai** or through our Booking page.\n\nWould you like to schedule a strategy session now?",
     suggestions: ["Book strategy session", "What services do you offer?", "About the company"],
     links: [{ label: "Contact Us", href: "/contact" }],
   },
@@ -98,7 +98,7 @@ const RESPONSE_DATABASE: ResponseEntry[] = [
   },
   {
     keywords: ["contact", "email", "phone", "support", "address", "reach", "talk", "sales"],
-    response: "You can reach the TrustGrid.AI team in several ways:\n\n* **Direct Email**: [enterprise@trustgrid.ai](mailto:enterprise@trustgrid.ai)\n* **Global Support**: 24/7 client-accessible emergency channels.\n* **Consultation Request**: Complete our interactive form on the Contact page, and a principal engineer will review it within 48 hours.",
+    response: "You can reach the TrustGrid.AI team in several ways:\n\n* **Direct Email**: [connect@trustgrid.ai](mailto:connect@trustgrid.ai)\n* **US Office (Tampa)**: +91 9513288612\n* **Singapore Office**: +65 6050 5235\n* **India Offices (Indiranagar / Tin Factory)**: cs@trustgrid.in | +91 9513088612\n* **Mumbai Office**: cs@trustgrid.in | +91 9513088612\n* **Consultation Request**: Complete our interactive form on the Contact page, and a principal engineer will review it within 48 hours.",
     suggestions: ["Book consultation now", "What is GPU-phi?", "GPU optimization"],
     links: [{ label: "Book Strategy Session", href: "/contact" }],
   },
@@ -195,7 +195,7 @@ export function Chatbot() {
     // If only a file was sent with no text, trigger a dedicated file response
     if (hasFile && !text.trim()) {
       simulateBotResponse(
-        `I've received your file **${attachedFile!.name}**. Our engineering team can analyse it as part of your consultation.\n\nFor a formal review, share it via our secure contact form or email **enterprise@trustgrid.ai** — a Principal Engineer will respond within 48 hours.`,
+        `I've received your file **${attachedFile!.name}**. Our engineering team can analyse it as part of your consultation.\n\nFor a formal review, share it via our secure contact form or email **connect@trustgrid.ai** — a Principal Engineer will respond within 48 hours.`,
         [{ label: "Open Contact Form", href: "/contact" }],
         ["Book strategy session", "GPU optimization", "LLM Engineering"]
       );
