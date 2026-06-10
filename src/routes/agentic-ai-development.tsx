@@ -48,18 +48,8 @@ const detailedOfferings: OfferingDetail[] = [
   }
 ];
 
-export const Route = createFileRoute("/agentic-ai-development")({
-  head: () => ({
-    meta: [
-      { title: "Agentic AI & Multi-Agent Development — Autonomous Systems | TrustGrid.AI" },
-      { name: "description", content: "Build autonomous AI agents and multi-agent fleets capable of planning, reasoning, tool execution, and secure human-in-the-loop operations across enterprise workflows." },
-      { property: "og:title", content: "Agentic AI & Multi-Agent Development | TrustGrid.AI" },
-      { property: "og:description", content: "Autonomous AI agents engineered for enterprise scale with multi-agent orchestration and tool gating." },
-      { property: "og:url", content: "/agentic-ai-development" },
-    ],
-    links: [{ rel: "canonical", href: "/agentic-ai-development" }],
-  }),
-  component: () => (
+export function AgenticAiDevelopmentSection({ excludeHeroAndCta = false }: { excludeHeroAndCta?: boolean }) {
+  return (
     <ServiceDetail
       eyebrow="Agentic AI & Multi-Agent Development"
       title="Engineering autonomous AI agents for the enterprise"
@@ -80,6 +70,21 @@ export const Route = createFileRoute("/agentic-ai-development")({
       ]}
       stack={["LangGraph", "CrewAI", "AutoGen", "OpenAI Agents SDK", "MCP", "LangSmith", "Ray"]}
       detailedOfferings={detailedOfferings}
+      excludeHeroAndCta={excludeHeroAndCta}
     />
-  ),
+  );
+}
+
+export const Route = createFileRoute("/agentic-ai-development")({
+  head: () => ({
+    meta: [
+      { title: "Agentic AI & Multi-Agent Development — Autonomous Systems | TrustGrid.AI" },
+      { name: "description", content: "Build autonomous AI agents and multi-agent fleets capable of planning, reasoning, tool execution, and secure human-in-the-loop operations across enterprise workflows." },
+      { property: "og:title", content: "Agentic AI & Multi-Agent Development | TrustGrid.AI" },
+      { property: "og:description", content: "Autonomous AI agents engineered for enterprise scale with multi-agent orchestration and tool gating." },
+      { property: "og:url", content: "/agentic-ai-development" },
+    ],
+    links: [{ rel: "canonical", href: "/agentic-ai-development" }],
+  }),
+  component: () => <AgenticAiDevelopmentSection />,
 });

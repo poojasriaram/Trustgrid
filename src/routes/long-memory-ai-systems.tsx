@@ -1,18 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetail } from "@/components/site/ServiceDetail";
 
-export const Route = createFileRoute("/long-memory-ai-systems")({
-  head: () => ({
-    meta: [
-      { title: "Long-Memory AI Systems — Knowledge Across Years | TrustGrid.AI" },
-      { name: "description", content: "Engineer AI systems that retain knowledge across years instead of conversations. Vector databases, knowledge graphs, RAG and semantic search." },
-      { property: "og:title", content: "Long-Memory AI Systems | TrustGrid.AI" },
-      { property: "og:description", content: "AI memory architectures that span years of enterprise context." },
-      { property: "og:url", content: "/long-memory-ai-systems" },
-    ],
-    links: [{ rel: "canonical", href: "/long-memory-ai-systems" }],
-  }),
-  component: () => (
+export function LongMemoryAiSystemsSection({ excludeHeroAndCta = false }: { excludeHeroAndCta?: boolean }) {
+  return (
     <ServiceDetail
       eyebrow="Long-Memory AI"
       title="AI that remembers — across years, not conversations"
@@ -26,6 +16,21 @@ export const Route = createFileRoute("/long-memory-ai-systems")({
         { title: "Memory Governance", desc: "TTL, redaction, citation and provenance tracking." },
       ]}
       stack={["Pinecone", "Weaviate", "Milvus", "Neo4j", "Qdrant", "Elasticsearch", "LangChain"]}
+      excludeHeroAndCta={excludeHeroAndCta}
     />
-  ),
+  );
+}
+
+export const Route = createFileRoute("/long-memory-ai-systems")({
+  head: () => ({
+    meta: [
+      { title: "Long-Memory AI Systems — Knowledge Across Years | TrustGrid.AI" },
+      { name: "description", content: "Engineer AI systems that retain knowledge across years instead of conversations. Vector databases, knowledge graphs, RAG and semantic search." },
+      { property: "og:title", content: "Long-Memory AI Systems | TrustGrid.AI" },
+      { property: "og:description", content: "AI memory architectures that span years of enterprise context." },
+      { property: "og:url", content: "/long-memory-ai-systems" },
+    ],
+    links: [{ rel: "canonical", href: "/long-memory-ai-systems" }],
+  }),
+  component: () => <LongMemoryAiSystemsSection />,
 });

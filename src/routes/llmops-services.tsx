@@ -894,15 +894,9 @@ export const Route = createFileRoute("/llmops-services")({
   component: LlmOpsPage,
 });
 
-function LlmOpsPage() {
+export function LlmOpsSection() {
   return (
     <>
-      <PageHero
-        eyebrow="LLMOps & LLM Optimization Engineering"
-        title="Operate LLMs in production at enterprise scale"
-        description="Six engineering engagements covering enterprise AI platforms, RAG, agentic automation, industry LLMs, inference FinOps, and sovereign AI — each with deep inference optimization built in."
-      />
-
       {/* Outcome stats bar */}
       <section className="border-b border-border/40 bg-surface/20">
         <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -919,6 +913,26 @@ function LlmOpsPage() {
           ))}
         </div>
       </section>
+
+      <div className="bg-background">
+        {llmOfferings.map((offering) => (
+          <OfferingSection key={offering.id} offering={offering} />
+        ))}
+      </div>
+
+      <CrossCuttingSection />
+    </>
+  );
+}
+
+function LlmOpsPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="LLMOps & LLM Optimization Engineering"
+        title="Operate LLMs in production at enterprise scale"
+        description="Six engineering engagements covering enterprise AI platforms, RAG, agentic automation, industry LLMs, inference FinOps, and sovereign AI — each with deep inference optimization built in."
+      />
 
       {/* Sticky nav */}
       <nav className="border-b border-border/40 bg-background/80 backdrop-blur sticky top-16 z-30">
@@ -944,13 +958,7 @@ function LlmOpsPage() {
         </div>
       </nav>
 
-      <div className="bg-background">
-        {llmOfferings.map((offering) => (
-          <OfferingSection key={offering.id} offering={offering} />
-        ))}
-      </div>
-
-      <CrossCuttingSection />
+      <LlmOpsSection />
 
       <CTA />
     </>

@@ -21,15 +21,15 @@ const homeItems = [
 ];
 
 const offeringsItems = [
-  { label: "GPU Performance Engineering", href: "/gpu-performance-engineering" },
-  { label: "AI Infrastructure Engineering", href: "/ai-infrastructure-engineering" },
-  { label: "GPU-phi Cloud Platform", href: "/platform" },
-  { label: "Agentic AI Development", href: "/agentic-ai-development" },
-  { label: "Multi-Agent Systems", href: "/multi-agent-systems" },
-  { label: "Long-Memory AI Systems", href: "/long-memory-ai-systems" },
-  { label: "AgentOps Services", href: "/agentops-services" },
-  { label: "LLMOps & LLM Engineering", href: "/llmops-services" },
-  { label: "AI Security & Cyber Dom", href: "/ai-security" },
+  { label: "GPU Performance Engineering", href: "/offerings#gpu-performance-engineering" },
+  { label: "AI Infrastructure Engineering", href: "/offerings#ai-infrastructure-engineering" },
+  { label: "GPU-phi Cloud Platform", href: "/offerings#platform" },
+  { label: "Agentic AI Development", href: "/offerings#agentic-ai-development" },
+  { label: "Multi-Agent Systems", href: "/offerings#multi-agent-systems" },
+  { label: "Long-Memory AI Systems", href: "/offerings#long-memory-ai-systems" },
+  { label: "AgentOps Services", href: "/offerings#agentops-services" },
+  { label: "LLMOps & LLM Engineering", href: "/offerings#llmops-services" },
+  { label: "AI Security & Cyber Dom", href: "/offerings#ai-security" },
   { label: "All Offerings", href: "/offerings" },
 ];
 
@@ -70,9 +70,9 @@ const platformItems = [
 
 const aboutItems = [
   { label: "About TrustGrid.AI", href: "/about" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Insights & Blog", href: "/blog" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Case Studies", href: "/about#case-studies" },
+  { label: "Insights & Blog", href: "/about#insights" },
+  { label: "Contact Us", href: "/about#contact" },
 ];
 
 const featuredOfferings = [
