@@ -18,6 +18,7 @@ import { Route as OfferingsRouteImport } from './routes/offerings'
 import { Route as MultiAgentSystemsRouteImport } from './routes/multi-agent-systems'
 import { Route as LongMemoryAiSystemsRouteImport } from './routes/long-memory-ai-systems'
 import { Route as LlmopsServicesRouteImport } from './routes/llmops-services'
+import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GpuPerformanceEngineeringRouteImport } from './routes/gpu-performance-engineering'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
@@ -73,6 +74,11 @@ const LongMemoryAiSystemsRoute = LongMemoryAiSystemsRouteImport.update({
 const LlmopsServicesRoute = LlmopsServicesRouteImport.update({
   id: '/llmops-services',
   path: '/llmops-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GpuPerformanceEngineeringRoute =
@@ -145,6 +151,7 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
+  '/industries': typeof IndustriesRoute
   '/llmops-services': typeof LlmopsServicesRoute
   '/long-memory-ai-systems': typeof LongMemoryAiSystemsRoute
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
@@ -167,6 +174,7 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
+  '/industries': typeof IndustriesRoute
   '/llmops-services': typeof LlmopsServicesRoute
   '/long-memory-ai-systems': typeof LongMemoryAiSystemsRoute
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
@@ -190,6 +198,7 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
+  '/industries': typeof IndustriesRoute
   '/llmops-services': typeof LlmopsServicesRoute
   '/long-memory-ai-systems': typeof LongMemoryAiSystemsRoute
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
@@ -214,6 +223,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/gpu-performance-engineering'
+    | '/industries'
     | '/llmops-services'
     | '/long-memory-ai-systems'
     | '/multi-agent-systems'
@@ -236,6 +246,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/gpu-performance-engineering'
+    | '/industries'
     | '/llmops-services'
     | '/long-memory-ai-systems'
     | '/multi-agent-systems'
@@ -258,6 +269,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/gpu-performance-engineering'
+    | '/industries'
     | '/llmops-services'
     | '/long-memory-ai-systems'
     | '/multi-agent-systems'
@@ -281,6 +293,7 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   GpuPerformanceEngineeringRoute: typeof GpuPerformanceEngineeringRoute
+  IndustriesRoute: typeof IndustriesRoute
   LlmopsServicesRoute: typeof LlmopsServicesRoute
   LongMemoryAiSystemsRoute: typeof LongMemoryAiSystemsRoute
   MultiAgentSystemsRoute: typeof MultiAgentSystemsRoute
@@ -355,6 +368,13 @@ declare module '@tanstack/react-router' {
       path: '/llmops-services'
       fullPath: '/llmops-services'
       preLoaderRoute: typeof LlmopsServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gpu-performance-engineering': {
@@ -449,6 +469,7 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   GpuPerformanceEngineeringRoute: GpuPerformanceEngineeringRoute,
+  IndustriesRoute: IndustriesRoute,
   LlmopsServicesRoute: LlmopsServicesRoute,
   LongMemoryAiSystemsRoute: LongMemoryAiSystemsRoute,
   MultiAgentSystemsRoute: MultiAgentSystemsRoute,

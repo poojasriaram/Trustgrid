@@ -29,95 +29,95 @@ const coreOfferingsItems = [
 ];
 
 const industryOfferingsItems = [
-  { label: "Manufacturing & Industrial", href: "/offerings#manufacturing-industrial" },
-  { label: "Technology & Electronics", href: "/offerings#telecommunications-network" },
-  { label: "Infrastructure & Construction", href: "/offerings#infrastructure-construction" },
-  { label: "Energy & Utilities", href: "/offerings#energy-utilities-sustainability" },
-  { label: "Financial Services", href: "/offerings#banking-financial-services" },
-  { label: "Healthcare & Life Sciences", href: "/offerings#healthcare-life-sciences" },
-  { label: "Consumer & Retail", href: "/offerings#retail-e-commerce" },
-  { label: "Media & Services", href: "/offerings#education-learning-platforms" },
+  { label: "Manufacturing & Industrial", href: "/industries#manufacturing-industrial" },
+  { label: "Technology & Electronics", href: "/industries#telecommunications-network" },
+  { label: "Infrastructure & Construction", href: "/industries#infrastructure-construction" },
+  { label: "Energy & Utilities", href: "/industries#energy-utilities-sustainability" },
+  { label: "Financial Services", href: "/industries#banking-financial-services" },
+  { label: "Healthcare & Life Sciences", href: "/industries#healthcare-life-sciences" },
+  { label: "Consumer & Retail", href: "/industries#retail-e-commerce" },
+  { label: "Media & Services", href: "/industries#education-learning-platforms" },
 ];
 
 const industrySegments = [
   {
     title: "Manufacturing & Industrial",
     items: [
-      { label: "Automobiles", icon: Car, href: "/offerings#manufacturing-industrial" },
-      { label: "Auto Components", icon: Wrench, href: "/offerings#manufacturing-industrial" },
-      { label: "Engineering & Capital Goods", icon: Settings, href: "/offerings#manufacturing-industrial" },
-      { label: "Defence Manufacturing", icon: Shield, href: "/offerings#manufacturing-industrial" },
-      { label: "MSME", icon: Home, href: "/offerings#manufacturing-industrial" },
+      { label: "Automobiles", icon: Car, href: "/industries#manufacturing-industrial" },
+      { label: "Auto Components", icon: Wrench, href: "/industries#manufacturing-industrial" },
+      { label: "Engineering & Capital Goods", icon: Settings, href: "/industries#manufacturing-industrial" },
+      { label: "Defence Manufacturing", icon: Shield, href: "/industries#manufacturing-industrial" },
+      { label: "MSME", icon: Home, href: "/industries#manufacturing-industrial" },
     ]
   },
   {
     title: "Technology & Electronics",
     items: [
-      { label: "IT & BPM", icon: Laptop, href: "/offerings#telecommunications-network" },
-      { label: "Electronics & Semiconductor", icon: Cpu, href: "/offerings#telecommunications-network" },
-      { label: "Telecommunications", icon: Phone, href: "/offerings#telecommunications-network" },
-      { label: "Science & Technology", icon: FlaskConical, href: "/offerings#telecommunications-network" },
-      { label: "Electric Vehicles", icon: Zap, href: "/offerings#telecommunications-network" },
+      { label: "IT & BPM", icon: Laptop, href: "/industries#telecommunications-network" },
+      { label: "Electronics & Semiconductor", icon: Cpu, href: "/industries#telecommunications-network" },
+      { label: "Telecommunications", icon: Phone, href: "/industries#telecommunications-network" },
+      { label: "Science & Technology", icon: FlaskConical, href: "/industries#telecommunications-network" },
+      { label: "Electric Vehicles", icon: Zap, href: "/industries#telecommunications-network" },
     ]
   },
   {
     title: "Infrastructure & Construction",
     items: [
-      { label: "Cement", icon: Layers, href: "/offerings#infrastructure-construction" },
-      { label: "Steel", icon: Hammer, href: "/offerings#infrastructure-construction" },
-      { label: "Infrastructure", icon: Building2, href: "/offerings#infrastructure-construction" },
-      { label: "Real Estate", icon: Home, href: "/offerings#infrastructure-construction" },
-      { label: "Roads & Highways", icon: Milestone, href: "/offerings#infrastructure-construction" },
+      { label: "Cement", icon: Layers, href: "/industries#infrastructure-construction" },
+      { label: "Steel", icon: Hammer, href: "/industries#infrastructure-construction" },
+      { label: "Infrastructure", icon: Building2, href: "/industries#infrastructure-construction" },
+      { label: "Real Estate", icon: Home, href: "/industries#infrastructure-construction" },
+      { label: "Roads & Highways", icon: Milestone, href: "/industries#infrastructure-construction" },
     ]
   },
   {
     title: "Energy & Utilities",
     items: [
-      { label: "Oil & Gas", icon: Droplet, href: "/offerings#energy-utilities-sustainability" },
-      { label: "Power", icon: Zap, href: "/offerings#energy-utilities-sustainability" },
-      { label: "Renewable Energy", icon: Sun, href: "/offerings#energy-utilities-sustainability" },
-      { label: "Ports", icon: Anchor, href: "/offerings#energy-utilities-sustainability" },
-      { label: "Railways", icon: Train, href: "/offerings#energy-utilities-sustainability" },
+      { label: "Oil & Gas", icon: Droplet, href: "/industries#energy-utilities-sustainability" },
+      { label: "Power", icon: Zap, href: "/industries#energy-utilities-sustainability" },
+      { label: "Renewable Energy", icon: Sun, href: "/industries#energy-utilities-sustainability" },
+      { label: "Ports", icon: Anchor, href: "/industries#energy-utilities-sustainability" },
+      { label: "Railways", icon: Train, href: "/industries#energy-utilities-sustainability" },
     ]
   },
   {
     title: "Financial Services",
     items: [
-      { label: "Banking", icon: Landmark, href: "/offerings#banking-financial-services" },
-      { label: "Financial Services", icon: Coins, href: "/offerings#banking-financial-services" },
-      { label: "Insurance", icon: FileText, href: "/offerings#banking-financial-services" },
-      { label: "E-Commerce", icon: ShoppingBag, href: "/offerings#banking-financial-services" },
-      { label: "Gems & Jewellery", icon: Gem, href: "/offerings#banking-financial-services" },
+      { label: "Banking", icon: Landmark, href: "/industries#banking-financial-services" },
+      { label: "Financial Services", icon: Coins, href: "/industries#banking-financial-services" },
+      { label: "Insurance", icon: FileText, href: "/industries#banking-financial-services" },
+      { label: "E-Commerce", icon: ShoppingBag, href: "/industries#banking-financial-services" },
+      { label: "Gems & Jewellery", icon: Gem, href: "/industries#banking-financial-services" },
     ]
   },
   {
     title: "Healthcare & Life Sciences",
     items: [
-      { label: "Pharmaceuticals", icon: Pill, href: "/offerings#healthcare-life-sciences" },
-      { label: "Healthcare", icon: HeartPulse, href: "/offerings#healthcare-life-sciences" },
-      { label: "Medical Devices", icon: Stethoscope, href: "/offerings#healthcare-life-sciences" },
-      { label: "Biotechnology", icon: Dna, href: "/offerings#healthcare-life-sciences" },
-      { label: "Ayush", icon: Leaf, href: "/offerings#healthcare-life-sciences" },
+      { label: "Pharmaceuticals", icon: Pill, href: "/industries#healthcare-life-sciences" },
+      { label: "Healthcare", icon: HeartPulse, href: "/industries#healthcare-life-sciences" },
+      { label: "Medical Devices", icon: Stethoscope, href: "/industries#healthcare-life-sciences" },
+      { label: "Biotechnology", icon: Dna, href: "/industries#healthcare-life-sciences" },
+      { label: "Ayush", icon: Leaf, href: "/industries#healthcare-life-sciences" },
     ]
   },
   {
     title: "Consumer & Retail",
     items: [
-      { label: "FMCG", icon: Package, href: "/offerings#retail-e-commerce" },
-      { label: "Retail", icon: Store, href: "/offerings#retail-e-commerce" },
-      { label: "Consumer Durables", icon: Tv, href: "/offerings#retail-e-commerce" },
-      { label: "Textiles", icon: Scissors, href: "/offerings#retail-e-commerce" },
-      { label: "Food Processing", icon: Utensils, href: "/offerings#retail-e-commerce" },
+      { label: "FMCG", icon: Package, href: "/industries#retail-e-commerce" },
+      { label: "Retail", icon: Store, href: "/industries#retail-e-commerce" },
+      { label: "Consumer Durables", icon: Tv, href: "/industries#retail-e-commerce" },
+      { label: "Textiles", icon: Scissors, href: "/industries#retail-e-commerce" },
+      { label: "Food Processing", icon: Utensils, href: "/industries#retail-e-commerce" },
     ]
   },
   {
     title: "Media & Services",
     items: [
-      { label: "Media & Entertainment", icon: Film, href: "/offerings#education-learning-platforms" },
-      { label: "Tourism & Hospitality", icon: Compass, href: "/offerings#education-learning-platforms" },
-      { label: "Aviation", icon: Plane, href: "/offerings#education-learning-platforms" },
-      { label: "Education & Training", icon: GraduationCap, href: "/offerings#education-learning-platforms" },
-      { label: "Agriculture & Allied", icon: Sprout, href: "/offerings#education-learning-platforms" },
+      { label: "Media & Entertainment", icon: Film, href: "/industries#education-learning-platforms" },
+      { label: "Tourism & Hospitality", icon: Compass, href: "/industries#education-learning-platforms" },
+      { label: "Aviation", icon: Plane, href: "/industries#education-learning-platforms" },
+      { label: "Education & Training", icon: GraduationCap, href: "/industries#education-learning-platforms" },
+      { label: "Agriculture & Allied", icon: Sprout, href: "/industries#education-learning-platforms" },
     ]
   }
 ];
@@ -303,20 +303,42 @@ function HomeDropdown() {
 
 function OfferingsDropdown() {
   return (
-    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
-      <div className="border-b border-border/40 pb-5 mb-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+    <div className="nav-dropdown w-[640px]">
+      <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+        <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+          Technical Offerings & Pillars
+        </h4>
+      </div>
+      <hr className="border-border/30 mb-5" />
+      <div className="grid grid-cols-2 gap-x-10 gap-y-4.5">
         {coreOfferingsItems.map((item) => (
           <SectionLink
-            key={item.href}
+            key={item.href + item.label}
             href={item.href}
-            className="flex items-center gap-1.5 text-xs font-bold text-accent hover:text-primary transition-colors duration-200 group/pill"
+            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
           >
-            <span className="text-primary group-hover/pill:translate-x-0.5 transition-transform">→</span>
-            <span>{item.label}</span>
+            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
+              →
+            </span>
+            <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+              {item.label}
+            </span>
           </SectionLink>
         ))}
       </div>
-      
+    </div>
+  );
+}
+
+function IndustriesDropdown() {
+  return (
+    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
+      <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+        <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+          Sovereign Industry Solutions
+        </h4>
+      </div>
+      <hr className="border-border/30 mb-5" />
       <div className="grid grid-cols-4 gap-x-8 gap-y-10">
         {industrySegments.map((segment) => (
           <div key={segment.title}>
@@ -957,6 +979,9 @@ export function Header() {
             <NavItem label="Offerings" to="/offerings">
               <OfferingsDropdown />
             </NavItem>
+            <NavItem label="Industries" to="/industries">
+              <IndustriesDropdown />
+            </NavItem>
             <NavItem label="Solutions" to="/solutions">
               <SolutionsDropdown />
             </NavItem>
@@ -1033,33 +1058,32 @@ export function Header() {
               </MobileAccordion>
 
               <MobileAccordion title="Offerings" to="/offerings" onClose={() => setMobileOpen(false)}>
-                <div className="space-y-3 py-1">
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1.5 pl-1">Engineering Pillars</p>
-                    {coreOfferingsItems.map((item) => (
-                      <SectionLink
-                        key={item.label}
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-1.5 pl-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
-                      >
-                        {item.label}
-                      </SectionLink>
-                    ))}
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1.5 pl-1">Industry Solutions</p>
-                    {industryOfferingsItems.map((item) => (
-                      <SectionLink
-                        key={item.label}
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-1.5 pl-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {item.label}
-                      </SectionLink>
-                    ))}
-                  </div>
+                <div className="space-y-1 py-1">
+                  {coreOfferingsItems.map((item) => (
+                    <SectionLink
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {item.label}
+                    </SectionLink>
+                  ))}
+                </div>
+              </MobileAccordion>
+
+              <MobileAccordion title="Industries" to="/industries" onClose={() => setMobileOpen(false)}>
+                <div className="space-y-1 py-1">
+                  {industryOfferingsItems.map((item) => (
+                    <SectionLink
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {item.label}
+                    </SectionLink>
+                  ))}
                 </div>
               </MobileAccordion>
 
