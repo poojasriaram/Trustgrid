@@ -154,7 +154,11 @@ const platformItems = [
   { label: "Self-Healing Clusters", href: "/platform#self-healing-clusters" },
 ];
 
-
+const aboutItems = [
+  { label: "About TrustGrid.AI", href: "/about" },
+  { label: "Insights & Blog", href: "/blog" },
+  { label: "Contact Us", href: "/contact" },
+];
 
 const offeringsCategories = [
   {
@@ -757,7 +761,28 @@ function PlatformDropdown() {
   );
 }
 
-
+function AboutDropdown() {
+  return (
+    <div className="nav-dropdown w-[240px]">
+      <div className="flex flex-col gap-y-3.5">
+        {aboutItems.map((item) => (
+          <SectionLink
+            key={item.label}
+            href={item.href}
+            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+          >
+            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
+              →
+            </span>
+            <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans tracking-wide">
+              {item.label}
+            </span>
+          </SectionLink>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 /* ─── NavItem with Dropdown ──────────────────────────────────── */
 
@@ -922,7 +947,9 @@ export function Header() {
             <NavItem label="Platform" to="/platform">
               <PlatformDropdown />
             </NavItem>
-            <NavItem label="About Us" to="/about" />
+            <NavItem label="About Us" to="/about">
+              <AboutDropdown />
+            </NavItem>
           </nav>
 
           {/* Action + Hamburger */}
@@ -1125,15 +1152,20 @@ export function Header() {
                 </div>
               </MobileAccordion>
 
-              <div className="border-b border-border/30 last:border-0">
-                <Link
-                  to="/about"
-                  onClick={() => setMobileOpen(false)}
-                  className="block py-3.5 text-sm font-semibold text-foreground"
-                >
-                  About Us
-                </Link>
-              </div>
+              <MobileAccordion title="About Us" to="/about" onClose={() => setMobileOpen(false)}>
+                <div className="space-y-1 py-1">
+                  {aboutItems.map((item) => (
+                    <SectionLink
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {item.label}
+                    </SectionLink>
+                  ))}
+                </div>
+              </MobileAccordion>
 
               <Link to="/contact" onClick={() => setMobileOpen(false)} className="block mt-5">
                 <Button size="default" className="w-full bg-primary text-primary-foreground text-sm">
