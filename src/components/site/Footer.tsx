@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Cpu, Bot, Brain, Shield, Mail, MapPin, ExternalLink } from "lucide-react";
+import { Cpu, Bot, Brain, Shield, Mail, MapPin, ExternalLink, Globe, Phone } from "lucide-react";
 import { SectionLink } from "./Header";
 
 /* ─── Featured Offerings (highlight row) ───────────────────── */
@@ -41,12 +41,12 @@ const footerCols = [
     links: [
       { href: "/gpu-performance-engineering", label: "GPU Performance Engineering" },
       { href: "/capabilities#gpu-optimization", label: "GPU Optimization" },
-      { href: "/industries", label: "Industry AI Solutions" },
-      { href: "/platform", label: "GPU-phi Cloud Platform" },
+      { href: "/solutions#gpu-optimization", label: "GPU Performance Solutions" },
+      { href: "/offerings", label: "All Offerings" },
     ],
   },
   {
-    title: "LLM & AI Agents",
+    title: "LLM Optimization",
     links: [
       { href: "/llmops-services", label: "LLMOps & LLM Engineering" },
       { href: "/capabilities#llm-optimization", label: "LLM Optimization" },
@@ -54,38 +54,44 @@ const footerCols = [
       { href: "/multi-agent-systems", label: "Multi-Agent Systems" },
       { href: "/long-memory-ai-systems", label: "Long-Memory AI Systems" },
       { href: "/agentops-services", label: "AgentOps Services" },
-      { href: "/capabilities#multi-agent-fleet-orchestration", label: "Agent Fleet Orchestration" },
+    ],
+  },
+  {
+    title: "AI Trust & Reliability",
+    links: [
+      { href: "/capabilities#ai-trust-reliability", label: "Trust & Reliability" },
+      { href: "/solutions#ai-trust-reliability", label: "Model Drift Detection" },
+      { href: "/solutions#ai-trust-reliability", label: "LLM Observability Stack" },
+      { href: "/solutions#ai-trust-reliability", label: "Automated Retraining" },
     ],
   },
   {
     title: "AI Cybersecurity",
     links: [
       { href: "/ai-security", label: "AI Security & Cyber Dom" },
-      { href: "/capabilities#ai-security-cyber-dom-protection-mesh", label: "Zero-Trust AI Governance" },
-      { href: "/solutions#security-gov", label: "AI Cybersecurity & Governance" },
-      { href: "/solutions#cyber-dom-ai-security-mesh-sandbox-execution", label: "Secure Sandbox Execution" },
+      { href: "/capabilities#ai-cybersecurity", label: "Zero-Trust AI Governance" },
+      { href: "/solutions#ai-cybersecurity", label: "Prompt Injection Defenses" },
+      { href: "/solutions#ai-cybersecurity", label: "Confidential Computing" },
     ],
   },
   {
     title: "AI Infrastructure",
     links: [
       { href: "/ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
-      { href: "/capabilities#cloud-gpu-optimization", label: "Cloud GPU Orchestration" },
-      { href: "/capabilities#data-center-network-automation", label: "Data Center Networking" },
-      { href: "/capabilities#energy-optimization-for-hyperscale-ai-data-centers", label: "Energy Optimization & ESG" },
-      { href: "/solutions#gpu-infra", label: "GPU Data Center Architecture" },
+      { href: "/capabilities#ai-infrastructure", label: "Cloud GPU Orchestration" },
+      { href: "/platform", label: "GPU-phi Cloud Platform" },
+      { href: "/offerings#energy-optimization-hyperscale", label: "Energy Optimization & ESG" },
     ],
   },
   {
     title: "Company",
     links: [
       { href: "/about", label: "About TrustGrid.AI" },
-      { href: "/case-studies", label: "Case Studies" },
-      { href: "/blog", label: "Insights & Blog" },
-      { href: "/contact", label: "Contact Us" },
-      { href: "/offerings", label: "All Offerings" },
-      { href: "/industries", label: "Industry Solutions" },
-      { href: "/capabilities", label: "All Capabilities" },
+      { href: "/about#teams", label: "Leadership & Teams" },
+      { href: "/about#presence", label: "Global Presence" },
+      { href: "/about#case-studies", label: "Case Studies" },
+      { href: "/about#insights", label: "Insights & Blog" },
+      { href: "/about#contact", label: "Contact Us" },
     ],
   },
 ];
@@ -120,34 +126,33 @@ export function Footer() {
         </div>
 
         {/* Main link grid */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5 mb-14">
+        <div className="grid gap-10 lg:grid-cols-12 mb-14">
           {/* Brand column */}
-          <div className="lg:col-span-1 sm:col-span-2">
-            <Link to="/" className="flex items-center mb-4">
-              <span className="font-display text-base font-semibold">
-                TRUSTGRID<span className="text-accent">.AI</span>
-              </span>
-            </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-              Full-Spectrum AI Engineering — GPU kernels to autonomous enterprises, built for reliability and Zero-Trust safety.
-            </p>
+          <div className="lg:col-span-3 sm:col-span-4 flex flex-col justify-between">
+            <div>
+              <Link to="/" className="flex items-center mb-4">
+                <span className="font-display text-base font-semibold">
+                  TRUSTGRID<span className="text-accent">.AI</span>
+                </span>
+              </Link>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                Full-Spectrum AI Engineering — GPU kernels to autonomous enterprises, built for reliability and Zero-Trust safety.
+              </p>
+            </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <MapPin className="h-3.5 w-3.5 shrink-0 text-accent/60" />
-                5 Global Delivery Centers
+                5 Global Operations Offices
               </div>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Mail className="h-3.5 w-3.5 shrink-0 text-accent/60" />
-                24/7 Enterprise Support
+                connect@trustgrid.ai
               </div>
             </div>
           </div>
 
-          {/* Hidden spacer on lg */}
-          <div className="hidden lg:block" />
-
-          {/* Link columns — span 3 on lg */}
-          <div className="sm:col-span-2 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+          {/* Link columns */}
+          <div className="sm:col-span-8 lg:col-span-9 grid grid-cols-2 md:grid-cols-3 gap-8">
             {footerCols.map((col) => (
               <div key={col.title}>
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground/80 mb-3.5">
@@ -171,12 +176,24 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} TrustGrid.AI — Engineering AI systems that scale.
-          </p>
+        <div className="pt-8 border-t border-border/30 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs text-muted-foreground">
+            <span>© {new Date().getFullYear()} TrustGrid.AI. All rights reserved.</span>
+            <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-foreground transition-colors">Security</a>
+            <a href="#" className="hover:text-foreground transition-colors">Cookies</a>
+            <a 
+              href="/sitemap.xml" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-foreground transition-colors flex items-center gap-0.5"
+            >
+              Sitemap <ExternalLink className="h-3 w-3 shrink-0 opacity-60" />
+            </a>
+          </div>
           <div className="flex items-center gap-6">
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground hidden sm:block">
               GPU · AI Agents · LLM/RAG · Cybersecurity
             </p>
             <Link to="/contact" className="text-xs text-accent hover:text-foreground transition-colors font-medium">
