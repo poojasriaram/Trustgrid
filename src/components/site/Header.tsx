@@ -22,10 +22,11 @@ const homeItems = [
 
 const coreOfferingsItems = [
   { label: "GPU Optimization", href: "/offerings#gpu-optimization" },
-  { label: "LLM Optimization & AI Agents", href: "/offerings#llm-optimization-agents" },
+  { label: "LLM Optimization", href: "/offerings#llm-optimization" },
+  { label: "AI Trust & Reliability Engineering", href: "/offerings#ai-trust-reliability" },
   { label: "AI Cybersecurity", href: "/offerings#ai-cybersecurity" },
-  { label: "AI Infrastructure Engineering", href: "/offerings#ai-infrastructure-engineering" },
-  { label: "AI Trusted Reliability Engineering (AIRE)", href: "/offerings#ai-trusted-reliability-engineering" },
+  { label: "AI Infrastructure Engineering", href: "/offerings#ai-infrastructure" },
+  { label: "Energy Optimization", href: "/offerings#energy-optimization-hyperscale" },
 ];
 
 const industryOfferingsItems = [
@@ -123,41 +124,28 @@ const industrySegments = [
 ];
 
 const solutionsItems = [
-  { label: "GPU & AI HPC Infrastructure", href: "/solutions#gpu-infra" },
-  { label: "LLM Optimization & Enterprise Generative AI", href: "/solutions#llm-opt" },
-  { label: "AI Agents & Autonomous Systems", href: "/solutions#agentic-ai" },
-  { label: "AI Cybersecurity & Governance", href: "/solutions#security-gov" },
-  { label: "AI Trusted Reliability Engineering (AIRE)", href: "/solutions#trusted-reliability-engineering" },
+  { label: "GPU Optimization", href: "/solutions#gpu-optimization" },
+  { label: "LLM Optimization", href: "/solutions#llm-optimization" },
+  { label: "AI Trust & Reliability Engineering", href: "/solutions#ai-trust-reliability" },
+  { label: "AI Cybersecurity", href: "/solutions#ai-cybersecurity" },
+  { label: "AI Infrastructure Engineering", href: "/solutions#ai-infrastructure" },
 ];
 
 const capabilitiesItems = [
   { label: "GPU Optimization", href: "/capabilities#gpu-optimization" },
-  { label: "Cloud GPU Orchestration", href: "/capabilities#cloud-gpu-optimization" },
   { label: "LLM Optimization", href: "/capabilities#llm-optimization" },
-  { label: "AI Infrastructure Automation", href: "/capabilities#ai-optimization" },
-  { label: "Data Center Network Automation", href: "/capabilities#data-center-network-automation" },
-  { label: "Energy Optimization & ESG", href: "/capabilities#energy-optimization" },
-  { label: "AI Security & Cyber Dom", href: "/capabilities#ai-security-cyber-dom-protection-mesh" },
-  { label: "Hardened Sandbox Shell & Agent Execution", href: "/capabilities#hardened-sandbox-shell-agent-execution" },
-  { label: "Multi-Agent Fleet Orchestration", href: "/capabilities#multi-agent-fleet-orchestration" },
-  { label: "AI Trusted Reliability Engineering (AIRE)", href: "/capabilities#ai-trusted-reliability-engineering" },
+  { label: "AI Trust & Reliability Engineering", href: "/capabilities#ai-trust-reliability" },
+  { label: "AI Cybersecurity", href: "/capabilities#ai-cybersecurity" },
+  { label: "AI Infrastructure Engineering", href: "/capabilities#ai-infrastructure" },
   { label: "All Capabilities", href: "/capabilities" },
 ];
 
 const useCasesItems = [
-  { label: "Sovereign AI Initiatives", href: "/use-cases#sovereign-ai" },
-  { label: "High-Frequency Trading", href: "/use-cases#high-frequency-trading" },
-  { label: "Global SaaS Platforms", href: "/use-cases#global-saas" },
-  { label: "Autonomous Operations", href: "/use-cases#autonomous-operations" },
-  { label: "Regulated AI Security", href: "/use-cases#regulated-ai-security" },
-  { label: "Secure Medical LLMOps", href: "/use-cases#secure-medical-llmops" },
-  { label: "AI-Driven Penetration Testing", href: "/use-cases#cybersecurity-pen-testing" },
-  { label: "Managed Threat Defense (MDR)", href: "/use-cases#cybersecurity-mdr" },
-  { label: "Breach & Attack Simulation (BAS)", href: "/use-cases#cybersecurity-bas" },
-  { label: "Industry AI Cybersecurity", href: "/use-cases#cybersecurity-industry" },
-  { label: "High-Risk Generative AI / RAG Systems", href: "/use-cases#high-risk-genai-rag" },
-  { label: "Credit Scoring & Lending AI", href: "/use-cases#credit-scoring-lending" },
-  { label: "Healthcare Clinical AI Applications", href: "/use-cases#healthcare-clinical-ai" },
+  { label: "GPU Optimization Use Cases", href: "/use-cases#gpu-optimization" },
+  { label: "LLM Optimization Use Cases", href: "/use-cases#llm-optimization" },
+  { label: "AI Trust & Reliability Use Cases", href: "/use-cases#ai-trust-reliability" },
+  { label: "AI Cybersecurity Use Cases", href: "/use-cases#ai-cybersecurity" },
+  { label: "AI Infrastructure Use Cases", href: "/use-cases#ai-infrastructure" },
 ];
 
 const platformItems = [
@@ -178,140 +166,234 @@ const offeringsCategories = [
     title: "GPU Optimization",
     href: "/offerings#gpu-optimization",
     items: [
-      { label: "Low-Level Kernel & Whitebox", href: "/offerings#1-1-low-level-kernel-whitebox-optimization" },
-      { label: "Applied GPU Acceleration", href: "/offerings#1-2-applied-gpu-acceleration-distributed-workloads" },
-      { label: "GPU FinOps & Cost Diagnostics", href: "/offerings#1-3-gpu-finops-cost-performance-diagnostics" },
-      { label: "Workload-Specific Packages", href: "/offerings#1-4-workload-specific-optimization-packages" },
+      { label: "GPU Super Scaling", href: "/offerings#gpu-optimization" },
+      { label: "Low Latency HPC Networking", href: "/offerings#gpu-optimization" },
+      { label: "Memory Bandwidth Optimization", href: "/offerings#gpu-optimization" },
+      { label: "Inference Latency Reduction", href: "/offerings#gpu-optimization" }
     ]
   },
   {
-    title: "LLM & AI Agents",
-    href: "/offerings#llm-optimization-agents",
+    title: "LLM Optimization",
+    href: "/offerings#llm-optimization",
     items: [
-      { label: "LLM Fine-Tuning & Quantization", href: "/offerings#2-1-production-grade-llm-fine-tuning-quantization" },
-      { label: "LLM Evaluation & Guardrails Gateway", href: "/offerings#2-2-enterprise-llm-evaluation-guardrails-gateway" },
-      { label: "Multi-Agent Workflow Orchestration", href: "/offerings#2-3-multi-agent-workflow-orchestration-coordination" },
-      { label: "Agent Tool Integration & Action Gating", href: "/offerings#2-4-agent-tool-integration-action-gating-human-in-the-loop" },
+      { label: "PEFT/LoRA Fine-Tuning", href: "/offerings#llm-optimization" },
+      { label: "Advanced RAG Pipelines", href: "/offerings#llm-optimization" },
+      { label: "Autonomous Agent Frameworks", href: "/offerings#llm-optimization" },
+      { label: "Cost-Per-Token Optimization", href: "/offerings#llm-optimization" }
+    ]
+  },
+  {
+    title: "AI Trust & Reliability",
+    href: "/offerings#ai-trust-reliability",
+    items: [
+      { label: "Continuous Model Drift Detection", href: "/offerings#ai-trust-reliability" },
+      { label: "End-to-End LLM Observability Stack", href: "/offerings#ai-trust-reliability" },
+      { label: "AI Red-Teaming & Adversarial Tests", href: "/offerings#ai-trust-reliability" },
+      { label: "Automated CI/CD Retraining", href: "/offerings#ai-trust-reliability" }
     ]
   },
   {
     title: "AI Cybersecurity",
     href: "/offerings#ai-cybersecurity",
     items: [
-      { label: "Cyber Dom Mesh & Guardrails", href: "/offerings#3-1-cyber-dom-ai-security-guardrails-mesh" },
-      { label: "Hardened Sandbox Execution", href: "/offerings#3-2-bash-shell-hardening-secure-sandbox-execution" },
+      { label: "Adversarial Robustness Testing", href: "/offerings#ai-cybersecurity" },
+      { label: "Confidential Computing for Inference", href: "/offerings#ai-cybersecurity" },
+      { label: "Prompt Injection Defense Mechanisms", href: "/offerings#ai-cybersecurity" },
+      { label: "Supply Chain Vulnerability Scanning", href: "/offerings#ai-cybersecurity" }
     ]
   },
   {
-    title: "AI Infrastructure Engineering",
-    href: "/offerings#ai-infrastructure-engineering",
+    title: "AI Infrastructure",
+    href: "/offerings#ai-infrastructure",
     items: [
-      { label: "Mega-Scale DC Fabric Optimization", href: "/offerings#4-1-mega-scale-data-center-network-fabric-optimization" },
-      { label: "Enterprise GPU Platform Automation", href: "/offerings#4-2-enterprise-scale-gpu-platform-transformation-automation" },
+      { label: "MLOps/LLMOps Pipeline Architecture", href: "/offerings#ai-infrastructure" },
+      { label: "Highly Available Vector Databases", href: "/offerings#ai-infrastructure" },
+      { label: "Kubernetes Workload Orchestration", href: "/offerings#ai-infrastructure" },
+      { label: "Energy & Storage Optimization", href: "/offerings#ai-infrastructure" }
     ]
   },
   {
-    title: "Reliability Engineering (AIRE)",
-    href: "/offerings#ai-trusted-reliability-engineering",
+    title: "Energy Optimization",
+    href: "/offerings#energy-optimization-hyperscale",
     items: [
-      { label: "NIST AI Risk & Governance", href: "/offerings#5-1-nist-ai-risk-management-governance-system" },
-      { label: "EU AI Act Conformity Assessment", href: "/offerings#5-2-eu-ai-act-conformity-assessment-high-risk-obligations" },
-      { label: "ISO 42001 & ISO 23894 AIMS", href: "/offerings#5-3-iso-42001-2023-iso-23894-management-systems-aims" },
-      { label: "Adversarial AI Red Teaming", href: "/offerings#5-4-adversarial-ai-red-teaming-model-penetration-testing" },
-      { label: "Reliability & Observability Gateway", href: "/offerings#5-5-reliability-architecture-guardrails-real-time-observability" },
+      { label: "GW-Scale Power Strategy", href: "/offerings#energy-optimization-hyperscale" },
+      { label: "AI Thermal Cooling Transition", href: "/offerings#energy-optimization-hyperscale" },
+      { label: "GPU & Fabric Energy Audit", href: "/offerings#energy-optimization-hyperscale" },
+      { label: "Next-Gen Power & Microgrid", href: "/offerings#energy-optimization-hyperscale" }
     ]
   }
 ];
 
 const solutionsCategories = [
   {
-    title: "GPU & HPC Infrastructure",
-    href: "/solutions#gpu-infra",
+    title: "GPU Optimization",
+    href: "/solutions#gpu-optimization",
     items: [
-      { label: "Data Center AI Solutions", href: "/solutions#gpu-infra" },
-      { label: "HPC Cluster Solutions", href: "/solutions#gpu-infra" },
-      { label: "Network Fabric & Automation", href: "/solutions#gpu-infra" },
-      { label: "AI Infrastructure Operations", href: "/solutions#gpu-infra" },
+      { label: "GPU Super Scaling", href: "/solutions#gpu-optimization" },
+      { label: "Low Latency Networking for HPC", href: "/solutions#gpu-optimization" },
+      { label: "Memory Bandwidth Optimization", href: "/solutions#gpu-optimization" },
+      { label: "Inference Latency Reduction", href: "/solutions#gpu-optimization" },
+      { label: "Multi-Tenant GPU Orchestration", href: "/solutions#gpu-optimization" }
     ]
   },
   {
-    title: "LLM & Enterprise GenAI",
-    href: "/solutions#llm-opt",
+    title: "LLM Optimization",
+    href: "/solutions#llm-optimization",
     items: [
-      { label: "Enterprise Fine-Tuning & Opt", href: "/solutions#llm-opt" },
-      { label: "RAG & Knowledge Systems", href: "/solutions#llm-opt" },
-      { label: "Long-Memory AI Systems", href: "/solutions#llm-opt" },
+      { label: "Advanced RAG Pipeline Architecture", href: "/solutions#llm-optimization" },
+      { label: "Parameter-Efficient Fine-Tuning", href: "/solutions#llm-optimization" },
+      { label: "Autonomous AI Agent Frameworks", href: "/solutions#llm-optimization" },
+      { label: "Multi-Modal Model Integration & Routing", href: "/solutions#llm-optimization" },
+      { label: "Cost-Per-Token Optimization", href: "/solutions#llm-optimization" }
     ]
   },
   {
-    title: "AI Agents & Autonomous",
-    href: "/solutions#agentic-ai",
+    title: "AI Trust & Reliability",
+    href: "/solutions#ai-trust-reliability",
     items: [
-      { label: "Multi-Agent Orchestration", href: "/solutions#agentic-ai" },
-      { label: "Agent Architecture & Tooling", href: "/solutions#agentic-ai" },
-      { label: "Autonomous Operations", href: "/solutions#agentic-ai" },
+      { label: "Model Drift Detection Systems", href: "/solutions#ai-trust-reliability" },
+      { label: "End-to-End LLM Observability Stack", href: "/solutions#ai-trust-reliability" },
+      { label: "AI Red-Teaming & Stress Testing", href: "/solutions#ai-trust-reliability" },
+      { label: "Automated CI/CD Retraining Pipelines", href: "/solutions#ai-trust-reliability" },
+      { label: "AI SLA/SLO Enforcement", href: "/solutions#ai-trust-reliability" }
     ]
   },
   {
-    title: "AI Cybersecurity & Gov",
-    href: "/solutions#security-gov",
+    title: "AI Cybersecurity",
+    href: "/solutions#ai-cybersecurity",
     items: [
-      { label: "AI Infrastructure Security", href: "/solutions#security-gov" },
-      { label: "Model & Agent Protection", href: "/solutions#security-gov" },
-      { label: "Compliance & Governance", href: "/solutions#security-gov" },
+      { label: "Adversarial Robustness Testing", href: "/solutions#ai-cybersecurity" },
+      { label: "Confidential Computing", href: "/solutions#ai-cybersecurity" },
+      { label: "Prompt Injection Defense Mechanisms", href: "/solutions#ai-cybersecurity" },
+      { label: "AI/ML Supply Chain Scanning", href: "/solutions#ai-cybersecurity" },
+      { label: "Model Inversion & Data Defense", href: "/solutions#ai-cybersecurity" }
     ]
   },
   {
-    title: "Reliability Engineering",
-    href: "/solutions#trusted-reliability-engineering",
+    title: "AI Infrastructure",
+    href: "/solutions#ai-infrastructure",
     items: [
-      { label: "NIST Risk & Governance", href: "/solutions#trusted-reliability-engineering" },
-      { label: "EU AI Act Conformity", href: "/solutions#trusted-reliability-engineering" },
-      { label: "ISO 42001 & ISO 23894 AIMS", href: "/solutions#trusted-reliability-engineering" },
-      { label: "Red Teaming & Observability", href: "/solutions#trusted-reliability-engineering" },
+      { label: "MLOps/LLMOps Pipeline Architecture", href: "/solutions#ai-infrastructure" },
+      { label: "Scalable Vector Database Deployment", href: "/solutions#ai-infrastructure" },
+      { label: "Kubernetes Workload Orchestration", href: "/solutions#ai-infrastructure" },
+      { label: "Event-Driven AI Microservices Design", href: "/solutions#ai-infrastructure" },
+      { label: "Cost-Optimized Storage Tiering", href: "/solutions#ai-infrastructure" }
     ]
   }
 ];
 
 const capabilitiesCategories = [
   {
-    title: "GPU Performance",
+    title: "GPU Optimization",
     href: "/capabilities#gpu-optimization",
     items: [
-      { label: "GPU Optimization", href: "/capabilities#gpu-optimization" },
-      { label: "Cloud GPU Orchestration", href: "/capabilities#cloud-gpu-optimization" },
+      { label: "GPU Super-Scaling & Orchestration", href: "/capabilities#gpu-optimization" },
+      { label: "Ultra-Low Latency HPC Network Fabric", href: "/capabilities#gpu-optimization" },
+      { label: "Real-Time Inference Acceleration", href: "/capabilities#gpu-optimization" },
+      { label: "Custom CUDA/Triton Kernel Dev", href: "/capabilities#gpu-optimization" },
+      { label: "Energy-Efficient GPU Scheduling", href: "/capabilities#gpu-optimization" }
     ]
   },
   {
-    title: "Infrastructure & Networking",
-    href: "/capabilities#ai-optimization",
-    items: [
-      { label: "AI Infrastructure Automation", href: "/capabilities#ai-optimization" },
-      { label: "Data Center Network Automation", href: "/capabilities#data-center-network-automation" },
-    ]
-  },
-  {
-    title: "LLM & Agents Optimization",
+    title: "LLM Optimization",
     href: "/capabilities#llm-optimization",
     items: [
-      { label: "LLM Optimization", href: "/capabilities#llm-optimization" },
-      { label: "Multi-Agent Fleet Orchestration", href: "/capabilities#multi-agent-fleet-orchestration" },
+      { label: "Domain-Specific LLM Adaptation & Alignment", href: "/capabilities#llm-optimization" },
+      { label: "Agentic Workflow & State Machine Design", href: "/capabilities#llm-optimization" },
+      { label: "Semantic Search & Retrieval Engineering", href: "/capabilities#llm-optimization" },
+      { label: "Advanced Prompt Engineering", href: "/capabilities#llm-optimization" },
+      { label: "LLM Evaluation & Benchmarking", href: "/capabilities#llm-optimization" }
     ]
   },
   {
-    title: "AI-Driven Cybersecurity",
-    href: "/capabilities#ai-security-cyber-dom-protection-mesh",
+    title: "AI Trust & Reliability",
+    href: "/capabilities#ai-trust-reliability",
     items: [
-      { label: "AI Security & Cyber Dom Mesh", href: "/capabilities#ai-security-cyber-dom-protection-mesh" },
-      { label: "Hardened Sandbox Execution", href: "/capabilities#hardened-sandbox-shell-agent-execution" },
+      { label: "Statistical Drift & Outlier Analysis", href: "/capabilities#ai-trust-reliability" },
+      { label: "Adversarial Prompt Resilience Testing", href: "/capabilities#ai-trust-reliability" },
+      { label: "Deep Traceability & Lineage Tracking", href: "/capabilities#ai-trust-reliability" },
+      { label: "Automated ML Pipeline Orchestration", href: "/capabilities#ai-trust-reliability" },
+      { label: "Chaos Engineering for Distributed AI", href: "/capabilities#ai-trust-reliability" }
     ]
   },
   {
-    title: "Energy & Reliability (AIRE)",
-    href: "/capabilities#energy-optimization",
+    title: "AI Cybersecurity",
+    href: "/capabilities#ai-cybersecurity",
     items: [
-      { label: "Energy Optimization & ESG", href: "/capabilities#energy-optimization" },
-      { label: "Reliability Engineering (AIRE)", href: "/capabilities#ai-trusted-reliability-engineering" },
+      { label: "Penetration Testing for Neural Nets", href: "/capabilities#ai-cybersecurity" },
+      { label: "Zero-Trust Architecture for ML APIs", href: "/capabilities#ai-cybersecurity" },
+      { label: "TEE / Hardware-Backed Secure Setup", href: "/capabilities#ai-cybersecurity" },
+      { label: "Differential Privacy Implementation", href: "/capabilities#ai-cybersecurity" },
+      { label: "Regulatory Compliance Mapping", href: "/capabilities#ai-cybersecurity" }
+    ]
+  },
+  {
+    title: "AI Infrastructure",
+    href: "/capabilities#ai-infrastructure",
+    items: [
+      { label: "Cloud-Native AI Containerization", href: "/capabilities#ai-infrastructure" },
+      { label: "GPU Cluster Provisioning Automation", href: "/capabilities#ai-infrastructure" },
+      { label: "High-Throughput Data Ingestion", href: "/capabilities#ai-infrastructure" },
+      { label: "Infrastructure Cost Optimization (FinOps)", href: "/capabilities#ai-infrastructure" },
+      { label: "Real-Time Streaming Data Integration", href: "/capabilities#ai-infrastructure" }
+    ]
+  }
+];
+
+const useCasesCategories = [
+  {
+    title: "GPU Optimization",
+    href: "/use-cases#gpu-optimization",
+    items: [
+      { label: "Globally Distributed Model Pre-training", href: "/use-cases#gpu-optimization" },
+      { label: "Ultra-low Latency HPC Simulations", href: "/use-cases#gpu-optimization" },
+      { label: "Large-scale LLM Pre-training Acceleration", href: "/use-cases#gpu-optimization" },
+      { label: "Real-time Video Analytics & CV Pipelines", href: "/use-cases#gpu-optimization" },
+      { label: "High-frequency Trading Execution", href: "/use-cases#gpu-optimization" }
+    ]
+  },
+  {
+    title: "LLM Optimization",
+    href: "/use-cases#llm-optimization",
+    items: [
+      { label: "Enterprise Knowledge Base Search", href: "/use-cases#llm-optimization" },
+      { label: "Automated Code Generation & Review", href: "/use-cases#llm-optimization" },
+      { label: "Intelligent Document Processing (IDP)", href: "/use-cases#llm-optimization" },
+      { label: "Customer Support Ticket Resolution", href: "/use-cases#llm-optimization" },
+      { label: "Complex Data Translation (Text-to-SQL)", href: "/use-cases#llm-optimization" }
+    ]
+  },
+  {
+    title: "AI Trust & Reliability",
+    href: "/use-cases#ai-trust-reliability",
+    items: [
+      { label: "Fraud Detection Model Drift Prevention", href: "/use-cases#ai-trust-reliability" },
+      { label: "Healthcare Diagnostic AI Accuracy Assurance", href: "/use-cases#ai-trust-reliability" },
+      { label: "Chatbot Toxicity & Safety Guardrails", href: "/use-cases#ai-trust-reliability" },
+      { label: "Trading Algorithm Stability Monitoring", href: "/use-cases#ai-trust-reliability" },
+      { label: "Manufacturing Sensor Drift Correction", href: "/use-cases#ai-trust-reliability" }
+    ]
+  },
+  {
+    title: "AI Cybersecurity",
+    href: "/use-cases#ai-cybersecurity",
+    items: [
+      { label: "Customer Chatbot Prompt Injection Defenses", href: "/use-cases#ai-cybersecurity" },
+      { label: "Proprietary LLM Weights Theft Protection", href: "/use-cases#ai-cybersecurity" },
+      { label: "Healthcare Patient Data Reconstruction", href: "/use-cases#ai-cybersecurity" },
+      { label: "Biometric System Adversarial Hardening", href: "/use-cases#ai-cybersecurity" },
+      { label: "Third-party ML Dependency Audits", href: "/use-cases#ai-cybersecurity" }
+    ]
+  },
+  {
+    title: "AI Infrastructure",
+    href: "/use-cases#ai-infrastructure",
+    items: [
+      { label: "Carbon-Aware Data Center Energy Optimization", href: "/use-cases#ai-infrastructure" },
+      { label: "GPU Direct Storage (GDS) I/O Optimization", href: "/use-cases#ai-infrastructure" },
+      { label: "Unified Memory (UMA) Memory Optimization", href: "/use-cases#ai-infrastructure" },
+      { label: "Enterprise ML Platform Engineering", href: "/use-cases#ai-infrastructure" },
+      { label: "Automated Failover Multi-Million Inference Routing", href: "/use-cases#ai-infrastructure" }
     ]
   }
 ];
@@ -474,8 +556,8 @@ function HomeDropdown() {
 
 function OfferingsDropdown() {
   return (
-    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
-      <div className="grid grid-cols-5 gap-x-8 gap-y-6">
+    <div className="nav-dropdown w-[1380px] max-w-[95vw]">
+      <div className="grid grid-cols-6 gap-x-6 gap-y-6">
         {offeringsCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
@@ -542,8 +624,8 @@ function IndustriesDropdown() {
 
 function SolutionsDropdown() {
   return (
-    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
-      <div className="grid grid-cols-5 gap-x-8 gap-y-6">
+    <div className="nav-dropdown w-[1200px] max-w-[95vw]">
+      <div className="grid grid-cols-5 gap-x-6 gap-y-6">
         {solutionsCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
@@ -577,8 +659,8 @@ function SolutionsDropdown() {
 
 function CapabilitiesDropdown() {
   return (
-    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
-      <div className="grid grid-cols-5 gap-x-8 gap-y-6">
+    <div className="nav-dropdown w-[1200px] max-w-[95vw]">
+      <div className="grid grid-cols-5 gap-x-6 gap-y-6">
         {capabilitiesCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
@@ -612,345 +694,34 @@ function CapabilitiesDropdown() {
 
 function UseCasesDropdown() {
   return (
-    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
-      <div className="grid grid-cols-4 gap-x-8 gap-y-10">
-        
-        {/* Column 1: Core Architectures */}
-        <div className="flex flex-col">
-          <SectionLink
-            href="/use-cases"
-            className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
-          >
-            Core Architectures
-          </SectionLink>
-          
-          <div className="space-y-4">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                Infrastructure & Scaling
-              </p>
-              <div className="space-y-2">
+    <div className="nav-dropdown w-[1200px] max-w-[95vw]">
+      <div className="grid grid-cols-5 gap-x-6 gap-y-6">
+        {useCasesCategories.map((cat) => (
+          <div key={cat.title} className="flex flex-col">
+            <SectionLink
+              href={cat.href}
+              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
+            >
+              {cat.title}
+            </SectionLink>
+            <div className="flex flex-col gap-2.5">
+              {cat.items.map((item) => (
                 <SectionLink
-                  href="/use-cases#sovereign-ai"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  key={item.href + item.label}
+                  href={item.href}
+                  className="flex items-center gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
                 >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">
+                    →
+                  </span>
                   <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Sovereign AI Initiatives
+                    {item.label}
                   </span>
                 </SectionLink>
-                <SectionLink
-                  href="/use-cases#global-saas"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Global SaaS Platforms
-                  </span>
-                </SectionLink>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                Low-Latency Compute
-              </p>
-              <div className="space-y-2">
-                <SectionLink
-                  href="/use-cases#high-frequency-trading"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    High-Frequency Trading
-                  </span>
-                </SectionLink>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                Enterprise Automation
-              </p>
-              <div className="space-y-2">
-                <SectionLink
-                  href="/use-cases#autonomous-operations"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Autonomous Operations
-                  </span>
-                </SectionLink>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                Security & HIPAA Compliance
-              </p>
-              <div className="space-y-2">
-                <SectionLink
-                  href="/use-cases#regulated-ai-security"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Regulated AI Security
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#secure-medical-llmops"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Secure Medical LLMOps
-                  </span>
-                </SectionLink>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                Trusted AI & Compliance (AIRE)
-              </p>
-              <div className="space-y-2">
-                <SectionLink
-                  href="/use-cases#high-risk-genai-rag"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    High-Risk GenAI & RAG
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#credit-scoring-lending"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Credit Scoring & Lending
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#healthcare-clinical-ai"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Healthcare Clinical AI
-                  </span>
-                </SectionLink>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* Column 2: Pen Testing & BAS */}
-        <div className="flex flex-col">
-          <SectionLink
-            href="/use-cases"
-            className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
-          >
-            Pen Testing & BAS
-          </SectionLink>
-          
-          <div className="space-y-4">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                AI-Driven Penetration Testing
-              </p>
-              <div className="space-y-2">
-                <SectionLink
-                  href="/use-cases#uc-61"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Automated Attack Surface Mapping
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-62"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Intelligent Exploit Generation
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-63"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Dynamic Payload Obfuscation
-                  </span>
-                </SectionLink>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                AI Breach & Attack Simulation (BAS)
-              </p>
-              <div className="space-y-2">
-                <SectionLink
-                  href="/use-cases#uc-68"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Continuous Purple Teaming
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-69"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    LLM-Specific Attack Simulation
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-70"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Lateral Movement Emulation
-                  </span>
-                </SectionLink>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Column 3: Managed Threat Defense */}
-        <div className="flex flex-col">
-          <SectionLink
-            href="/use-cases"
-            className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
-          >
-            Managed Threat Defense
-          </SectionLink>
-          
-          <div className="space-y-4">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                AI-Driven Managed Threat Defense (MDR)
-              </p>
-              <div className="space-y-2">
-                <SectionLink
-                  href="/use-cases#uc-64"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Line-Rate Network Anomaly Detection
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-65"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Zero-Day Threat Intel Extraction
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-66"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Automated SOAR Playbook Execution
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-67"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Multi-Modal Phishing Defense
-                  </span>
-                </SectionLink>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Column 4: Industry Cyber Defense */}
-        <div className="flex flex-col">
-          <SectionLink
-            href="/use-cases"
-            className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
-          >
-            Industry Cyber Defense
-          </SectionLink>
-          
-          <div className="space-y-4">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 pl-1">
-                AI Cybersecurity for Various Industries
-              </p>
-              <div className="space-y-2">
-                <SectionLink
-                  href="/use-cases#uc-71"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Finance: Voice Deepfake Detection
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-72"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Healthcare: PHI Leak Prevention
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-73"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Manufacturing: ICS Ransomware Defense
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-74"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Government: Air-Gapped Threat Hunt
-                  </span>
-                </SectionLink>
-                <SectionLink
-                  href="/use-cases#uc-75"
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
-                >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">→</span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
-                    Retail: Behavioral Bot Defense
-                  </span>
-                </SectionLink>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        ))}
       </div>
     </div>
   );

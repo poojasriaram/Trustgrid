@@ -94,7 +94,7 @@ const useCasesData: UseCase[] = [
   {
     id: "sovereign-ai",
     title: "Sovereign AI Initiatives",
-    category: "Infrastructure & Scaling",
+    category: "AI Infrastructure Engineering",
     tagline: "National-scale private cloud compute fabrics running air-gapped workloads.",
     challengeBrief: "National-scale AI infrastructure projects require deploying 10,000+ GPUs with absolute data sovereignty, high compute availability, and local regulatory alignment. Public clouds introduce security compliance gaps and lock-in risks.",
     challengeDetailed1: "Nation-states must build independent AI capabilities on private compute — often 10,000+ enterprise GPUs — while guaranteeing zero cross-border data pathways and full compliance with domestic security and defense-grade classification standards.",
@@ -192,7 +192,7 @@ const useCasesData: UseCase[] = [
   {
     id: "high-frequency-trading",
     title: "High-Frequency Trading",
-    category: "Low-Latency Compute",
+    category: "GPU Optimization",
     tagline: "Sub-millisecond inference pipelines bypassing CPU boundaries using custom CUDA kernels.",
     challengeBrief: "Quantitative trading firms need sub-millisecond predictive inference speeds to execute orders before markets shift. Standard web serving LLMs or bloated frameworks introduce execution latency.",
     challengeDetailed1: "In HFT, the window to execute arbitrage orders is measured in microseconds. Standard deep learning libraries introduce unacceptable overhead from Python interpreter locks, PCIe memory copy cycles, and CUDA kernel scheduling jitters that cascade into milliseconds.",
@@ -290,7 +290,7 @@ const useCasesData: UseCase[] = [
   {
     id: "global-saas",
     title: "Global SaaS Platforms",
-    category: "Infrastructure & Scaling",
+    category: "AI Infrastructure Engineering",
     tagline: "Maximizing VRAM efficiency and request throughput with continuous KV-cache batching.",
     challengeBrief: "B2B SaaS companies introducing real-time LLM features suffer from severe margin erosion due to inefficient request concurrency, paged memory waste, and static GPU scheduling.",
     challengeDetailed1: "Standard LLM deployment allocates a static, fixed KV-cache memory block per request. Because prompt and completion lengths are highly variable, this causes up to 60-70% GPU VRAM fragmentation — limiting concurrent users and forcing expensive instance scale-outs.",
@@ -388,7 +388,7 @@ const useCasesData: UseCase[] = [
   {
     id: "autonomous-operations",
     title: "Autonomous Operations",
-    category: "Enterprise Automation",
+    category: "LLM Optimization",
     tagline: "Hierarchical multi-agent worker fleets executing business workflows with human validation gates.",
     challengeBrief: "Enterprise supply chain and manufacturing operators waste hundreds of hours manually processing unstructured logistics requests, vendor contracts, and tracking data.",
     challengeDetailed1: "Traditional RPA tools cannot handle semantic variations in unstructured documents like vendor contracts, bills of lading, and invoices. Simple LLM API calls fail at multi-step scale due to context drift and state synchronization errors across distributed workflows.",
@@ -486,7 +486,7 @@ const useCasesData: UseCase[] = [
   {
     id: "regulated-ai-security",
     title: "Regulated AI Security",
-    category: "Security & HIPAA Compliance",
+    category: "AI Cybersecurity",
     tagline: "Adversarial threat protection and runtime container isolation under zero-trust guidelines.",
     challengeBrief: "Defense and intelligence networks face dangerous adversarial inputs, prompt injections, and data extraction attacks when integrating generative LLMs into regulated environments.",
     challengeDetailed1: "Traditional web security firewalls are blind to semantic attacks. Adversaries can exploit prompt injection (direct commands) or indirect injection (commands embedded in untrusted documents) to force models to leak system instructions, access backend tools, or compromise sensitive data.",
@@ -584,7 +584,7 @@ const useCasesData: UseCase[] = [
   {
     id: "secure-medical-llmops",
     title: "Secure Medical LLMOps",
-    category: "Security & HIPAA Compliance",
+    category: "LLM Optimization",
     tagline: "Fine-tuned clinical models running in secure HIPAA-compliant environments.",
     challengeBrief: "Medical clinics must summarize patient charts and extract diagnostic code data but are legally barred by HIPAA guidelines from sending patient records to external public APIs.",
     challengeDetailed1: "Healthcare providers spend up to 30% of the workday reading EHR records, typing summaries, and mapping symptoms to ICD-10 codes. LLMs can automate this but HIPAA legally prohibits transmitting Protected Health Information (PHI) to any external third-party API.",
@@ -682,7 +682,7 @@ const useCasesData: UseCase[] = [
   {
     id: "high-risk-genai-rag",
     title: "High-Risk Generative AI / RAG Systems",
-    category: "Trusted AI & Compliance",
+    category: "AI Trust & Reliability",
     tagline: "Mitigating hallucinations, prompt injections, and data leakage in regulated search ecosystems.",
     challengeBrief: "Enterprises face severe legal liabilities and data leakage risks when deploying conversational RAG/LLM solutions in high-risk areas like legal research, medical triage, and financial customer advisory.",
     challengeDetailed1: "Without custom reliability engineering, LLMs generate ungrounded fabrications and cite false cases, leading to sanctions or clinical misdiagnoses. Standard web firewalls fail to stop prompt injections.",
@@ -726,7 +726,7 @@ const useCasesData: UseCase[] = [
   {
     id: "credit-scoring-lending",
     title: "Credit Scoring & Lending AI",
-    category: "Trusted AI & Compliance",
+    category: "AI Trust & Reliability",
     tagline: "Bias mitigation and explainable reason codes for automated credit decisioning.",
     challengeBrief: "Automated underwriting models risk perpetuating historical demographic discrimination, violating fair lending laws (ECOA, FCRA, EU AI Act Article 5b) without explainable AI layers.",
     challengeDetailed1: "Black-box scoring engines fail to produce legally required reason codes for credit denials, leading to audit failures and regulatory enforcement actions.",
@@ -769,7 +769,7 @@ const useCasesData: UseCase[] = [
   {
     id: "healthcare-clinical-ai",
     title: "Healthcare Clinical AI Applications",
-    category: "Trusted AI & Compliance",
+    category: "AI Trust & Reliability",
     tagline: "Dual EU AI Act and Medical Device Regulation (MDR) compliance for diagnostic imaging.",
     challengeBrief: "Healthcare diagnostic AIs suffer from false alarms, data drift, skin-type bias, and PHI exposure risks under medical device and data privacy regulations.",
     challengeDetailed1: "Diagnostic models trained on fair-skinned cohorts drop in sensitivity from 95% to 71% on darker skin tones, creating medical disparities and liability risks.",
@@ -807,6 +807,140 @@ const useCasesData: UseCase[] = [
       { label: "Derm Sensitivity Gap", value: "< 3%", sublabel: "Equity achieved" },
       { label: "Sepsis Mortality", value: "-18%", sublabel: "Life-saving alerts" },
       { label: "Alert Volume Cut", value: "55%", sublabel: "Alarm fatigue drop" }
+    ]
+  },
+  {
+    id: "grid-interconnection-bottleneck",
+    title: "The 2GW Grid Interconnection Bottleneck",
+    category: "AI Infrastructure Engineering",
+    tagline: "Islanded BESS microgrids bypassing utility delays for 100,000 GPUs.",
+    challengeBrief: "A major hyperscaler faced a 3-year delay waiting for local utility grid upgrades to support their new 2GW data center. Bypassing this bottleneck was critical to meet their AI training timelines.",
+    challengeDetailed1: "Developing a Gigawatt-scale AI campus requires massive power capacity that utilities cannot deliver quickly. Grid queues, substation planning, and grid impact assessments often push deployments back by years.",
+    challengeDetailed2: "Without local generation and microgrid capabilities, hyperscalers are locked into single-grid dependencies and are exposed to frequency variations and power outages that destroy long pre-training runs.",
+    solutionBrief: "We engineered an islanded BESS microgrid with 500MWh of battery storage and on-site solar, allowing phased deployment of 100,000 GPUs while waiting for the utility grid upgrades.",
+    solutionDetailed1: "We designed a hybrid microgrid topology integrating solar arrays, 500MWh battery energy storage systems (BESS), and reciprocating gas engines. Sub-cycle islanding controllers decouple the facility from the grid during load/frequency fluctuations.",
+    solutionDetailed2: "An intelligent microgrid broker balances generation with active compute schedules, matching GPU power caps with dynamic solar output, and shaving peak utility fees with battery discharging.",
+    hardwareConfig: [
+      "500MWh Containerized Lithium-Iron-Phosphate (LFP) BESS",
+      "On-site 150MW utility-scale solar PV array",
+      "100,000x NVIDIA GPUs in liquid-cooled rack configurations",
+      "Sub-cycle dynamic islanding static switch gear",
+      "High-efficiency medium-voltage substation layout"
+    ],
+    techStack: [
+      { name: "GridOS Orchestration", category: "Microgrid Controller" },
+      { name: "NVIDIA DCGM Telemetry", category: "GPU Monitoring" },
+      { name: "Slurm Energy-Aware Scheduler", category: "Job Scheduling" },
+      { name: "Modbus / CAN bus protocols", category: "Hardware Telemetry" }
+    ],
+    capabilities: [
+      { title: "Dynamic grid islanding", description: "Sub-cycle decoupling of the facility from the utility grid to prevent power fluctuations from crashing AI runs." },
+      { title: "Battery peak shaving", description: "Dynamic discharging of BESS systems during high tariff periods to shave dynamic demand charges." },
+      { title: "Solar-to-workload routing", description: "Directing non-urgent training jobs to execute when solar generation is peaking, avoiding carbon-heavy energy." }
+    ],
+    outcomes: [
+      { title: "Interconnection wait bypass", metric: "3 Years", description: "Allowed phased deployment of 100,000 GPUs immediately without waiting for grid upgrades." },
+      { title: "Sustained training uptime", metric: "99.99%", description: "Completely isolated the campus from utility brownouts and grid frequency drops." },
+      { title: "Utility capacity secured", metric: "2 GW", description: "Engineered and mapped out utility interconnections for full campus sizing." }
+    ],
+    timeline: [
+      { phase: "Phase 1", duration: "4 Weeks", title: "Power Flow Modeling", details: "CFD and power flow modeling for Giga-watt capacity interconnections." },
+      { phase: "Phase 2", duration: "8 Weeks", title: "Microgrid Installation", details: "Install solar panels, BESS containers, and high-voltage switchgear." },
+      { phase: "Phase 3", duration: "4 Weeks", title: "Telemetry & Controller Setup", details: "Code microgrid load balancing loops and sync with Slurm scheduler." }
+    ],
+    metricsSummary: [
+      { label: "Deployment Timelines", value: "-3 Years", sublabel: "Grid wait bypassed" },
+      { label: "Microgrid Storage", value: "500 MWh", sublabel: "BESS backup capacity" },
+      { label: "Workload Uptime", value: "99.99%", sublabel: "Zero grid outages" }
+    ]
+  },
+  {
+    id: "thermal-throttling-cooling",
+    title: "Mitigating Thermal Throttling in 100kW Racks",
+    category: "AI Infrastructure Engineering",
+    tagline: "Retrofitting 100kW Blackwell-class racks with Direct-to-Chip cooling to boost sustained FLOPS.",
+    challengeBrief: "An LLM pre-training cluster repeatedly throttled during peak training loads, causing a 15% loss in computational throughput due to inadequate air cooling in legacy data centers.",
+    challengeDetailed1: "Blackwell-class GPUs drawing 1kW+ each require extreme rack density (up to 100kW-120kW per rack). Traditional air-cooling methods cannot displace this thermal density, leading to core temperatures exceeding safety thresholds.",
+    challengeDetailed2: "To prevent catastrophic hardware failure, the GPU firmware automatically throttles clock speeds. This thermal throttling cascades across multi-node clusters, degrading overall epoch training velocity.",
+    solutionBrief: "We retrofitted the legacy datacenter racks with Direct-to-Chip (D2C) liquid cooling loops and rear-door heat exchangers, eliminating thermal throttling and increasing sustained FLOPS by 18%.",
+    solutionDetailed1: "We designed and installed custom cold-plates touching GPU dies directly, balancing flow rates using fluid dynamics. Heated water is routed to dry coolers outside, completely bypassing the chiller loops.",
+    solutionDetailed2: "Rear-door heat exchangers (RDHx) capture residual heat from rack exhausts, keeping the legacy air-cooled facility ambient temperature flat at 22°C even during maximum compute spikes.",
+    hardwareConfig: [
+      "Direct-to-Chip (D2C) micro-channel cold plate manifolds",
+      "Smart Coolant Distribution Units (CDUs) with redundant pumps",
+      "Rear-door heat exchangers (RDHx) on 100kW GPU racks",
+      "Closed dry cooling towers with variable speed fans",
+      "NVIDIA Blackwell B200 GPU platforms"
+    ],
+    techStack: [
+      { name: "CFD Solver (ANSYS)", category: "Thermal Simulation" },
+      { name: "CDU Telemetry API", category: "Cooling Telemetry" },
+      { name: "NVIDIA DCGM / NVML", category: "Hardware Telemetry" },
+      { name: "Liquid Cooling Loop OS", category: "Coolant Orchestration" }
+    ],
+    capabilities: [
+      { title: "Direct-to-Chip cold plates", description: "Precision copper micro-channel blocks attached directly to GPU dies for optimal thermal transfer." },
+      { title: "Fluid dynamic balancing", description: "Active CDK controls maintaining uniform flow rates across multiple parallel cooling manifolds." },
+      { title: "Residual heat capturing", description: "Secondary air-to-water heat exchangers capturing rack exhaust heat before it enters the room." }
+    ],
+    outcomes: [
+      { title: "Sustained compute boost", metric: "+18%", description: "Eliminated dynamic thermal throttling, increasing sustained computational FLOPS." },
+      { title: "Cooling PUE overhead", metric: "1.08", description: "Lowered PUE for the GPU cluster by routing heat directly to outdoor dry coolers." },
+      { title: "Safe GPU core temp", metric: "68°C", description: "Stabilized GPU temperatures well below the throttling threshold of 82°C under maximum load." }
+    ],
+    timeline: [
+      { phase: "Phase 1", duration: "3 Weeks", title: "Thermal Profiling & CFD", details: "Perform CFD modeling on rack enclosures and design cold-plate maps." },
+      { phase: "Phase 2", duration: "5 Weeks", title: "Liquid Loop Retrofitting", details: "Install CDUs, cold plates, and RDH doors on GPU racks." },
+      { phase: "Phase 3", duration: "3 Weeks", title: "Flow Tuning & Go-Live", details: "Balance fluid pressures, configure leak detection sensors, and launch training." }
+    ],
+    metricsSummary: [
+      { label: "Sustained FLOPS", value: "+18%", sublabel: "Throttling eliminated" },
+      { label: "Cooling PUE", value: "1.08", sublabel: "D2C bypass loop" },
+      { label: "GPU Core Temp", value: "68°C", sublabel: "Stabilized under load" }
+    ]
+  },
+  {
+    id: "carbon-aware-compliance",
+    title: "Carbon-Aware Training for EU Compliance",
+    category: "AI Infrastructure Engineering",
+    tagline: "Workload-time shifting reducing the carbon footprint of foundational model runs by 40%.",
+    challengeBrief: "A global AI enterprise faced strict carbon reporting limits under the EU Energy Efficiency Directive. They needed a way to continue pre-training models without violating local carbon ceilings.",
+    challengeDetailed1: "Foundational model pre-training consumes megawatt-hours of continuous power. Running these workloads when local grids are saturated with coal/gas energy yields high operational carbon footprints.",
+    challengeDetailed2: "Traditional schedulers queue jobs based on hardware availability alone, ignoring carbon intensity metrics, grid congestion, and local solar/wind saturation.",
+    solutionBrief: "We deployed a carbon-aware scheduling engine that pauses or shifts non-urgent fine-tuning and pre-training jobs during peak grid carbon intensity, reducing the carbon footprint of AI workloads by 40%.",
+    solutionDetailed1: "We integrated real-time carbon intensity APIs into the Slurm scheduler, tracking carbon-per-kWh indices across 5 global delivery centers.",
+    solutionDetailed2: "Non-urgent batch jobs are automatically suspended when grid carbon levels exceed 350g CO2/kWh, resuming when wind/solar generation spikes and grid carbon drops below 100g CO2/kWh.",
+    hardwareConfig: [
+      "5 Global data center regions connected via low-latency WAN links",
+      "Heterogeneous GPU compute pools (A100, H100, B200)",
+      "Real-time grid emissions telemetry interfaces",
+      "High-speed NVMe checkpoint storage servers"
+    ],
+    techStack: [
+      { name: "Carbon-Aware Scheduler", category: "Job Orchestration" },
+      { name: "Electricity Maps API", category: "Emissions Telemetry" },
+      { name: "Slurm suspending hooks", category: "Workload Controls" },
+      { name: "Prometheus exporter", category: "Carbon Reporting" }
+    ],
+    capabilities: [
+      { title: "Emissions-aware scheduling", description: "Dynamic scheduling based on real-time grid emissions metrics." },
+      { title: "Geographic job routing", description: "Shifting workloads across global datacenters to follow solar/wind grid saturation." },
+      { title: "Asynchronous check-pointing", description: "Sub-minute checkpointing allowing safe pauses and resumes without state loss." }
+    ],
+    outcomes: [
+      { title: "Operational carbon cut", metric: "40%", description: "Slashed carbon emissions per training epoch by executing jobs during renewable grid peaks." },
+      { title: "Regulatory compliance score", metric: "100%", description: "Generated auditable compliance reports meeting EU Energy Efficiency Directive standards." },
+      { title: "Energy cost savings", metric: "15%", description: "Workload shifting avoided peak utility tariffs, lowering power bills." }
+    ],
+    timeline: [
+      { phase: "Phase 1", duration: "3 Weeks", title: "Emissions Baselines", details: "Track historical grid carbon intensity and model power draw." },
+      { phase: "Phase 2", duration: "4 Weeks", title: "Scheduler Integration", details: "Configure Slurm hooks to pause/resume jobs based on carbon metrics." },
+      { phase: "Phase 3", duration: "3 Weeks", title: "Compliance Reporting", details: "Build automated carbon-reporting dashboards and audits." }
+    ],
+    metricsSummary: [
+      { label: "Emissions Slashed", value: "40%", sublabel: "Carbon footprint cut" },
+      { label: "Compliance Score", value: "100%", sublabel: "EU Directive aligned" },
+      { label: "Utility Bill Saved", value: "15%", sublabel: "Avoided peak tariffs" }
     ]
   }
 ];
@@ -966,10 +1100,11 @@ const cybersecurityData: CybersecurityUseCase[] = [
 
 const categories = [
   "All Use Cases",
-  "Infrastructure & Scaling",
-  "Low-Latency Compute",
-  "Enterprise Automation",
-  "Security & HIPAA Compliance"
+  "GPU Optimization",
+  "LLM Optimization",
+  "AI Trust & Reliability",
+  "AI Cybersecurity",
+  "AI Infrastructure Engineering"
 ];
 
 const cybersecuritySections = [

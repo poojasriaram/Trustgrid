@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Zap, Cpu, Bot, Shield, Gauge, CheckCircle2, ShieldCheck, type LucideIcon } from "lucide-react";
+import { Cpu, Brain, ShieldCheck, Shield, Layers, CheckCircle2, type LucideIcon } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionTemplate, type SectionData } from "@/components/site/SectionTemplate";
 import { CTA } from "@/components/site/CTA";
@@ -27,203 +27,347 @@ interface MatrixCategory {
 
 const matrixCategories: MatrixCategory[] = [
   {
-    id: "gpu-eng",
-    title: "GPU Performance Engineering",
-    icon: Zap,
-    emoji: "🔥",
-    description: "Unlock the full potential of your GPU infrastructure with deep technical optimizations, cost efficiency, and workload-specific tuning.",
-    capabilities: [
-      {
-        capability: "Low-Level Kernel Optimization",
-        description: "Custom CUDA/ROCm kernel development, compiler fusions, and memory hierarchy tuning (e.g., FlashAttention-3, PagedAttention).",
-        outcomes: "30–70%+ kernel speedups, 20–50%+ latency reduction, 90%+ hardware utilization.",
-        relevance: "Critical for proprietary architectures, latency-sensitive workloads (HFT, defense, scientific simulation)."
-      },
-      {
-        capability: "Applied GPU Acceleration",
-        description: "TensorRT-LLM/vLLM optimization, quantization (FP8/INT4), and multi-dimensional parallelism.",
-        outcomes: "4–8x inference throughput, 50–80%+ cost-per-token reduction, sub-second latency.",
-        relevance: "Essential for scaling large models (70B+), high-throughput inference, and multimodal pipelines."
-      },
-      {
-        capability: "FinOps & Cost Diagnostics",
-        description: "GPU spend auditing, SKU right-sizing, spot/preemptible strategies, and unit-economic dashboards.",
-        outcomes: "40–70%+ cost reduction, 70–90% spot savings, granular per-token/per-user metrics.",
-        relevance: "Ideal for organizations with escalating cloud bills or poor ROI visibility."
-      },
-      {
-        capability: "Workload-Specific Optimization",
-        description: "Tailored optimization for LLM training/inference, computer vision, scientific HPC, and genomics.",
-        outcomes: "4–8x tokens/sec, 50–80% cost-per-token reduction, 2–5x domain acceleration.",
-        relevance: "Perfect for domain-specific workloads requiring precision-tuned performance."
-      }
-    ]
-  },
-  {
-    id: "ai-infra",
-    title: "AI Infrastructure Design & Optimization",
+    id: "gpu-optimization",
+    title: "GPU Optimization",
     icon: Cpu,
-    emoji: "⚙️",
-    description: "Build scalable, secure, and high-performance AI infrastructure tailored to your enterprise needs.",
+    emoji: "🔥",
+    description: "Maximize compute throughput, memory bandwidth, and interconnect efficiency for high-performance AI workloads.",
     capabilities: [
       {
-        capability: "Mega-Scale Data Center Optimization",
-        description: "End-to-end design for 10,000+ GPU deployments, including InfiniBand/RoCEv2 fabric tuning and liquid cooling.",
-        outcomes: "95–97%+ scaling efficiency, 85–95%+ GPU utilization, 25–40%+ TCO reduction.",
-        relevance: "Critical for hyperscalers, sovereign AI initiatives, and national-scale infrastructure."
+        capability: "High-Performance Compute (HPC) Tuning",
+        description: "Optimizing cluster nodes, task scheduler layouts, and execution parameters for heavy numerical workloads.",
+        outcomes: "Minimizes idle time, aligns CPU-GPU pipeline coordination, and accelerates compute loops by 2-5x.",
+        relevance: "Highly suited for simulation models, massive batch training runs, and scientific processing."
       },
       {
-        capability: "Enterprise GPU Platforms",
-        description: "Topology-aware scheduling, MIG/vGPU multi-tenancy, and self-healing telemetry (DCGM).",
-        outcomes: "80–95%+ cluster utilization, ~1% idle waste, 40–60%+ TCO improvement.",
-        relevance: "Ideal for corporate data centers with fragmented GPU usage and high idle time."
+        capability: "Energy-Efficient GPU Scheduling",
+        description: "Implementing smart power and workload scheduling policies to throttle power usage during off-peak hours and manage thermal levels.",
+        outcomes: "Reduces electricity overhead by 15-30% with negligible impact on final completion timelines.",
+        relevance: "Essential for organizations with heavy continuous training jobs seeking to meet ESG and budget limits."
       },
       {
-        capability: "AI-Native Cloud/Hybrid Infrastructure",
-        description: "Kubernetes for AI, distributed training infrastructure, and AI FinOps optimization.",
-        outcomes: "128+ GPU scaling, high-availability design, 2–8x storage throughput.",
-        relevance: "Essential for organizations transitioning to hybrid or multi-cloud AI environments."
+        capability: "Real-Time Inference Acceleration",
+        description: "Deploying high-throughput, sub-millisecond serving frameworks like TensorRT-LLM and custom Triton backends.",
+        outcomes: "Up to 4-8x inference throughput boost and 50-80% lower latency on live pipelines.",
+        relevance: "Critical for interactive consumer services, high-frequency processing, and real-time APIs."
       },
       {
-        capability: "Networking & Storage Optimization",
-        description: "NCCL collective tuning, GPUDirect Storage, and Zero Trust network boundaries.",
-        outcomes: "95–97%+ fabric scaling efficiency, low-latency access, SOC2/FedRAMP compliance.",
-        relevance: "Perfect for high-speed, secure, and compliant AI workloads."
+        capability: "GPU Super-Scaling & Global Cluster Orchestration",
+        description: "Engineering robust scale-out protocols to orchestrate tens of thousands of GPUs for foundation model training.",
+        outcomes: "Ensures 95%+ training scaling efficiency and automated multi-node fault isolation.",
+        relevance: "Indispensable for foundational model training across globally distributed super-clusters."
+      },
+      {
+        capability: "Ultra-Low Latency HPC Network Fabric Engineering",
+        description: "Tuning RDMA, InfiniBand, and RoCEv2 fabric settings to eliminate communication overhead during gradient steps.",
+        outcomes: "Reduces latency to sub-microsecond levels, avoiding interconnect synchronization bottlenecks.",
+        relevance: "Critical for distributed parallel training (data, tensor, and pipeline parallel) at scale."
+      },
+      {
+        capability: "GPU Memory Fragmentation Mitigation",
+        description: "Restructuring memory allocation patterns, applying PagedAttention, and scheduling garbage collection to avoid OOMs.",
+        outcomes: "Eliminates fragmentation waste, allowing 20-40% larger batch sizes without additional hardware.",
+        relevance: "Perfect for loading massive model sizes or long context lengths on fixed GPU memory sizes."
+      },
+      {
+        capability: "Custom CUDA/Triton Kernel Development",
+        description: "Writing customized CUDA and Triton code to bypass standard framework overhead for proprietary layer mathematics.",
+        outcomes: "30-70% speedups on specialized operations compared to generic PyTorch or TensorFlow code.",
+        relevance: "Crucial for novel model architectures, custom activation functions, and proprietary logic."
+      },
+      {
+        capability: "Heterogeneous Compute Management (CPU/GPU/DPU)",
+        description: "Designing hybrid workflows that offload auxiliary tasks to CPUs and DPUs, reserving peak GPU cores for matrix arithmetic.",
+        outcomes: "Reduces GPU idle bottlenecks, maximizing total hardware ROI and lowering cost.",
+        relevance: "Ideal for complex data prep, real-time ingestion, and large-scale video/image preprocessing."
+      },
+      {
+        capability: "Deep GPU Utilization Analytics & Telemetry",
+        description: "Deploying granular, low-level telemetry agents (NVML, DCGM) to trace per-core and per-tensor-core metrics in real-time.",
+        outcomes: "Exposes hidden bottlenecks, resource starvation events, and thermal throttling instantly.",
+        relevance: "Essential for FinOps audits, operational health checks, and capacity planning."
+      },
+      {
+        capability: "Bare-Metal GPU Provisioning & Optimization",
+        description: "Configuring bare-metal GPU nodes, low-level drivers, and runtime libraries directly to bypass hypervisor overhead.",
+        outcomes: "Reclaims 5-15% virtualization loss, achieving near-perfect hardware potential.",
+        relevance: "Best for sovereign AI, private cloud setups, and ultra-high performance dedicated clusters."
       }
     ]
   },
   {
-    id: "llm-agents",
-    title: "LLM & Agents Optimization",
-    icon: Bot,
-    emoji: "🤖",
-    description: "Deploy production-grade LLMs and autonomous agents with fine-tuning, guardrails, and multi-agent orchestration.",
+    id: "llm-optimization",
+    title: "LLM Optimization",
+    icon: Brain,
+    emoji: "🧠",
+    description: "Engineering highly efficient, accurate, and agentic large language model systems at enterprise scale.",
     capabilities: [
       {
-        capability: "Fine-Tuning & Quantization",
-        description: "Domain-specific adaptation using LoRA/QLoRA, DPO/RLHF, and FP8/INT4 quantization.",
-        outcomes: "50–80%+ inference cost reduction, 4–8x throughput boost, 99%+ accuracy retention.",
-        relevance: "Critical for organizations with proprietary terminologies or high inference costs."
+        capability: "Advanced Prompt Engineering & System Prompt Design",
+        description: "Structuring few-shot examples, dynamic context injections, and system instructions for reliable outputs.",
+        outcomes: "Improves prompt compliance, structured outputs (JSON/XML), and lowers task failure rates.",
+        relevance: "Essential for consistent customer experiences and deterministic tool-calling integrations."
       },
       {
-        capability: "Evaluation & Guardrails Gateway",
-        description: "Real-time prompt/output filtering for injection, PII leaks, and hallucinations.",
-        outcomes: "99.8% prompt injection mitigation, <15ms gateway latency, 0% PII leakage.",
-        relevance: "Essential for secure, compliant LLM deployment in regulated industries."
+        capability: "Domain-Specific LLM Adaptation & Alignment",
+        description: "Aligning models to industry terminologies, jargon, and brand voice through instruction tuning, RLHF, and DPO.",
+        outcomes: "Produces higher domain accuracy, context-aware responses, and prevents brand-incompatible outputs.",
+        relevance: "Highly relevant for medical, legal, and financial enterprises deploying custom AI systems."
       },
       {
-        capability: "Multi-Agent Orchestration",
-        description: "LangGraph/CrewAI pipelines, debate mechanisms, and Ray-based parallelism.",
-        outcomes: "92–96% complex task completion, 85% reduction in workflow failures, sub-second routing.",
-        relevance: "Ideal for complex, multi-step business processes requiring deterministic outcomes."
+        capability: "Semantic Search & Retrieval Engineering",
+        description: "Designing advanced chunking strategies, dense/sparse hybrid search indexes, and re-ranking algorithms.",
+        outcomes: "Boosts retrieval precision, matching context relevance, and drastically reduces hallucinations.",
+        relevance: "Fundamental for high-fidelity RAG, enterprise search, and complex knowledge extraction."
       },
       {
-        capability: "Tool Integration & Action Gating",
-        description: "Model Context Protocol (MCP), secure API bindings, and human-in-the-loop oversight.",
-        outcomes: "0% unauthorized actions, 3x faster integration, 98.5% tool call routing accuracy.",
-        relevance: "Perfect for enterprises requiring secure, governed agent-to-system interactions."
+        capability: "Agentic Workflow & State Machine Design",
+        description: "Architecting multi-agent systems with loop validation, state persistence, and deterministic execution graphs.",
+        outcomes: "Achieves 90%+ success rates on complex, multi-step tasks compared to linear prompt chains.",
+        relevance: "Perfect for autonomous code generation, customer support routing, and automated analysis."
+      },
+      {
+        capability: "Multi-Modal Data Processing & Fusion",
+        description: "Integrating text, vision, audio, and tabular data parsing to feed unified multi-modal architectures.",
+        outcomes: "Ensures seamless alignment between different media types and enables comprehensive search capabilities.",
+        relevance: "Essential for document parsing (PDFs), video analytics, and multi-channel customer support."
+      },
+      {
+        capability: "Tokenization Optimization & Custom Tokenizers",
+        description: "Developing customized vocabularies and tokenizers optimized for domain-specific languages or non-English text.",
+        outcomes: "Cuts token counts by 20-50%, accelerating processing speed and lowering API costs.",
+        relevance: "Highly recommended for coding assistants, translation tools, and niche vertical applications."
+      },
+      {
+        capability: "Knowledge Graph Integration (GraphRAG)",
+        description: "Mapping unstructured data into structured knowledge graphs to enable semantic relationships during search.",
+        outcomes: "Unlocks deep, cross-document reasoning and improves context relevance for complex queries.",
+        relevance: "Critical for research discovery, regulatory compliance, and multi-hop intelligence tasks."
+      },
+      {
+        capability: "LLM Evaluation & Red-Team Benchmarking",
+        description: "Building automated testing suites that evaluate model answers for toxic content, jailbreaks, and accuracy.",
+        outcomes: "Ensures safe deployment, establishes performance baselines, and flags regressions automatically.",
+        relevance: "Required for customer-facing systems and meeting strict regulatory standards."
+      },
+      {
+        capability: "Contextual Memory Management (Short/Long-term)",
+        description: "Implementing persistent state, semantic caching, and sliding context window strategies for agents.",
+        outcomes: "Retains historical conversation history efficiently, keeping context overhead low.",
+        relevance: "Key for virtual assistants, personal coaching, and long-running workspace agents."
+      },
+      {
+        capability: "Instruction Tuning & RLHF/DPO Implementation",
+        description: "Applying supervised fine-tuning and reinforcement feedback to align open-source models to precise instructions.",
+        outcomes: "Reduces dependence on expensive proprietary APIs by training highly capable open-source models.",
+        relevance: "Ideal for companies wanting complete control over their model weights and security."
       }
     ]
   },
   {
-    id: "cyber-security",
-    title: "AI-Driven Cybersecurity for Large-Scale DC & Enterprises",
+    id: "ai-trust-reliability",
+    title: "AI Trust & Reliability Engineering",
+    icon: ShieldCheck,
+    emoji: "🛡️",
+    description: "Ensuring AI systems remain accurate, fair, resilient, and strictly aligned with business SLAs and compliance standards.",
+    capabilities: [
+      {
+        capability: "Statistical Drift & Outlier Analysis",
+        description: "Monitoring inputs and predictions to detect data and concept drift using metrics like KL divergence.",
+        outcomes: "Flags model accuracy degradation early, allowing for preemptive retraining before failure.",
+        relevance: "Critical for dynamic environments like market prediction, fraud detection, and credit scoring."
+      },
+      {
+        capability: "Automated ML Pipeline Orchestration (CI/ML)",
+        description: "Configuring automated data validation, model training, evaluation, and deployment loops.",
+        outcomes: "Reduces maintenance overhead, ensures models are always updated, and guarantees safety gates.",
+        relevance: "Essential for teams running numerous production models with changing datasets."
+      },
+      {
+        capability: "Adversarial Prompt Resilience Testing",
+        description: "Stress-testing LLMs with automated jailbreak prompts, indirect injections, and safety overrides.",
+        outcomes: "Blocks 99%+ of hostile inputs before they compromise the application or databases.",
+        relevance: "Mandatory for public-facing chatbots, internal agent terminals, and corporate databases."
+      },
+      {
+        capability: "Deep Traceability & Data/Model Lineage Tracking",
+        description: "Recording every data transformation, training run, model version, and inference request cryptographically.",
+        outcomes: "Provides auditable proof of data sources, satisfying compliance requirements and simplifying debugging.",
+        relevance: "Crucial for highly regulated fields like banking, healthcare, and insurance."
+      },
+      {
+        capability: "Real-Time Performance Anomaly Detection",
+        description: "Analyzing live performance metrics (latency, error rate, tokens/sec) to detect system degradation.",
+        outcomes: "Alerts engineers to outages, stuck loops, or queue congestion within seconds.",
+        relevance: "Required to maintain high availability and meet strict Service Level Agreements (SLAs)."
+      },
+      {
+        capability: "Model Versioning, Rollback & Shadow Deployments",
+        description: "Running new model versions in shadow mode alongside production models to compare outputs.",
+        outcomes: "Ensures zero-downtime updates and safe rollbacks if a regression is detected.",
+        relevance: "Best practice for updating critical decision models without risking user experience."
+      },
+      {
+        capability: "Fairness Metric Computation & Reporting",
+        description: "Measuring demographic parity, equal opportunity, and disparate impact metrics across protected classes.",
+        outcomes: "Guarantees ethical compliance, reduces legal risk, and generates auditable bias reports.",
+        relevance: "Indispensable for recruitment, credit scoring, and government AI projects."
+      },
+      {
+        capability: "Interpretability & Feature Importance Visualization",
+        description: "Integrating SHAP, LIME, or attention map visualization to explain individual model predictions.",
+        outcomes: "Exposes the 'why' behind model outputs, helping operators make informed final approvals.",
+        relevance: "Crucial for healthcare diagnostic validation, loan rejections, and legal applications."
+      },
+      {
+        capability: "Chaos Engineering for Distributed AI Systems",
+        description: "Intentionally injecting failures (network delays, node crashes, data corruption) to test cluster resilience.",
+        outcomes: "Validates failover, replication, and backup systems, ensuring continuous operations.",
+        relevance: "Critical for mission-critical services operating at massive scale."
+      },
+      {
+        capability: "Continuous Integration for Machine Learning (CI/ML)",
+        description: "Building unified linting, testing, and formatting pipelines specifically for ML models and datasets.",
+        outcomes: "Ensures high code and data quality standards, preventing regressions from slipping into production.",
+        relevance: "Speeds up team collaboration and maintains robust engineering hygiene."
+      }
+    ]
+  },
+  {
+    id: "ai-cybersecurity",
+    title: "AI Cybersecurity",
     icon: Shield,
     emoji: "🔒",
-    description: "Protect your AI systems with Zero Trust security, runtime protection, and compliance-ready guardrails.",
+    description: "Hardening the AI lifecycle from data ingestion to model inference against adversarial threat vectors.",
     capabilities: [
       {
-        capability: "Cyber Dom Security Mesh",
-        description: "Runtime threat analysis, exfiltration blockades, and Zero Trust boundaries.",
-        outcomes: "99.9% jailbreak detection, <5ms routing overhead, SOC2/FedRAMP/EU AI Act compliance.",
-        relevance: "Critical for high-privilege AI systems in regulated environments."
+        capability: "Penetration Testing for Neural Networks",
+        description: "Evaluating neural network resilience against evasion, poisoning, and model extraction attacks.",
+        outcomes: "Identifies hidden vulnerabilities and maps robustness scores before models go live.",
+        relevance: "Critical for protecting high-value models from extraction or bypass attacks."
       },
       {
-        capability: "Secure Sandbox Execution",
-        description: "gVisor/WebAssembly/MicroVMs for safe Bash script execution and dynamic command isolation.",
-        outcomes: "0% sandbox breakout rate, <10ms boot time, 100% banned system call blocking.",
-        relevance: "Essential for agents requiring terminal access or executing untrusted scripts."
+        capability: "Zero-Trust Architecture for ML APIs",
+        description: "Enforcing micro-segmentation, mutual TLS, and token-level authorization on all model endpoints.",
+        outcomes: "Ensures only verified clients can invoke endpoints, blocking unauthorized access.",
+        relevance: "Fundamental for securing enterprise APIs and multi-tenant hosting environments."
       },
       {
-        capability: "Compliance & Auditing",
-        description: "Immutable cryptographic audit trails, real-time alerts, and regulatory compliance mapping.",
-        outcomes: "Instantaneous incident isolation, SOC2/FedRAMP/EU AI Act readiness.",
-        relevance: "Ideal for organizations requiring strict compliance and auditability."
+        capability: "Hardware-Backed Trusted Execution Environment (TEE) Setup",
+        description: "Configuring secure enclaves (e.g., SGX, TDX) to encrypt models and data in memory during execution.",
+        outcomes: "Guarantees data confidentiality even in untrusted cloud or edge environments.",
+        relevance: "Essential for processing highly sensitive data (PHI, PII, proprietary weights)."
       },
       {
-        capability: "Agent-Specific Security",
-        description: "Tool execution gating, action validation, and micro-segmented pathways.",
-        outcomes: "0% unauthorized executions, granular permission scopes, secure agent-to-database interactions.",
-        relevance: "Perfect for enterprises deploying agents in production systems."
+        capability: "Differential Privacy Implementation & Tuning",
+        description: "Adding calibrated mathematical noise to datasets or gradients during model training.",
+        outcomes: "Prevents adversaries from reconstructuring individual training samples via API outputs.",
+        relevance: "Critical for healthcare collaboration, demographic analysis, and regulatory compliance."
+      },
+      {
+        capability: "Regulatory Compliance Mapping (NIST AI RMF, EU AI Act)",
+        description: "Mapping technical security controls to requirements specified in global AI risk frameworks.",
+        outcomes: "Ensures compliance with emerging laws, preventing fines and de-risking market access.",
+        relevance: "Highly relevant for global enterprises and compliance-sensitive markets."
+      },
+      {
+        capability: "Training Data Poisoning Detection",
+        description: "Scanning training datasets for adversarial perturbations or backdoor triggers.",
+        outcomes: "Catches malicious data modifications, guaranteeing model integrity before training starts.",
+        relevance: "Important for crowd-sourced datasets, open-source scraping, and multi-tenant platforms."
+      },
+      {
+        capability: "Anomaly-Based AI Threat Detection",
+        description: "Monitoring API request payloads and traffic patterns for signs of automated model probing.",
+        outcomes: "Blocks reconnaissance attempts and rate-limits potential extraction tools.",
+        relevance: "Protects proprietary model intellectual property from being cloned or reverse-engineered."
+      },
+      {
+        capability: "Cryptographic Model Provenance Tracking",
+        description: "Signing model weights and training logs cryptographically to guarantee lineage and integrity.",
+        outcomes: "Prevents model tampering, substitution attacks, and unauthorized weight modifications.",
+        relevance: "Critical for safety-critical systems, government defense, and enterprise deployments."
+      },
+      {
+        capability: "Secure Multi-Party Computation (SMPC)",
+        description: "Enabling multiple parties to jointly train or query models on combined datasets without revealing their inputs.",
+        outcomes: "Enables secure collaboration, satisfying privacy requirements across distinct entities.",
+        relevance: "Perfect for consortium banking, medical research, and cross-border analytics."
+      },
+      {
+        capability: "Secure Model Serialization & Safe Deserialization",
+        description: "Auditing pickle and other dynamic model formats for embedded malware or shellcode execution.",
+        outcomes: "Prevents remote code execution (RCE) vulnerabilities during model load phases.",
+        relevance: "Essential when loading third-party or open-source model weights (e.g., from HuggingFace)."
       }
     ]
   },
   {
-    id: "ai-infra-layers",
-    title: "AI Infrastructure (Compute, Storage, GPU/CPU, Networking, Energy Optimization)",
-    icon: Gauge,
-    emoji: "⚡",
-    description: "Optimize every layer of your AI infrastructure for performance, efficiency, and sustainability.",
+    id: "ai-infrastructure",
+    title: "AI Infrastructure Engineering",
+    icon: Layers,
+    emoji: "⚙️",
+    description: "Designing the foundational cloud-native, scalable, automated, and sustainable systems that power enterprise AI.",
     capabilities: [
       {
-        capability: "Compute Optimization",
-        description: "CUDA kernel speedups, TensorRT optimization, and hybrid CPU/GPU pipelines.",
-        outcomes: "3–15x performance improvement, 2–5x hybrid workload efficiency.",
-        relevance: "Critical for organizations seeking maximum hardware utilization."
+        capability: "Cloud-Native AI Deployment & Containerization",
+        description: "Packaging models, runtimes, and dependencies into secure, lightweight container images.",
+        outcomes: "Ensures consistent execution across dev, test, and production environments.",
+        relevance: "Standard requirement for modern DevOps and cloud deployments."
       },
       {
-        capability: "Storage Optimization",
-        description: "GPUDirect Storage, disaggregated serving, and distributed file systems.",
-        outcomes: "2–8x throughput improvement, low-latency access for 10K+ GPU clusters.",
-        relevance: "Essential for large-scale training and inference workloads."
+        capability: "GPU Cluster Provisioning Automation",
+        description: "Using Infrastructure as Code (IaC) to spin up, configure, and teardown multi-GPU environments dynamically.",
+        outcomes: "Reduces environment setup times from days to minutes, preventing resource waste.",
+        relevance: "Crucial for data science teams requiring on-demand, reproducible cluster environments."
       },
       {
-        capability: "Networking Optimization",
-        description: "InfiniBand/RoCEv2 tuning, NCCL collective operations, and topology-aware scheduling.",
-        outcomes: "95–97%+ scaling efficiency, GPUDirect RDMA for storage/networking.",
-        relevance: "Perfect for high-speed, low-latency AI clusters."
+        capability: "High-Throughput Data Ingestion Engineering",
+        description: "Building high-performance ETL pipelines capable of streaming multi-terabyte datasets to training nodes.",
+        outcomes: "Eliminates I/O starvation bottlenecks, keeping GPU cores continuously utilized.",
+        relevance: "Essential for pre-training and continuous reinforcement learning setups."
       },
       {
-        capability: "Energy Optimization",
-        description: "Liquid cooling design, dynamic power profiles, and carbon footprint tracking.",
-        outcomes: "15–40% power efficiency gains, 20–30%+ energy savings per workload, EU AI Act compliance.",
-        relevance: "Ideal for sustainable, cost-effective AI infrastructure."
+        capability: "Distributed Storage System Optimization (Lustre, GPFS)",
+        description: "Tuning parallel file systems and cache levels for rapid checkpointing and data load speeds.",
+        outcomes: "Reduces checkpoint saving delays from hours to minutes, securing training progress.",
+        relevance: "Required for large cluster training setups where nodes frequently save state."
       },
       {
-        capability: "Unified Governance",
-        description: "FinOps dashboards, self-healing telemetry, and multi-cloud integration.",
-        outcomes: "Unit-economic metrics, <1–5% cluster downtime, consistent hybrid/cloud policies.",
-        relevance: "Critical for organizations managing fragmented or multi-cloud AI environments."
+        capability: "Containerized Model Serving (Triton, vLLM, TGI)",
+        description: "Deploying production-grade runtime servers with dynamic batching and tensor-parallel execution.",
+        outcomes: "Increases throughput, lowers latency, and scales to meet incoming traffic demands.",
+        relevance: "The foundation of highly scalable LLM, vision, and recommendation APIs."
       },
       {
-        capability: "NIST AI Risk Management & Governance System",
-        description: "Establishing formal AI governance frameworks, mapping intended use context and potential impact, implementing statistical risk measurement indices, and defining continuous mitigation treatments aligned with NIST AI RMF 1.0.",
-        outcomes: "100% audit-readiness, 90%+ risk mapping coverage across systems, weeks to setup.",
-        relevance: "Establishes a solid, standardized foundation for enterprise AI governance that aligns engineering controls with corporate compliance policies."
+        capability: "CI/CD Pipeline Automation for Machine Learning",
+        description: "Automating building, testing, model validation, and deployment stages on code changes.",
+        outcomes: "Automates model validation, deployment, and testing, keeping deployment pipelines fast and safe.",
+        relevance: "Core component of enterprise-grade MLOps and LLMOps strategies."
       },
       {
-        capability: "EU AI Act Conformity Assessment & High-Risk Obligations",
-        description: "Comprehensive alignment pipelines for Articles 8–15 of the EU AI Act covering technical data governance, representativeness audits, automated log retention, and robust human-in-the-loop oversight systems.",
-        outcomes: "99%+ statistical audit coverage, 100% traced lineage records, Articles 8-15 technical dossiers.",
-        relevance: "De-risks EU market access and guarantees compliance with the world's most stringent AI safety legislation."
+        capability: "Infrastructure Cost Optimization (FinOps for AI)",
+        description: "Auditing cloud bills, right-sizing GPU SKUs, and automating spot instance utilization.",
+        outcomes: "Cuts infrastructure budgets by 30-60% without sacrificing service availability.",
+        relevance: "Critical for finance teams and engineering managers with high cloud spend."
       },
       {
-        capability: "ISO 42001:2023 & ISO 23894 Management Systems (AIMS)",
-        description: "Implementing, auditing, and optimizing an Artificial Intelligence Management System (AIMS) under ISO 42001 and ISO 23894 guidance to establish continuous process controls.",
-        outcomes: "Full certification audit readiness, standardized QA gates for 100% of internal AI initiatives.",
-        relevance: "Creates a universally recognized certifiable management framework for AI systems, demonstrating quality assurance to global buyers."
+        capability: "Real-Time Streaming Data Integration (Kafka/Flink)",
+        description: "Designing event-driven streaming pipelines for live model input features and predictions.",
+        outcomes: "Enables sub-second latency on real-time decisions, keeping models synchronized with live data.",
+        relevance: "Essential for personalization engines, IoT monitoring, and live analytics."
       },
       {
-        capability: "Adversarial AI Red Teaming & Model Penetration Testing",
-        description: "Dynamic stress testing and security validation of production models against prompt injection, model extraction, data poisoning, demographic bias, and privacy leakage vectors.",
-        outcomes: "99.8% prompt injection capture rate, 99.9% malicious payload block rate, 35%+ EDR detection lift.",
-        relevance: "Exposes security and ethical flaws in a controlled sandbox environment before hostile actors exploit them in production."
+        capability: "Multi-Cloud Architecture Design & Abstraction",
+        description: "Building cloud-agnostic management layers to run workloads across AWS, GCP, Azure, or on-prem.",
+        outcomes: "Avoids vendor lock-in and allows dynamic workload routing to the cheapest provider.",
+        relevance: "Perfect for enterprises seeking price leverage and high redundancy."
       },
       {
-        capability: "Reliability Architecture, Guardrails & Real-Time Observability",
-        description: "Deployment of high-performance proxy gateways (guardrails), real-time drift, bias, and performance monitors, and cryptographically signed audit logging networks.",
-        outcomes: "Under 15ms added filter latency, real-time drift alerts within 5 minutes, under 3 minutes incident MTTR.",
-        relevance: "Guarantees runtime reliability, safety-first fail-safes, and continuous alignment under live traffic conditions."
+        capability: "Decentralized Compute Orchestration",
+        description: "Managing training and inference tasks across geographically distributed edge clusters.",
+        outcomes: "Unlocks idle capacity, routes around local outages, and complies with local data laws.",
+        relevance: "Great for federated learning, IoT sensor networks, and edge device clusters."
       }
     ]
   }
@@ -232,331 +376,110 @@ const matrixCategories: MatrixCategory[] = [
 const capabilitiesData: SectionData[] = [
   {
     title: "GPU Optimization",
-    description: "Maximum hardware throughput and efficiency",
-    introduction: "We empower enterprises to achieve peak hardware efficiency through comprehensive Black-Box Optimization (autonomous workload tuning) and White-Box Optimization (transparent kernel profiling).",
+    description: "Maximum hardware throughput and efficiency.",
+    introduction: "We optimize every layer of the compute stack, from low-level CUDA kernels and inter-GPU communication fabrics to high-performance clustering. This ensures your workloads leverage the full capacity of your hardware investment.",
     capabilities: [
-      "Kernel-level tuning and custom CUDA deployment",
-      "Advanced CUDA stream concurrency",
-      "TensorRT graph fusion optimization",
-      "NCCL topology optimization for multi-GPU communication"
+      "Custom CUDA/Triton kernel development and compiler fusions",
+      "Dynamic workload balancing and fractional sharing",
+      "Memory bandwidth optimization and OOM fragmentation mitigation",
+      "Ultra-low latency HPC network fabric engineering (RDMA, InfiniBand)",
+      "GPU super-scaling and global cluster orchestration"
     ],
     solutions: [
-      "Automated workload profiling and tuning",
-      "Transparent white-box kernel acceleration",
-      "Autonomous black-box workload orchestration",
-      "Hybrid scaling architectures"
+      "GPU Super Scaling",
+      "Low Latency Networking for HPC",
+      "Memory Bandwidth Optimization",
+      "Inference Latency Reduction",
+      "Multi-Tenant GPU Orchestration"
     ],
     useCases: [
-      "Real-time inference pipelines requiring ultra-low latency",
-      "Large-scale distributed training clusters",
-      "Complex computational modeling in HFT and research"
+      "Foundation model pre-training across globally distributed GPU super-clusters",
+      "Ultra-low latency HPC simulations (e.g., computational fluid dynamics)",
+      "Large-scale LLM pre-training acceleration",
+      "Real-time video analytics and computer vision pipelines",
+      "High-frequency trading algorithm execution"
     ],
     outcomes: [
-      "Dramatically accelerate workload processing speeds",
-      "Significant latency reduction across enterprise applications",
-      "Massive throughput gains and hard cost savings"
+      "Unlock maximum hardware throughput for parallel workloads",
+      "Dramatically reduce multi-node training synchronization times",
+      "Shrink token generation latency and operational cost",
+      "Maintain peak performance within strict thermal limits"
     ],
     metrics: [
       { label: "Performance Gains", value: "3-15x" },
       { label: "Cost Reduction", value: "40-75%" },
       { label: "Latency Reduction", value: "50%+" },
-      { label: "Hardware Utilization", value: "95%" }
-    ]
-  },
-  {
-    title: "Cloud GPU Optimization",
-    description: "Cloud-neutral multi-cluster orchestration",
-    introduction: "Positioning the GPU-phi platform as cloud-neutral and enterprise-ready, we transform fragmented multi-cloud deployments into unified, cost-aware AI factories.",
-    capabilities: [
-      "Seamless multi-cloud cluster orchestration",
-      "Advanced GPU autoscaling with Kubernetes and Ray",
-      "Enterprise-grade GPU FinOps strategies",
-      "Cross-region workload mobility"
-    ],
-    solutions: [
-      "Cloud-neutral GPU-phi orchestration integration",
-      "Automated cost-aware scheduling policies",
-      "Dynamic instance provisioning algorithms",
-      "Multi-tenant resource isolation"
-    ],
-    useCases: [
-      "Enterprise multi-cloud AI adoption",
-      "Global scaling of real-time AI services",
-      "Mitigating cloud vendor lock-in strategies"
-    ],
-    outcomes: [
-      "Significantly faster deployment cycles",
-      "Unmatched resilience with zero downtime updates",
-      "Drastic reduction in cloud infrastructure spending"
-    ],
-    metrics: [
-      { label: "Deployment Speed", value: "5x Faster" },
-      { label: "Infrastructure Savings", value: "50%+" },
-      { label: "Downtime", value: "Zero" },
-      { label: "Cloud Flexibility", value: "100%" }
+      { label: "Hardware Utilization", value: "95%+" }
     ]
   },
   {
     title: "LLM Optimization",
-    description: "Accelerating GenAI inference and training",
-    introduction: "Unlock the full potential of Large Language Models with specialized hybrid black-box and white-box optimizations that reduce inference costs while accelerating response times.",
+    description: "Accelerating GenAI inference and training.",
+    introduction: "We deliver production-ready, highly accurate, and cost-efficient Large Language Model integrations. From parameter-efficient fine-tuning (PEFT) and semantic search (RAG) to autonomous multi-agent grids, we ensure fluid execution.",
     capabilities: [
       "Parameter-Efficient Fine-Tuning (LoRA, QLoRA)",
-      "Advanced model quantization (INT8/FP16/AWQ)",
-      "Highly distributed inference pipeline orchestration",
-      "Context-window memory management"
+      "Advanced RAG pipeline architecture and knowledge graphs",
+      "Autonomous AI agent framework development",
+      "Multi-modal model integration and dynamic routing",
+      "Cost-per-token optimization strategies"
     ],
     solutions: [
-      "Disaggregated serving architectures for LLMs",
-      "Hybrid black-box + white-box scaling",
-      "Custom kernel integration for transformer blocks",
-      "RAG pipeline acceleration"
+      "Advanced RAG Pipeline Architecture",
+      "Parameter-Efficient Fine-Tuning (PEFT/LoRA)",
+      "Autonomous AI Agent Framework Development",
+      "Multi-Modal Model Integration and Routing",
+      "Cost-Per-Token Optimization Strategies"
     ],
     useCases: [
-      "Enterprise customer support conversational bots",
-      "Automated compliance monitoring and document QA",
-      "Real-time predictive analytics and decision engines"
+      "Enterprise knowledge base conversational search",
+      "Automated software code generation and review",
+      "Intelligent document processing (IDP) and extraction",
+      "Customer support ticket routing and resolution",
+      "Complex data query translation (Text-to-SQL)"
     ],
     outcomes: [
-      "Drastically reduces per-token inference cost",
-      "Accelerates response times for fluid user experiences",
-      "Empowers secure, on-premise foundation model deployment"
+      "Minimize token-generation and hosting API costs",
+      "Accelerate response times to improve user retention",
+      "Deploy complex multi-agent workflows with high success rates",
+      "Enforce structured JSON/XML outputs for enterprise API integration"
     ],
     metrics: [
       { label: "Inference Speed", value: "70% Faster" },
       { label: "Memory Footprint", value: "-60%" },
       { label: "Cost Per Token", value: "-80%" },
-      { label: "Throughput", value: "4-8x+" }
+      { label: "Throughput Boost", value: "4-8x" }
     ]
   },
   {
-    title: "AI Optimization",
-    description: "Intelligent orchestration for AI infrastructure",
-    introduction: "Emphasize workload orchestration across heterogeneous GPU clusters with AI-driven scheduling, predictive resource allocation, and automated scaling that guarantees resilience.",
+    title: "AI Trust & Reliability Engineering",
+    description: "Continuous observability, drift detection, and compliance.",
+    introduction: "We establish institutional trust and system reliability. Our frameworks integrate rigorous statistical drift detection, safety guardrails, chaos engineering, and alignment workflows to guarantee compliance with global AI regulations.",
     capabilities: [
-      "Heterogeneous GPU cluster workload orchestration",
-      "AI-driven workload scheduling algorithms",
-      "Predictive resource allocation and capacity planning",
-      "Automated and autonomous scaling frameworks"
+      "Statistical drift & outlier analysis",
+      "Automated ML pipeline orchestration (CI/ML)",
+      "Adversarial prompt resilience testing",
+      "Deep traceability & data/model lineage tracking",
+      "Chaos engineering for distributed AI systems"
     ],
     solutions: [
-      "Autonomous resilience frameworks",
-      "Intelligent capacity forecasting dashboards",
-      "Continuous integration/deployment (CI/CD) for ML models",
-      "Dynamic priority-based queue management"
+      "Continuous Model Drift Detection Systems",
+      "End-to-End LLM Observability Stack",
+      "AI Red-Teaming and Adversarial Stress Testing",
+      "Automated CI/CD Retraining Pipelines",
+      "AI-Specific SLA/SLO Definition & Enforcement"
     ],
     useCases: [
-      "Foundational model training across diverse hardware",
-      "Heterogeneous enterprise cluster management",
-      "High-throughput internal AI R&D platforms"
+      "Fraud detection model degradation prevention in banking",
+      "Healthcare diagnostic AI accuracy assurance and FDA compliance",
+      "Chatbot toxicity and safety guardrail enforcement",
+      "High-frequency trading algorithm stability monitoring",
+      "Manufacturing predictive maintenance sensor drift correction"
     ],
     outcomes: [
-      "ROI-driven outcomes with significantly faster model training",
-      "Reduced energy consumption across the data center",
-      "Improved resilience and fault tolerance for critical workloads"
-    ],
-    metrics: [
-      { label: "Model Training", value: "3x Faster" },
-      { label: "Energy Consumption", value: "-40%" },
-      { label: "Cluster Uptime", value: "99.99%" },
-      { label: "Job Completion", value: "99%+" }
-    ]
-  },
-  {
-    title: "Data Center Network Automation",
-    description: "Sub-microsecond latency at multi-megawatt scale",
-    introduction: "Eliminate network bottlenecks with AI-driven routing controllers, RDMA over InfiniBand, and NVLink topology optimization for autonomous, highly resilient orchestration.",
-    capabilities: [
-      "RDMA over InfiniBand architectural design",
-      "NVLink topology optimization for massive scale",
-      "AI-driven routing controllers and traffic management",
-      "Adaptive network reflex layers"
-    ],
-    solutions: [
-      "Autonomous network orchestration platforms",
-      "Adaptive routing dashboards with real-time telemetry",
-      "Congestion control and automated load balancing",
-      "Resilient leaf-spine fabric configurations"
-    ],
-    useCases: [
-      "Hyperscale AI training data center networking",
-      "Low-latency financial trading (HFT) infrastructure",
-      "National sovereign AI computing grid deployments"
-    ],
-    outcomes: [
-      "Achieve absolute sub-microsecond latency",
-      "Guarantee 99.9% uptime for business-critical operations",
-      "Transform rigid networks into adaptive, self-healing fabrics"
-    ],
-    metrics: [
-      { label: "Network Latency", value: "< 1μs" },
-      { label: "Network Uptime", value: "99.9%" },
-      { label: "Bandwidth Utilization", value: "95%+" },
-      { label: "Packet Loss", value: "Near-Zero" }
-    ]
-  },
-  {
-    title: "Energy Optimization",
-    description: "Sustainable AI scaling with ESG compliance",
-    introduction: "Drive sustainable AI growth through energy-aware scheduling, comprehensive GPU FinOps dashboards, and automated thermal management that aligns with corporate ESG standards.",
-    capabilities: [
-      "Energy-aware workload scheduling algorithms",
-      "Real-time GPU FinOps and sustainability dashboards",
-      "Comprehensive sustainability metrics tracking",
-      "Dynamic power capping and thermal profiling"
-    ],
-    solutions: [
-      "ESG compliance reporting suites",
-      "Intelligent workload time-shifting for off-peak execution",
-      "Liquid cooling integration and management",
-      "Carbon footprint reduction automation"
-    ],
-    useCases: [
-      "Enterprise sustainability initiatives and ESG mandates",
-      "Power-constrained data center environments",
-      "Green AI research and development facilities"
-    ],
-    outcomes: [
-      "Massively reduced total power consumption",
-      "Proven carbon footprint reduction for enterprise reporting",
-      "Strict compliance with evolving ESG standards and regulations"
-    ],
-    metrics: [
-      { label: "Power Consumption", value: "-30%" },
-      { label: "ESG Compliance", value: "100%" },
-      { label: "Carbon Footprint", value: "-45%" },
-      { label: "Cooling Efficiency", value: "2x" }
-    ]
-  },
-  {
-    title: "AI Security & Cyber Dom Protection Mesh",
-    description: "Continuous Zero-Trust shielding and threat isolation",
-    introduction: "Deploy generative AI and autonomous systems with absolute peace of mind. We protect applications, models, and execution hosts from adversarial threats, jailbreaks, and exfiltration attempts.",
-    capabilities: [
-      "Cyber Dom guardrails for real-time prompt injection blocking",
-      "Zero-Trust policy enforcement for models and tools",
-      "Cryptographic activity logging for every database read/write",
-      "Automated red-teaming and adversarial simulation engines"
-    ],
-    solutions: [
-      "Cyber Dom runtime injection filter mesh integration",
-      "PII redaction and exfiltration prevention gateways",
-      "Audit compliance tracking suites (SOC2, EU AI Act)",
-      "Confidential computing and TEE infrastructure setups"
-    ],
-    useCases: [
-      "Regulated banking systems deploying user-facing conversational LLMs",
-      "Federal databases integrated with generative search engines",
-      "SaaS systems executing user-supplied prompts with tool bindings"
-    ],
-    outcomes: [
-      "Neutralize prompt injections and model jailbreaks at the gateway",
-      "Maintain strict compliance standards in highly audited industries",
-      "Guarantee privacy and zero leaks of proprietary enterprise data"
-    ],
-    metrics: [
-      { label: "Jailbreak Block Rate", value: "99.9%" },
-      { label: "Filter Latency Overhead", value: "< 5ms" },
-      { label: "PII Leak Probability", value: "0%" },
-      { label: "Compliance Score", value: "100%" }
-    ]
-  },
-  {
-    title: "Hardened Sandbox Shell & Agent Execution",
-    description: "Hyper-secure runtimes for dynamic agent-generated code",
-    introduction: "Unlock the full potential of shell automation and scripting. We build ephemeral, isolated execution environments that allow agents to write and run code securely without exposing host servers.",
-    capabilities: [
-      "gVisor, WebAssembly, and MicroVM container isolation",
-      "Dynamic pre-execution Bash script parsing and syntax auditing",
-      "Strict CPU, memory, and network namespace restrictions",
-      "Real-time process telemetry and system call monitoring"
-    ],
-    solutions: [
-      "Ephemeral runner sandboxes integrated with agent pipelines",
-      "Blacklisted command and namespace isolation policies",
-      "Automatic file system cleanup immediately post-execution",
-      "MCP server bindings with restricted execution contexts"
-    ],
-    useCases: [
-      "AI agents performing code correction and running automated tests",
-      "Systems deploying shell-capable automation agents for server configs",
-      "Data analytics agents writing and executing dynamic Python/Bash scripts"
-    ],
-    outcomes: [
-      "Safe execution of dynamic, AI-generated terminal commands",
-      "Zero host contamination or unauthorized lateral network movements",
-      "Prevention of infinite loops, memory leaks, and CPU exhaustion"
-    ],
-    metrics: [
-      { label: "Sandbox Breakout", value: "0%" },
-      { label: "Container Boot Time", value: "< 10ms" },
-      { label: "Blocked Banned Syscalls", value: "100%" },
-      { label: "Resource Limits Enforced", value: "100%" }
-    ]
-  },
-  {
-    title: "Multi-Agent Fleet Orchestration",
-    description: "Stateful coordination of specialist agent teams",
-    introduction: "Decompose complex, long-running processes into reliable worker fleets. We engineer distributed multi-agent state machines with robust routing, conflict resolution, and human approval gates.",
-    capabilities: [
-      "Helvetica or hierarchical multi-agent orchestration design", // preserved comment fallback if appropriate, but keeping original structure
-      "Hierarchical and network multi-agent orchestration design",
-      "LangGraph and CrewAI distributed workflow development",
-      "Human-in-the-Loop Slack/Email action approval gates",
-      "Model Context Protocol (MCP) server resource bindings"
-    ],
-    solutions: [
-      "Stateful multi-agent supervisor systems",
-      "Automated exception handling and compensation routines",
-      "Interactive agent trace observability dashboards",
-      "Real-time cost governance and token attribution controls"
-    ],
-    useCases: [
-      "Autonomous coding, testing, and devops pipeline agents",
-      "Multi-document financial report reconciliation systems",
-      "Autonomous procurement workflows with authorization loops"
-    ],
-    outcomes: [
-      "Scale operational automation without losing governance",
-      "Prevent infinite agent loops and execution drift",
-      "Seamlessly gate high-risk writes with real-time human reviews"
-    ],
-    metrics: [
-      { label: "Complex Task Success", value: "92-96%" },
-      { label: "Loop Failures Blocked", value: "85%+" },
-      { label: "Tool Selector Accuracy", value: "98.5%" },
-      { label: "Integration Speedup", value: "3x Faster" }
-    ]
-  },
-  {
-    title: "AI Trusted Reliability Engineering",
-    description: "NIST, ISO 42001, and EU AI Act compliance, AI Red Teaming, and safety guardrails.",
-    introduction: "Establish institutional trust and regulatory resilience. AI Trusted Reliability Engineering (AIRE) integrates rigorous compliance frameworks, adversarial testing, and robust reliability guardrails to secure your enterprise AI pipelines against operational, legal, and security threats.",
-    capabilities: [
-      "NIST AI RMF 1.0 (Govern, Map, Measure, Manage) alignment",
-      "EU AI Act Articles 8–15 High-Risk System compliance",
-      "ISO 42001:2023 Artificial Intelligence Management System (AIMS) execution",
-      "AI Red Teaming (Prompt injection, data poisoning, privacy leak testing)",
-      "Trusted AI cross-framework harmonization (explainability, bias audit)",
-      "Reliability Architecture (guardrails, real-time observability, signed logs)"
-    ],
-    solutions: [
-      "Bias detection & mitigation pipelines",
-      "Explainable AI (XAI) reason code generation",
-      "Dual Compliance framework setup (EU AI Act + Medical Device Regulation)",
-      "Conformity assessment package dossier preparation",
-      "Real-time proxy guardrail gateway deployment"
-    ],
-    useCases: [
-      "High-Risk Generative AI / RAG Systems (e.g. Legal Research Copilots)",
-      "Financial Credit Scoring & Underwriting AI (ECOA/FCRA/AIMS compliant)",
-      "Healthcare Diagnostic Imaging & Sepsis Early Warning Systems"
-    ],
-    outcomes: [
-      "Establish certifiable audit readiness under ISO 42001",
-      "Achieve 99.9% mitigation of prompt injections and jailbreaks",
-      "Mitigate disparate impact bias to a ratio of >0.95 across demographic groups",
-      "Eliminate PHI and PII data leaks with secure sandbox execution"
+      "Prevent catastrophic failures through robust cascade protection",
+      "Attain audit readiness under EU AI Act and ISO 42001 guidelines",
+      "Detect and resolve model degradation within minutes of data drift",
+      "Integrate explainable AI (XAI) feature visualizations for operators"
     ],
     metrics: [
       { label: "Jailbreak Blocks", value: "99.9%" },
@@ -564,8 +487,90 @@ const capabilitiesData: SectionData[] = [
       { label: "Proxy Latency", value: "<15ms" },
       { label: "Bias Mitigation", value: ">0.95" }
     ]
+  },
+  {
+    title: "AI Cybersecurity",
+    description: "Zero-Trust protection mesh and model hardening.",
+    introduction: "We protect the full AI lifecycle, shielding proprietary model weights, application inputs, and training data from novel adversarial vectors. Our systems prevent extraction, inversion, and prompt injection.",
+    capabilities: [
+      "Penetration testing for neural networks",
+      "Zero-Trust architecture for ML APIs",
+      "Hardware-backed trusted execution environments (TEE)",
+      "Differential privacy implementation and tuning",
+      "Regulatory compliance mapping (NIST AI RMF, EU AI Act)"
+    ],
+    solutions: [
+      "Adversarial Robustness Testing & Hardening",
+      "Confidential Computing for Secure Inference",
+      "Prompt Injection Defense Mechanisms",
+      "AI/ML Supply Chain Vulnerability Scanning",
+      "Model Inversion & Data Extraction Defense"
+    ],
+    useCases: [
+      "Preventing prompt injection attacks on customer-facing chatbots",
+      "Protecting proprietary LLM weights from theft by malicious insiders",
+      "Securing healthcare AI against patient data reconstruction (HIPAA)",
+      "Hardening biometric systems against adversarial presentation attacks",
+      "Securing third-party ML model dependencies in enterprise software"
+    ],
+    outcomes: [
+      "Eliminate prompt injections and jailbreak attacks at the gateway",
+      "Secure sensitive user information from model extraction queries",
+      "Audit HuggingFace pipelines and open-source models for hidden backdoors",
+      "Run encrypted model predictions on untrusted cloud infrastructure"
+    ],
+    metrics: [
+      { label: "Jailbreak Detection", value: "99.9%" },
+      { label: "Execution Breakout", value: "0%" },
+      { label: "Syscall Blocking", value: "100%" },
+      { label: "Compliance Score", value: "100%" }
+    ]
+  },
+  {
+    title: "AI Infrastructure Engineering",
+    description: "Cloud-native pipelines, storage, and sustainable compute.",
+    introduction: "We build the high-performance foundations that power enterprise AI at scale. From automated MLOps pipelines and vector databases to energy, I/O, and memory optimizations, we ensure absolute stability.",
+    capabilities: [
+      "Cloud-native AI containerization and Kubernetes orchestration",
+      "GPU cluster provisioning automation",
+      "High-throughput data ingestion engineering",
+      "Distributed storage system optimization (Lustre, GPFS)",
+      "Infrastructure cost optimization (FinOps for AI)"
+    ],
+    solutions: [
+      "End-to-End MLOps/LLMOps Pipeline Architecture",
+      "Highly Available Scalable Vector Database Deployment",
+      "Kubernetes for AI Workload Orchestration",
+      "Serverless GPU Provisioning & Auto-Scaling",
+      "Event-Driven AI Microservices Design",
+      "Feature Store Architecture & Management",
+      "Unified Data Lakehouse for AI Training",
+      "Infrastructure-as-Code (IaC) for AI Environments",
+      "Hybrid/Multi-Cloud AI Workload Routing",
+      "Cost-Optimized Storage Tiering for ML Datasets"
+    ],
+    useCases: [
+      "Building enterprise-scale internal ML platforms from scratch",
+      "Orchestrating millions of daily LLM inferences with automatic failover",
+      "Energy Optimization: carbon-aware training pipelines routing workloads dynamically",
+      "I/O Optimization: GDS (GPU Direct Storage) and NVMe-oF clustering to eliminate checkpoints",
+      "Memory Optimization: tuning shared architectures to load massive 100B+ models without partition"
+    ],
+    outcomes: [
+      "Achieve seamless vertical scaling with minimal cluster overhead",
+      "Minimize network power and cooling energy across server instances",
+      "Bypass storage and CPU constraints for rapid model iteration",
+      "Replicate complex GPU environments with Infrastructure-as-Code"
+    ],
+    metrics: [
+      { label: "Network Power Saved", value: "-35%" },
+      { label: "Electricity Cost Cut", value: "12%" },
+      { label: "Cooling Energy Saved", value: "-25%" },
+      { label: "Water Usage (WUE)", value: "Near-Zero" }
+    ]
   }
 ];
+
 
 function CapabilitiesList() {
   return (

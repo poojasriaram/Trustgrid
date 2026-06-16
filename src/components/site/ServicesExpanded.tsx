@@ -149,7 +149,6 @@ export function ServicesExpanded() {
 
         <div className="mt-16 space-y-12">
           {services.map((s, i) => {
-            const isEven = i % 2 === 0;
             return (
               <motion.div
                 key={s.title}
@@ -162,9 +161,9 @@ export function ServicesExpanded() {
                 {/* Accent top bar */}
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 p-6 md:p-8 items-stretch">
-                  {/* Left Column (Text content) - alternated on desktop */}
-                  <div className={`flex flex-col justify-between min-w-0 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                <div className="p-6 md:p-8">
+                  {/* Text content */}
+                  <div className="flex flex-col justify-between min-w-0 w-full">
                     <div>
                       {/* Header */}
                       <div className="flex items-start gap-4">
@@ -210,7 +209,7 @@ export function ServicesExpanded() {
                           <div className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-3">
                             Quantified Business Impact
                           </div>
-                          <div className="grid grid-cols-2 gap-4 mb-4">
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
                             {s.impact.map((m) => (
                               <div key={m.label}>
                                 <div className="text-2xl font-bold text-gradient-primary font-display">
@@ -232,19 +231,6 @@ export function ServicesExpanded() {
                         <ArrowRight className="h-4 w-4 mt-0.5 shrink-0 text-accent" />
                         {s.outcome}
                       </p>
-                    </div>
-                  </div>
-
-                  {/* Right Column (Visual Image) - alternated on desktop */}
-                  <div className={`flex items-center min-w-0 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                    <div className="relative rounded-lg overflow-hidden border border-border/40 aspect-[4/3] w-full bg-surface/10">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent z-10 pointer-events-none" />
-                      <img
-                        src={s.image}
-                        alt={`${s.title} visual representation`}
-                        loading="lazy"
-                        className="w-full h-full object-cover select-none pointer-events-none transition-transform duration-700 group-hover:scale-105"
-                      />
                     </div>
                   </div>
                 </div>

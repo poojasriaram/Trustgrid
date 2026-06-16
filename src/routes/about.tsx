@@ -25,23 +25,6 @@ function AboutPage() {
         title="A Full-Spectrum AI Engineering Company"
         description="TrustGrid.AI engineers production AI systems for the world's most demanding enterprises — from GPU clusters to autonomous agent fleets, across 20+ regulated industries."
       />
-      
-      {/* Premium headquarters visual */}
-      <section className="relative mx-auto max-w-7xl px-6 py-4">
-        <div className="relative rounded-2xl overflow-hidden aspect-[21/9] border border-border/60 shadow-2xl bg-surface/10">
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent z-10" />
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-            alt="TRUSTGRID.AI Global Operations Headquarters"
-            className="w-full h-full object-cover select-none pointer-events-none"
-            loading="eager"
-          />
-          <div className="absolute bottom-6 left-6 z-20">
-            <h3 className="text-xl font-semibold text-foreground">Global Operations Headquarters</h3>
-            <p className="text-sm text-muted-foreground mt-1">Connecting 5 global delivery centers and datacenters worldwide</p>
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-5xl px-6 py-20 prose-invert">
         <div className="grid md:grid-cols-2 gap-12">

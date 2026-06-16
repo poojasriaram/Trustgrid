@@ -22,6 +22,7 @@ import {
   ChevronRight,
   ArrowRight,
   Sparkles,
+  Layers,
 } from "lucide-react";
 
 export const Route = createFileRoute("/solutions")({
@@ -62,209 +63,145 @@ interface TechnicalCategory {
 
 const technicalCategories: TechnicalCategory[] = [
   {
-    id: "gpu-infra",
-    title: "GPU & AI HPC Infrastructure",
+    id: "gpu-optimization",
+    title: "GPU Optimization",
     subtitle: "Category 1",
     icon: Cpu,
     subcategories: [
       {
-        title: "1.1 Data Center AI Solutions",
+        title: "1.1 Core Performance Tuning",
         points: [
-          "AI Cloud Architecture — Design cloud-native, hybrid, and on-prem AI platforms for distributed workloads",
-          "Kubernetes Platforms — Orchestrate containerized AI training and inference pipelines at scale",
-          "Distributed Training Infrastructure — Engineer multi-node training clusters with optimized data/model parallelism",
-          "GPU Cluster Management — Deploy and manage large-scale GPU fleets (128+ GPUs) with DCGM self-healing",
-          "AI FinOps Optimization — Right-size infrastructure spend, eliminate idle GPU cycles, improve utilization",
-          "High Availability Design — Architect fault-tolerant AI systems with redundancy, failover, and disaster recovery",
-          "AI Networking & Storage — Optimize high-throughput storage (NVMe-oF, parallel filesystems) and low-latency network fabrics",
+          "Dynamic Workload Balancing — Distributing inference and training requests across GPUs to prevent bottlenecks and maximize utilization",
+          "Memory Bandwidth Optimization — Restructuring data pipelines and tensor layouts to minimize memory bottlenecks and maximize DRAM throughput",
+          "GPU Super Scaling — Engineering seamless scale-out architectures to orchestrate tens of thousands of GPUs for foundation model training",
+          "Multi-Tenant GPU Orchestration — Isolating GPU resources using MIG (Multi-Instance GPU) and vGPU technologies for secure workspace utilization",
+          "Kernel-Level Compute Tuning — Customizing CUDA/Triton kernels to align specifically with the mathematical operations of your architectures",
         ],
       },
       {
-        title: "1.2 High-Performance Computing (HPC) Cluster Solutions",
+        title: "1.2 Scale & Communication Optimization",
         points: [
-          "CUDA Kernel Optimization — Profile and rewrite kernels to maximize tensor core utilization and memory bandwidth",
-          "Mega-Scale GPU Data Centers — Design and deploy 10,000+ GPU supercomputing networks with optimized rack density (60kW+)",
-          "Network Fabric Tuning (NCCL/RoCEv2) — Optimize multi-node communication topologies, reduce all-reduce latency",
-          "TensorRT & Quantization — Deploy FP8/INT4 quantized inference engines for maximum throughput",
-          "Multi-GPU Parallel Scaling — Implement data, model, and pipeline parallelism strategies that scale linearly",
-          "Liquid Cooling Fabric Design — Engineer direct-to-chip and immersion cooling for high-density H100/H200 clusters",
-          "DCGM Self-Healing Clusters — Build autonomous monitoring and remediation for GPU faults, thermal throttling, network degradation",
-        ],
-      },
-      {
-        title: "1.3 Data Center High-Performance Networking & Automation",
-        points: [
-          "AI-Optimized Network Fabric Design — Architect spine-leaf topologies with RoCEv2, InfiniBand, congestion-aware routing",
-          "NCCL Topology Optimization — Tune NVIDIA Collective Communications Library configurations for specific cluster topologies",
-          "Network Automation & Orchestration — Automate fabric provisioning, VLAN/VXLAN segmentation, QoS policies for multi-tenant AI",
-          "RDMA Performance Engineering — Optimize GPUDirect RDMA, eliminate CPU bottlenecks, maximize intra/inter-node bandwidth",
-          "Storage Network Integration — Design high-throughput parallel storage networks (Lustre, WekaFS, GPFS) matching GPU compute throughput",
-          "Automated Fault Detection & Remediation — Deploy AI-driven network monitoring that predicts congestion, isolates faulty links, reroutes traffic autonomously",
-        ],
-      },
-      {
-        title: "1.4 AI Infrastructure Operations (MLOps / LLMOps / AgentOps)",
-        points: [
-          "Unified AI Operations Platform — Consolidate model training, deployment, monitoring, governance across classical ML, LLMs, and agents",
-          "Continuous Training Pipelines — Automate data ingestion, retraining triggers, model versioning with drift detection",
-          "Model Registry & Experiment Tracking — Centralize model artifacts, hyperparameters, lineage using MLflow/Kubeflow",
-          "Inference Optimization & Scaling — Deploy auto-scaling inference endpoints with batching, caching, load balancing",
-          "Multi-Environment Promotion — Govern model promotion from dev → staging → production with automated gates and rollback",
-          "Observability & AIOps — Monitor model performance, latency, cost, and business impact in real-time",
+          "NCCL/TCP Communication Overhead Reduction — Optimizing inter-gpu communication to eliminate gradient synchronization bottlenecks",
+          "Inference Latency Reduction — Applying advanced quantization (INT8/FP8), pruning, and speculative decoding to shrink token generation latency",
+          "Thermal and Power Management Optimization — Engineering power-capping and dynamic frequency scaling to maintain peak performance",
+          "GPU Pooling and Fractional Sharing — Deploying time-slicing and spatial partitioning to allow multiple models to share a physical GPU",
+          "NVLink/NVSwitch Interconnect Optimization — Configuring topologies to ensure P2P memory access is fully leveraged for model parallelism",
         ],
       },
     ],
   },
   {
-    id: "llm-opt",
-    title: "LLM Optimization & Enterprise Generative AI",
+    id: "llm-optimization",
+    title: "LLM Optimization",
     subtitle: "Category 2",
     icon: Brain,
     subcategories: [
       {
-        title: "2.1 Enterprise LLM Fine-Tuning & Optimization",
+        title: "2.1 Model Adaptation & Context Scaling",
         points: [
-          "LLM Fine-Tuning (LoRA/DPO) — Adapt open-weights models (Llama, Mistral) to enterprise domains with parameter-efficient training",
-          "FP8 & INT4 Quantization — Compress models for edge and data center deployment without significant accuracy loss",
-          "Automated Evaluation Gateways — Build CI/CD pipelines that benchmark models against custom metrics before production release",
-          "Domain-Specific Model Runs — Deploy specialized models for code generation, legal analysis, clinical intelligence, financial analytics",
-          "Code & Content Automation — Automate software development, documentation generation, and content creation with governed AI assistance",
+          "Parameter-Efficient Fine-Tuning (PEFT) Deployment — Implementing LoRA/QLoRA to adapt foundational models without the compute cost",
+          "Advanced RAG Pipeline Architecture — Designing chunking, embedding, and retrieval pipelines with hybrid search for context injection",
+          "Autonomous AI Agent Framework Development — Building tool-calling, memory-managed, and planning-capable agents using LangGraph",
+          "Context Window Optimization Strategies — Utilizing RoPE scaling, sliding window attention, and hierarchical memory to extend effective context",
+          "Multi-Modal Model Integration and Routing — Designing orchestration layers that dynamically route text, image, and audio inputs",
         ],
       },
       {
-        title: "2.2 Enterprise RAG & Knowledge Systems",
+        title: "2.2 Efficiency & Cost Optimization",
         points: [
-          "Enterprise RAG & Semantics — Implement retrieval-augmented generation with vector databases, knowledge graphs, hybrid search",
-          "Retrieval-Augmented Generation (RAG) — Ground AI responses in enterprise documents, databases, and knowledge bases",
-          "Vector Databases — Deploy high-performance semantic search with Pinecone, Weaviate, Milvus, or pgvector",
-          "Knowledge Graphs — Model complex entity relationships and reasoning paths for multi-hop question answering",
-          "Semantic Search — Enable concept-based search that understands intent beyond keyword matching",
-          "Persistent Knowledge Stores — Build durable, versioned knowledge repositories that evolve with the organization",
-        ],
-      },
-      {
-        title: "2.3 Long-Memory AI Systems",
-        points: [
-          "Memory Architectures — Design short-term (context window), medium-term (conversation history), and long-term (enterprise knowledge) memory layers",
-          "AI That Learns Beyond the Context Window — Build systems that retain institutional knowledge across months and years",
-          "Continuous Knowledge Evolution — Enable AI systems that continuously learn and evolve alongside the organization",
+          "Prompt Chaining and Structured Output Generation — Enforcing JSON/XML schema outputs and complex reasoning chains for API integration",
+          "LLM Routing and Load Balancing — Implementing semantic routers to direct queries to small/specialized models based on complexity",
+          "Vector Embedding Optimization and Indexing — Tuning embedding dimensions and leveraging HNSW indexing for sub-millisecond semantic search",
+          "Hallucination Mitigation Frameworks — Integrating semantic validation layers, self-consistency checks, and grounded generation techniques",
+          "Cost-Per-Token Optimization Strategies — Implementing caching layers (Semantic Caching) and prompt compression to reduce costs",
         ],
       },
     ],
   },
   {
-    id: "agentic-ai",
-    title: "AI Agents & Autonomous Systems",
+    id: "ai-trust-reliability",
+    title: "AI Trust & Reliability Engineering",
     subtitle: "Category 3",
-    icon: Bot,
+    icon: ShieldCheck,
     subcategories: [
       {
-        title: "3.1 Multi-Agent Orchestration & Collaboration",
+        title: "3.1 Monitoring & Lifecycle Automation",
         points: [
-          "Multi-Agent Orchestration — Design fleets of specialized agents that collaborate on complex enterprise workflows",
-          "LangGraph & CrewAI Pipelines — Build stateful, graph-based agent workflows with deterministic execution paths",
-          "Model Context Protocol (MCP) — Implement standardized context sharing between agents and enterprise systems",
-          "Agent Fleet Management — Deploy and manage 24/7 autonomous agent operations across multiple business units",
+          "Continuous Model Drift Detection Systems — Implementing statistical monitoring (KL divergence, PSI) to detect data drift in real-time",
+          "Automated CI/CD Retraining Pipelines — Building triggers that automatically retrain and validate models when performance metrics degrade",
+          "AI Red-Teaming and Adversarial Stress Testing — Simulating hostile inputs and edge-case scenarios to break models before release",
+          "End-to-End LLM Observability Stack — Deploying tracing, span analysis, and token-level logging to debug complex agentic workflows",
+          "AI-Specific SLA/SLO Definition & Enforcement — Establishing strict latency, accuracy, and availability bounds with circuit breakers",
         ],
       },
       {
-        title: "3.2 Agent Architecture & Execution",
+        title: "3.2 Data Quality & Safeguards",
         points: [
-          "Secure Action Gating (HITL) — Enforce human-in-the-loop approval for high-risk agent actions with configurable escalation policies",
-          "Agent Memory Architectures — Enable persistent, episodic, and semantic memory so agents retain context across sessions and tasks",
-          "Ephemeral Sandbox Tool Execution — Allow agents to safely execute tools and APIs in isolated, disposable environments",
-          "Agent Governance & Auditing — Maintain complete observability, decision logs, and compliance records for all agent activities",
-        ],
-      },
-      {
-        title: "3.3 Autonomous Enterprise Operations",
-        points: [
-          "End-to-End Workflow Automation — Automate complex business processes across procurement, support, compliance, and operations",
-          "Self-Improving Agent Fleets — Deploy autonomous systems that optimize their own strategies over time",
-          "Deterministic Control with Human Oversight — Balance full automation with governance and human intervention capabilities",
+          "Data Quality Validation Frameworks — Implementing Great Expectations or custom schemas to catch upstream data poisoning",
+          "Bias Detection and Fairness Auditing — Measuring model outputs across protected demographics to ensure regulatory compliance",
+          "Explainable AI (XAI) Integration — Integrating SHAP, LIME, or attention visualization to make model decision-making transparent",
+          "Cascade Failure Prevention Architectures — Designing bulkheads and fallback mechanisms to stop systemic failures in production",
+          "Feedback Loop Integration for HITL — Creating seamless human-in-the-loop pipelines to capture user corrections for improvement",
         ],
       },
     ],
   },
   {
-    id: "security-gov",
-    title: "AI Cybersecurity & Governance",
+    id: "ai-cybersecurity",
+    title: "AI Cybersecurity",
     subtitle: "Category 4",
-    icon: ShieldCheck,
+    icon: Shield,
     subcategories: [
       {
-        title: "4.1 AI Infrastructure Security",
+        title: "4.1 Lifecycle Hardening & Encryption",
         points: [
-          "Cyber Dom Security Mesh — Implement zero-trust security architecture across the entire AI stack from infrastructure to model execution",
-          "Bash Shell Hardening — Secure host environments running AI workloads against privilege escalation and container escape",
-          "MicroVM & WASM Sandboxing — Isolate model inference and agent execution in lightweight, secure sandboxes (Firecracker, gVisor, WebAssembly)",
-          "Zero Trust AI Architecture — Enforce least-privilege access, mTLS everywhere, and continuous verification for AI pipeline components",
+          "Adversarial Robustness Testing & Hardening — Training models to resist perturbed inputs (e.g., FGSM) that cause misclassifications",
+          "Model Inversion & Data Extraction Defense — Implementing differential privacy and output perturbation to prevent data reconstruction",
+          "Confidential Computing for Secure Inference — Utilizing HSMs and TEEs to process data in encrypted memory",
+          "AI/ML Supply Chain Vulnerability Scanning — Auditing third-party models, HuggingFace pipelines, and dependencies for malware",
+          "Threat Modeling for Machine Learning Systems — Applying STRIDE or ATT&CK frameworks specifically tailored to ML data pipelines",
         ],
       },
       {
-        title: "4.2 AI Model & Agent Security",
+        title: "4.2 Defenses & Zero-Trust",
         points: [
-          "Fine-grained Agent IAM — Implement identity and access management for autonomous agents with scoped permissions and audit trails",
-          "Real-time Injection Mitigation — Deploy adversarial input detection, prompt filtering, and output sanitization to prevent model manipulation and data exfiltration",
-          "Model Theft & Poisoning Protection — Secure model weights, training data, and inference endpoints from unauthorized access and tampering",
-        ],
-      },
-      {
-        title: "4.3 Compliance & Governance",
-        points: [
-          "Compliance Audits (SOC2/FedRAMP) — Embed security controls and documentation required for regulated industry certifications",
-          "AI Governance Frameworks — Establish policies, procedures, and technical controls for responsible AI deployment",
-          "Audit Trails & Accountability — Maintain complete records of AI decisions, model versions, and data lineage for regulatory compliance",
+          "Model Watermarking & IP Protection — Embedding imperceptible cryptographic signatures into model weights to prove ownership",
+          "Prompt Injection Defense Mechanisms — Deploying input sanitization, classifiers, and LLM firewalls to block jailbreaks",
+          "Secure Federated Learning Architectures — Enabling distributed model training without exposing raw client data to central servers",
+          "Homomorphic Encryption for Data Privacy — Allowing models to compute predictions on encrypted data for highly regulated industries",
+          "AI-Powered Security Operations Center Integration — Hardening the internal AI tools used by security teams against evasion",
         ],
       },
     ],
   },
   {
-    id: "trusted-reliability-engineering",
-    title: "AI Trusted Reliability Engineering (AIRE)",
+    id: "ai-infrastructure",
+    title: "AI Infrastructure Engineering",
     subtitle: "Category 5",
-    icon: ShieldCheck,
+    icon: Layers,
     subcategories: [
       {
-        title: "5.1 NIST AI Risk Management & Governance",
+        title: "5.1 Pipeline & Cluster Orchestration",
         points: [
-          "AI Governance Frameworks — Establish formal charters, RACI accountability matrices, and internal AI ethics boards",
-          "System Impact Mapping — Map system intent, lifecycle stages, and stakeholder impact profiles per NIST AI RMF Map function",
-          "Risk Measurement Metrics — Implement quantitative models for calculating and tracking fairness, security, and bias risk levels",
-          "Continuous Mitigation Management — Define risk treatment pathways and implement automated controls to reduce risk profiles"
-        ]
+          "End-to-End MLOps/LLMOps Pipeline Architecture — Building automated pipelines from data ingestion to model serving and monitoring",
+          "Highly Available Scalable Vector Database Deployment — Architecting and tuning vector databases for enterprise RAG workloads",
+          "Kubernetes for AI (K8s) Workload Orchestration — Deploying specialized K8s operators (KubeRay, TorchElastic) for training & serving",
+          "Serverless GPU Provisioning & Auto-Scaling — Implementing scale-to-zero GPU architectures for sporadic batch inference workloads",
+          "Event-Driven AI Microservices Design — Decoupling AI processing using Kafka or EventBridge for highly resilient pipelines",
+        ],
       },
       {
-        title: "5.2 EU AI Act Conformity Assessment",
+        title: "5.2 Storage & Multi-Cloud Automation",
         points: [
-          "Article 9 Risk Management Systems — Maintain structured lifecycle risk logs and mitigation tracking packages",
-          "Article 10 Data Governance — Conduct bias detection audits, statistical parity testing, and representativeness reviews",
-          "Article 11 Technical Documentation — Generate complete system lifecycle architecture dossiers and conformity files",
-          "Article 13 Transparency Disclosures — Design consumer disclosures and model cards for user-facing interactions",
-          "Article 14 Human Oversight Gates — Engineer automated escalation workflows, confidence calibration, and override control systems",
-          "Article 15 Cybersecurity & Robustness — Deploy safety-critical system configurations and adversarial stress test frameworks",
-          "Post-Market Monitoring Setup — Establish automated conformity log reviews, incident trackers, and regulatory notification queues"
-        ]
+          "Feature Store Architecture & Management — Building centralized feature repositories to ensure consistency in serving",
+          "Unified Data Lakehouse for AI Training — Architecting Delta Lake or Apache Iceberg solutions for scalable data access",
+          "Infrastructure-as-Code (IaC) for AI Environments — Using Terraform and Pulumi to version-control GPU clusters",
+          "Hybrid/Multi-Cloud AI Workload Routing — Designing architectures that burst training workloads to cloud regions based on capacity",
+          "Cost-Optimized Storage Tiering for ML Datasets — Implementing lifecycle policies to move training data from S3/Glacier to NVMe",
+        ],
       },
-      {
-        title: "5.3 ISO 42001 & ISO 23894 AIMS Implementation",
-        points: [
-          "AIMS Context Setup — Define organizational factor scopes, compliance metrics, and leadership commitment policies",
-          "Annex A Control Systems — Implement standard audit templates for lifecycle planning, third-party risk, and data quality checks",
-          "Continuous Performance Monitoring — Automate internal KPI reviews, audit checklists, and continual optimization reviews"
-        ]
-      },
-      {
-        title: "5.4 Adversarial AI Red Teaming & Security Observability",
-        points: [
-          "Dynamic Adversarial Testing — Probe models under sandbox conditions for prompt injections, model extraction, and data leaks",
-          "Real-Time Proxy Gateways — Deploy high-performance guardrails (under 15ms latency) to sanitize inputs and outputs",
-          "Cryptographic Transaction Logs — Integrate immutable audit logging networks to capture every system read/write in detail",
-          "Automated Incident Playbooks — Execute containment protocols to isolate compromised model sessions in real-time"
-        ]
-      }
-    ]
-  }
+    ],
+  },
 ];
 
 interface Sector {
@@ -504,7 +441,7 @@ const categoryThemes: Record<
     eyebrow: string;
   }
 > = {
-  "gpu-infra": {
+  "gpu-optimization": {
     accent: "text-blue-600",
     badgeBg: "bg-blue-50/80",
     badgeText: "text-blue-600 border-blue-200/50",
@@ -514,7 +451,7 @@ const categoryThemes: Record<
     iconBox: "bg-blue-50 border-blue-200/60 text-blue-600",
     eyebrow: "text-blue-600",
   },
-  "llm-opt": {
+  "llm-optimization": {
     accent: "text-violet-600",
     badgeBg: "bg-violet-50/80",
     badgeText: "text-violet-600 border-violet-200/50",
@@ -524,17 +461,17 @@ const categoryThemes: Record<
     iconBox: "bg-violet-50 border-violet-200/60 text-violet-600",
     eyebrow: "text-violet-600",
   },
-  "agentic-ai": {
-    accent: "text-emerald-600",
-    badgeBg: "bg-emerald-50/80",
-    badgeText: "text-emerald-600 border-emerald-200/50",
-    borderHover: "hover:border-emerald-500/35",
-    glowHover: "hover:shadow-[0_12px_30px_-10px_rgba(16,185,129,0.12)]",
-    dotColor: "bg-emerald-500",
-    iconBox: "bg-emerald-50 border-emerald-200/60 text-emerald-600",
-    eyebrow: "text-emerald-600",
+  "ai-trust-reliability": {
+    accent: "text-sky-600",
+    badgeBg: "bg-sky-50/80",
+    badgeText: "text-sky-600 border-sky-200/50",
+    borderHover: "hover:border-sky-500/35",
+    glowHover: "hover:shadow-[0_12px_30px_-10px_rgba(14,165,233,0.12)]",
+    dotColor: "bg-sky-500",
+    iconBox: "bg-sky-50 border-sky-200/60 text-sky-600",
+    eyebrow: "text-sky-600",
   },
-  "security-gov": {
+  "ai-cybersecurity": {
     accent: "text-rose-600",
     badgeBg: "bg-rose-50/80",
     badgeText: "text-rose-600 border-rose-200/50",
@@ -544,15 +481,15 @@ const categoryThemes: Record<
     iconBox: "bg-rose-50 border-rose-200/60 text-rose-600",
     eyebrow: "text-rose-600",
   },
-  "trusted-reliability-engineering": {
-    accent: "text-sky-600",
-    badgeBg: "bg-sky-50/80",
-    badgeText: "text-sky-600 border-sky-200/50",
-    borderHover: "hover:border-sky-500/35",
-    glowHover: "hover:shadow-[0_12px_30px_-10px_rgba(14,165,233,0.12)]",
-    dotColor: "bg-sky-500",
-    iconBox: "bg-sky-50 border-sky-200/60 text-sky-600",
-    eyebrow: "text-sky-600",
+  "ai-infrastructure": {
+    accent: "text-emerald-600",
+    badgeBg: "bg-emerald-50/80",
+    badgeText: "text-emerald-600 border-emerald-200/50",
+    borderHover: "hover:border-emerald-500/35",
+    glowHover: "hover:shadow-[0_12px_30px_-10px_rgba(16,185,129,0.12)]",
+    dotColor: "bg-emerald-500",
+    iconBox: "bg-emerald-50 border-emerald-200/60 text-emerald-600",
+    eyebrow: "text-emerald-600",
   },
 };
 
@@ -595,7 +532,7 @@ function SolutionsPage() {
           <div className="space-y-24">
             {technicalCategories.map((cat, catIdx) => {
               const CatIcon = cat.icon;
-              const theme = categoryThemes[cat.id] || categoryThemes["gpu-infra"];
+              const theme = categoryThemes[cat.id] || categoryThemes["gpu-optimization"];
               return (
                 <div key={cat.id} id={cat.id} className="pt-16 border-t border-border/40 first:border-t-0 first:pt-0 scroll-mt-20">
                   {/* Category Header (Top, full-width) */}

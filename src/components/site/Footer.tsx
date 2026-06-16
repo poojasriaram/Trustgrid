@@ -72,7 +72,7 @@ const footerCols = [
       { href: "/ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
       { href: "/capabilities#cloud-gpu-optimization", label: "Cloud GPU Orchestration" },
       { href: "/capabilities#data-center-network-automation", label: "Data Center Networking" },
-      { href: "/capabilities#energy-optimization", label: "Energy Optimization & ESG" },
+      { href: "/capabilities#energy-optimization-for-hyperscale-ai-data-centers", label: "Energy Optimization & ESG" },
       { href: "/solutions#gpu-infra", label: "GPU Data Center Architecture" },
     ],
   },

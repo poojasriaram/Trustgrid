@@ -12,12 +12,14 @@ export interface SectionData {
   metrics: { label: string; value: string }[];
 }
 
-/** Convert a title to a URL-safe id: "GPU Optimization" → "gpu-optimization" */
 function toId(title: string) {
-  return title
+  let id = title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+  if (id === "ai-trust-reliability-engineering") return "ai-trust-reliability";
+  if (id === "ai-infrastructure-engineering") return "ai-infrastructure";
+  return id;
 }
 
 export function SectionTemplate({ data }: { data: SectionData }) {

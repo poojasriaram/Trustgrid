@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CTA } from "@/components/site/CTA";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronRight, BarChart3, Target, Zap } from "lucide-react";
+import { CheckCircle2, BarChart3, Zap, Cpu, Globe } from "lucide-react";
 import { SectionLink } from "@/components/site/Header";
 
 export const Route = createFileRoute("/offerings")({
@@ -11,31 +11,14 @@ export const Route = createFileRoute("/offerings")({
 
 /* ─── Type Definitions ─────────────────────────────────────────── */
 
-interface OfferingDetail {
-  title: string;
-  subtitle?: string;
-  description: string;
-  keySituations: string[];
-  keyStatistics: string[];
-  offeringValue: string;
-  expectedOutcomes: string[];
-}
-
 interface OfferingCategory {
   id: string;
   title: string;
   description: string;
-  offerings: OfferingDetail[];
-}
-
-interface IndustryOffering {
-  id: string;
-  title: string;
-  tagline: string;
-  description: string;
-  roles: string[];
   solutions: string[];
-  benefits: string[];
+  capabilities: string[];
+  useCases: string[];
+  advisory?: string[];
 }
 
 /* ─── Data Arrays ──────────────────────────────────────────────── */
@@ -44,531 +27,459 @@ const offeringCategories: OfferingCategory[] = [
   {
     id: "gpu-optimization",
     title: "Category 1: GPU Optimization",
-    description: "Deep custom CUDA/ROCm kernel development, compiler fusions, memory hierarchy optimizations, and cost-performance diagnostics to maximize hardware efficiency.",
-    offerings: [
-      {
-        title: "1.1 Low-Level Kernel & Whitebox Optimization",
-        description: "Deep custom CUDA/ROCm kernel development, compiler fusions, and memory hierarchy optimizations for maximum hardware efficiency on proprietary or performance-critical code.",
-        keySituations: [
-          "Novel architectures or proprietary layers underperforming due to framework abstraction overhead.",
-          "Memory walls limiting context length or model size in large-scale training.",
-          "Latency-critical workloads in HFT, defense, or scientific simulation.",
-          "Foundational model developers seeking competitive edges."
-        ],
-        keyStatistics: [
-          "Kernel speedups: 30-70%+ over defaults.",
-          "Memory efficiency: 2-4x with FlashAttention-3 / PagedAttention.",
-          "Latency reduction: 20-50%+ via fusion.",
-          "Hardware utilization: Approaching 90%+ of theoretical peaks.",
-          "Overall performance: 2-4x on targeted operations.",
-          "Energy efficiency per operation: Significant gains."
-        ],
-        offeringValue: "Delivers proprietary performance advantages and unlocks capabilities not achievable with standard tools, directly improving model quality, speed, and cost.",
-        expectedOutcomes: [
-          "Peak-efficiency models with lower runtime costs.",
-          "CapEx/OpEx reductions (fewer GPUs or lower power per workload).",
-          "Sustainable competitive advantage for advanced AI R&D teams."
-        ]
-      },
-      {
-        title: "1.2 Applied GPU Acceleration & Distributed Workloads",
-        description: "Multi-dimensional parallelism, inference optimization (TensorRT-LLM, vLLM), quantization, and GPU-native pipelines for training and serving large-scale models.",
-        keySituations: [
-          "Large models (70B+) failing to scale across clusters.",
-          "High inference latency degrading user experience.",
-          "Multimodal or real-time workloads (vision, genomics, recommendations).",
-          "Transitioning research prototypes to production."
-        ],
-        keyStatistics: [
-          "Inference throughput: 4-8x+ gains.",
-          "Latency reduction: 28-69%+ (multi-second to sub-second).",
-          "Cost-per-token: 50-80%+ reduction.",
-          "Stable large-model training and serving.",
-          "Multimodal pipeline acceleration: GPU-native, CPU-bypass.",
-          "End-to-end efficiency: 2-5x in hybrid workloads."
-        ],
-        offeringValue: "Enables reliable, high-throughput production deployment while dramatically improving economics and user experience.",
-        expectedOutcomes: [
-          "Scalable, cost-effective AI applications.",
-          "Short-term inference savings, optimized cluster sizing (CapEx), and lower ongoing serving costs (OpEx).",
-          "Accelerated time-to-market for enterprise GenAI products."
-        ]
-      },
-      {
-        title: "1.3 GPU FinOps & Cost-Performance Diagnostics",
-        description: "Auditing, SKU right-sizing, spot/preemptible strategies, idle elimination, and unit-economic dashboards to align GPU spend with business value.",
-        keySituations: [
-          "Rapidly escalating cloud or infrastructure bills.",
-          "Poor visibility into ROI across teams or workloads.",
-          "Need to safely leverage discounted instances for large jobs.",
-          "Margin pressure in growth-stage or regulated environments."
-        ],
-        keyStatistics: [
-          "Overall cost reduction: 40-70%+.",
-          "Spot savings: 70-90% with proper checkpointing.",
-          "Utilization-driven savings: 30-50%+ via rightsizing and idle elimination.",
-          "TCO visibility: Granular per-token/per-user metrics."
-        ],
-        offeringValue: "Transforms GPU infrastructure from a opaque cost center into a transparent, optimized asset with strong financial governance.",
-        expectedOutcomes: [
-          "Controlled, high-ROI AI spending.",
-          "Immediate cost relief, deferred CapEx, and sustainable OpEx management.",
-          "Better margins and confident scaling decisions."
-        ]
-      },
-      {
-        title: "1.4 Workload-Specific Optimization Packages",
-        subtitle: "(Applicable to both large-scale and enterprise environments)",
-        description: "Tailored optimization for dominant workloads: LLM Training/Inference, Computer Vision/Multimodal, Scientific HPC, Genomics, Recommendation Systems, etc.",
-        keySituations: [
-          "LLM inference dominating costs with high latency or poor throughput.",
-          "Specialized pipelines (e.g., video processing, molecular simulation) underperforming.",
-          "Need for workload-tuned clusters rather than generic infrastructure."
-        ],
-        keyStatistics: [
-          "LLM tokens/sec: 4-8x+ with disaggregated serving and quantization.",
-          "Cost-per-token: 50-80% reduction.",
-          "Domain acceleration: 2-5x in vision, genomics, or simulation pipelines.",
-          "Utilization: 80-95% workload-tuned.",
-          "Latency: Sub-second real-time performance."
-        ],
-        offeringValue: "Precision-tuned performance and economics for your primary use cases, delivering faster results than generic approaches.",
-        expectedOutcomes: [
-          "Optimized, production-grade pipelines for specific workloads.",
-          "Maximum efficiency and ROI tailored to your dominant AI applications."
-        ]
-      }
+    description: "Maximizing compute throughput, memory bandwidth, and interconnect efficiency for high-performance AI workloads.",
+    solutions: [
+      "Dynamic Workload Balancing: Distributing inference and training requests across GPUs to prevent bottlenecks and maximize utilization.",
+      "Memory Bandwidth Optimization: Restructuring data pipelines and tensor layouts to minimize memory bottlenecks and maximize DRAM throughput.",
+      "GPU Super Scaling: Engineering seamless scale-out architectures to orchestrate tens of thousands of GPUs for foundation model training, managing gradient synchronization and fault tolerance at extreme scale.",
+      "Multi-Tenant GPU Orchestration: Isolating GPU resources using MIG (Multi-Instance GPU) and vGPU technologies for secure, concurrent workspace utilization.",
+      "Kernel-Level Compute Tuning: Customizing CUDA/Triton kernels to align specifically with the mathematical operations of your unique model architectures.",
+      "NCCL/TCP Communication Overhead Reduction: Optimizing inter-GPU and inter-node communication to eliminate gradient synchronization bottlenecks.",
+      "Inference Latency Reduction: Applying advanced quantization (INT8/FP8), pruning, and speculative decoding to shrink token generation latency.",
+      "Thermal and Power Management Optimization: Engineering power-capping and dynamic frequency scaling to maintain peak performance within thermal limits.",
+      "GPU Pooling and Fractional Sharing: Deploying time-slicing and spatial partitioning to allow multiple lightweight models to share a single physical GPU.",
+      "NVLink/NVSwitch Interconnect Optimization: Configuring topologies to ensure P2P (peer-to-peer) memory access is fully leveraged for model parallelism."
+    ],
+    capabilities: [
+      "High-Performance Compute (HPC) Tuning",
+      "Energy-Efficient GPU Scheduling",
+      "Real-Time Inference Acceleration",
+      "GPU Super-Scaling & Global Cluster Orchestration",
+      "Ultra-Low Latency HPC Network Fabric Engineering",
+      "GPU Memory Fragmentation Mitigation",
+      "Custom CUDA/Triton Kernel Development",
+      "Heterogeneous Compute Management (CPU/GPU/DPU)",
+      "Deep GPU Utilization Analytics & Telemetry",
+      "Bare-Metal GPU Provisioning & Optimization"
+    ],
+    useCases: [
+      "Large-scale LLM pre-training acceleration",
+      "Real-time video analytics and computer vision pipelines",
+      "High-frequency trading algorithm execution",
+      "Genomics sequencing and protein folding simulations",
+      "Autonomous vehicle perception model processing",
+      "Real-time speech-to-speech translation engines",
+      "Massive-scale click-through rate (CTR) recommendation engines",
+      "3D rendering and digital twin physics simulations",
+      "Federated learning across distributed edge nodes",
+      "Edge-to-cloud GPU workload offloading",
+      "Financial risk modeling and Monte Carlo simulations",
+      "Medical imaging inference (MRI/CT scan analysis)",
+      "Telecommunications network traffic optimization",
+      "Foundation model pre-training across globally distributed GPU super-clusters",
+      "Ultra-low latency HPC simulations requiring sub-microsecond inter-node synchronization (e.g., computational fluid dynamics)"
     ]
   },
   {
-    id: "llm-optimization-agents",
-    title: "Category 2: LLM Optimization & AI Agents",
-    description: "Domain-specific model fine-tuning, post-training compression, prompt evaluations, multi-agent orchestrations, and secure action governance.",
-    offerings: [
-      {
-        title: "2.1 Production-Grade LLM Fine-Tuning & Quantization",
-        subtitle: "Domain-specific adaptation and compression",
-        description: "Custom training pipelines for fine-tuning open weights models (Llama-3, Qwen, Mistral) using parameter-efficient methods (LoRA, QLoRA) and preference alignment (DPO, RLHF), coupled with post-training quantization (FP8, INT4) for high-throughput execution.",
-        keySituations: [
-          "Generic models failing to grasp proprietary terminologies, business rules, or tone of voice.",
-          "High inference latency and API costs scaling linearly with volume, hurting gross margins.",
-          "Strict data residency rules preventing the transfer of raw data to third-party model APIs."
-        ],
-        keyStatistics: [
-          "Inference cost-per-token: Reduced by 50-80% compared to frontier APIs",
-          "Throughput boost: 4-8x faster token generation via vLLM/TRT-LLM optimization",
-          "Accuracy retention: 99%+ performance match to FP16 baselines under FP8 quantization",
-          "Training cycle speed: 3x faster using optimized 3D parallelism"
-        ],
-        offeringValue: "Own your models and run them at a fraction of third-party API costs with tailored enterprise capability.",
-        expectedOutcomes: [
-          "Proprietary, domain-adapted model weights optimized for your specific tasks.",
-          "High-throughput inference stack configured for instant scaling.",
-          "Quantized models running efficiently on cost-effective hardware (e.g. single-GPU nodes)."
-        ]
-      },
-      {
-        title: "2.2 Enterprise LLM Evaluation & Guardrails Gateway",
-        subtitle: "Reliable, secure, and compliant model deployment",
-        description: "Deployment of comprehensive prompt-eval harnesses and real-time proxy gateways that filter inputs/outputs for prompt injection, PII leakages, model hallucinations, and corporate policy compliance.",
-        keySituations: [
-          "Security teams blocking LLM features due to potential data leaks or prompt injection concerns.",
-          "Lack of objective metrics to measure regression when prompts or model versions change.",
-          "Unpredictable or offensive output risk in user-facing customer support applications."
-        ],
-        keyStatistics: [
-          "Prompt injection mitigation: 99.8% capture rate at the gateway",
-          "Gateway latency overhead: Under 15ms addition to token latency",
-          "PII leakage probability: Reduced to 0% through context-aware filtering",
-          "Regression detection: Automated verification of 100+ business rules per release"
-        ],
-        offeringValue: "Enables safe, confident deployment of generative AI features under a Zero Trust security framework.",
-        expectedOutcomes: [
-          "Continuous testing pipelines matching model upgrades to performance criteria.",
-          "Real-time guardrail gateway blocking malicious prompts and monitoring usage.",
-          "Audit logs of model compliance, hallucination rates, and security health."
-        ]
-      },
-      {
-        title: "2.3 Multi-Agent Workflow Orchestration & Coordination",
-        subtitle: "Complex task decomposition through specialized agent teams",
-        description: "Designing and building advanced multi-agent systems where specialized agents (e.g. planners, executors, validators) collaborate, deliberate, and orchestrate business operations via structured routing, debate, and consensus mechanisms.",
-        keySituations: [
-          "Single-prompt or standard RAG agents stalling, repeating, or failing when handling complex multi-step processes.",
-          "Need to run parallel research, analysis, and validation tasks with cross-validation gates.",
-          "High rate of execution drift in long-running agent workflows."
-        ],
-        keyStatistics: [
-          "Complex task completion rate: Improved to 92-96%",
-          "Workflow execution loop failures: Reduced by 85%",
-          "Task decomposition latency: Optimized for sub-second agent routing",
-          "Resource coordination efficiency: Enhanced with Ray-based parallel orchestrations"
-        ],
-        offeringValue: "Solves complex business logic that single agents fail to navigate, producing deterministic enterprise outcomes.",
-        expectedOutcomes: [
-          "Stateful agent workflows designed on LangGraph or CrewAI.",
-          "Supervised debate layers ensuring multi-agent output verification.",
-          "Operational dashboards showing agent collaboration traces and state transitions."
-        ]
-      },
-      {
-        title: "2.4 Agent Tool Integration & Action Gating (Human-in-the-Loop)",
-        subtitle: "Secure enterprise API bindings and action governance",
-        description: "Developing robust Model Context Protocol (MCP) servers and tool-integration connectors, wrapped in a compliance-oriented governance gateway that requires explicit human validation for high-risk actions (e.g. database edits, API writes, transactions).",
-        keySituations: [
-          "AI agents requiring write permissions to core business systems without guardrail oversight.",
-          "Integration challenges when binding legacy enterprise databases and software APIs to LLMs.",
-          "Risks of agents running unverified external API writes or database transactions."
-        ],
-        keyStatistics: [
-          "Unauthorized action executions: 0% through strict action gating",
-          "Integration development velocity: 3x faster utilizing standardized MCP servers",
-          "Human-in-the-loop review friction: Minimized with unified email/slack action approvals",
-          "Tool call routing accuracy: 98.5% precision on function selector schemas"
-        ],
-        offeringValue: "Enables agents to perform real-world actions on production systems while maintaining absolute business control.",
-        expectedOutcomes: [
-          "Custom MCP servers connecting agents securely to databases and APIs.",
-          "Interactive human-approval dashboard for gating high-risk agent operations.",
-          "Granular permission scopes for each agent, tool, and database execution."
-        ]
-      }
+    id: "llm-optimization",
+    title: "Category 2: LLM Optimization",
+    description: "Engineering highly efficient, accurate, and agentic large language model systems.",
+    solutions: [
+      "Parameter-Efficient Fine-Tuning (PEFT) Deployment: Implementing LoRA/QLoRA to adapt foundational models without the compute cost of full-parameter training.",
+      "Advanced RAG Pipeline Architecture: Designing chunking, embedding, and retrieval pipelines with hybrid search (dense + sparse) for high-fidelity context injection.",
+      "Autonomous AI Agent Framework Development: Building tool-calling, memory-managed, and planning-capable agents using frameworks like LangGraph or custom architectures.",
+      "Context Window Optimization Strategies: Utilizing rotary positional embeddings (RoPE) scaling, sliding window attention, and hierarchical memory to extend effective context.",
+      "Multi-Modal Model Integration and Routing: Designing orchestration layers that dynamically route text, image, and audio inputs to specialized multi-modal models.",
+      "Prompt Chaining and Structured Output Generation: Enforcing JSON/XML schema outputs and complex multi-step reasoning chains for enterprise API integration.",
+      "LLM Routing and Load Balancing: Implementing semantic routers to direct queries to small/specialized models versus large foundational models based on complexity.",
+      "Vector Embedding Optimization and Indexing: Tuning embedding dimensions and leveraging HNSW or IVF indexing for sub-millisecond semantic search.",
+      "Hallucination Mitigation Frameworks: Integrating semantic validation layers, self-consistency checks, and grounded generation techniques.",
+      "Cost-Per-Token Optimization Strategies: Implementing caching layers (Semantic Caching), prompt compression, and vocabulary trimming to reduce API and compute costs."
+    ],
+    capabilities: [
+      "Advanced Prompt Engineering & System Prompt Design",
+      "Domain-Specific LLM Adaptation & Alignment",
+      "Semantic Search & Retrieval Engineering",
+      "Agentic Workflow & State Machine Design",
+      "Multi-Modal Data Processing & Fusion",
+      "Tokenization Optimization & Custom Tokenizers",
+      "Knowledge Graph Integration (GraphRAG)",
+      "LLM Evaluation & Red-Team Benchmarking",
+      "Contextual Memory Management (Short/Long-term)",
+      "Instruction Tuning & RLHF/DPO Implementation"
+    ],
+    useCases: [
+      "Enterprise knowledge base conversational search",
+      "Automated software code generation, review, and refactoring",
+      "Intelligent document processing (IDP) and structured data extraction",
+      "Customer support ticket routing, summarization, and resolution",
+      "Legal contract analysis, clause extraction, and compliance checking",
+      "Automated clinical trial data summarization and patient matching",
+      "E-commerce personalized product description generation at scale",
+      "Multi-lingual real-time content localization and cultural adaptation",
+      "Financial earnings call analysis and insider sentiment extraction",
+      "Supply chain demand forecasting agents with tool-calling capabilities",
+      "HR policy query and automated employee onboarding assistants",
+      "Marketing copy generation, A/B testing, and SEO optimization",
+      "IT helpdesk autonomous remediation and scripting agents",
+      "Interactive educational tutoring systems with Socratic reasoning",
+      "Complex data query translation (Text-to-SQL) for non-technical users"
+    ]
+  },
+  {
+    id: "ai-trust-reliability",
+    title: "Category 3: AI Trust & Reliability Engineering",
+    description: "Ensuring AI systems remain accurate, fair, resilient, and strictly aligned with business SLAs.",
+    solutions: [
+      "Continuous Model Drift Detection Systems: Implementing statistical monitoring (KL divergence, PSI) to detect data and concept drift in real-time.",
+      "Automated CI/CD Retraining Pipelines: Building triggers that automatically retrain and validate models when performance metrics degrade below thresholds.",
+      "AI Red-Teaming and Adversarial Stress Testing: Simulating hostile inputs and edge-case scenarios to break models before they reach production.",
+      "End-to-End LLM Observability Stack: Deploying tracing, span analysis, and token-level logging to debug complex agentic workflows.",
+      "AI-Specific SLA/SLO Definition & Enforcement: Establishing strict latency, accuracy, and availability bounds with automated circuit breakers.",
+      "Data Quality Validation Frameworks: Implementing Great Expectations or custom schemas to catch upstream data poisoning before training.",
+      "Bias Detection and Fairness Auditing: Measuring model outputs across protected demographics to ensure regulatory and ethical compliance.",
+      "Explainable AI (XAI) Integration: Integrating SHAP, LIME, or attention visualization to make model decision-making transparent to stakeholders.",
+      "Cascade Failure Prevention Architectures: Designing bulkheads and fallback mechanisms (e.g., LLM to rule-based fallback) to stop systemic failures.",
+      "Feedback Loop Integration for HITL: Creating seamless human-in-the-loop pipelines to capture user corrections for continuous model improvement."
+    ],
+    capabilities: [
+      "Statistical Drift & Outlier Analysis",
+      "Automated ML Pipeline Orchestration (CI/ML)",
+      "Adversarial Prompt Resilience Testing",
+      "Deep Traceability & Data/Model Lineage Tracking",
+      "Real-Time Performance Anomaly Detection",
+      "Model Versioning, Rollback & Shadow Deployments",
+      "Fairness Metric Computation & Reporting",
+      "Interpretability & Feature Importance Visualization",
+      "Chaos Engineering for Distributed AI Systems",
+      "Continuous Integration for Machine Learning (CI/ML)"
+    ],
+    useCases: [
+      "Fraud detection model degradation prevention in banking",
+      "Healthcare diagnostic AI accuracy assurance and FDA compliance",
+      "Autonomous driving decision reliability and edge-case validation",
+      "High-frequency trading algorithm stability and fail-safe monitoring",
+      "Content moderation consistency maintenance across dynamic internet slang",
+      "Manufacturing predictive maintenance sensor drift correction",
+      "NLP sentiment analysis accuracy tracking over evolving public opinion",
+      "Facial recognition bias auditing and demographic parity enforcement",
+      "Recommendation system filter bubble prevention and diversity injection",
+      "Speech recognition accuracy monitoring across evolving regional dialects",
+      "Credit scoring model compliance monitoring (Equal Credit Opportunity Act)",
+      "Chatbot toxicity and safety guardrail enforcement at scale",
+      "Robotic process automation (RPA) exception handling and self-healing",
+      "Supply chain forecasting error boundary management and alerting",
+      "Insurance claims auto-adjudication reliability and appeals triggering"
     ]
   },
   {
     id: "ai-cybersecurity",
-    title: "Category 3: AI Cybersecurity",
-    description: "Wrappers around model inputs, API integrations, agent execution shells, WASM sandboxes, and MicroVMs for Zero Trust runtime protection.",
-    offerings: [
-      {
-        title: "3.1 Cyber Dom – AI Security & Guardrails Mesh",
-        subtitle: "Continuous runtime protection and policy enforcement for enterprise AI",
-        description: "Architecting and deploying Cyber Dom, a highly resilient security and monitoring mesh that wraps around model inputs, API integrations, and agent workflows. Features include active threat analysis, exfiltration blockades, and strict Zero Trust network boundaries.",
-        keySituations: [
-          "AI systems connecting to high-privilege corporate databases without automated activity guardrails.",
-          "Vulnerability to prompt injection, jailbreaking, or toxic payloads targeting enterprise LLMs.",
-          "Lack of compliance records for model and agent database/tool executions."
-        ],
-        keyStatistics: [
-          "Jailbreak and prompt injection detection: 99.9% block rate",
-          "Network routing overhead: <5ms response latency",
-          "Regulatory compliance coverage: SOC2, FedRAMP, and EU AI Act readiness mapped automatically",
-          "Incident alert response time: Instantaneous runtime isolation of compromised sessions"
-        ],
-        offeringValue: "Provides an impenetrable security perimeter around model contexts, tool bindings, and data stores.",
-        expectedOutcomes: [
-          "Fully audited, secure execution mesh for all internal and external-facing AI endpoints.",
-          "Real-time monitoring panel displaying injection alerts, policy violations, and compliance state.",
-          "Immutable cryptographic audit trails tracking every database read/write executed by AI components."
-        ]
-      },
-      {
-        title: "3.2 Bash Shell Hardening & Secure Sandbox Execution",
-        subtitle: "Dynamic command isolation for executing agent-generated scripts safely",
-        description: "Custom-built, hyper-secure command execution environments (leveraging gVisor, WebAssembly sandboxes, and MicroVMs) to execute shell command sequences and dynamic Bash scripts generated by AI agents without risking host or cloud architecture compromises.",
-        keySituations: [
-          "Agents requiring terminal access (e.g. executing bash commands, configuring systems) to perform their jobs.",
-          "Risks of agents writing malicious loop scripts, running resource exhaustion processes, or executing `rm -rf /` commands.",
-          "Vulnerability to privilege escalation or lateral network movements from compromised runner containers."
-        ],
-        keyStatistics: [
-          "Sandbox breakout incidents: 0% historical escape rate",
-          "Execution latency overhead: <10ms boot time for containerized MicroVMs",
-          "CPU/Memory limit enforcement: Strict resource capping prevents Denials of Service",
-          "Command filtering efficiency: 100% of banned system calls blocked instantly"
-        ],
-        offeringValue: "Allows systems to tap into the full potential of shell automation and scripting safely, protecting base systems.",
-        expectedOutcomes: [
-          "Micro-segmented Bash execution sandbox integrated with agent tooling pathways.",
-          "Pre-execution syntax auditing and blacklisted command filters.",
-          "Ephemeral container architecture that completely destroys filesystems immediately post-execution."
-        ]
-      }
+    title: "Category 4: AI Cybersecurity",
+    description: "Hardening the AI lifecycle from data ingestion to model inference against novel threat vectors.",
+    solutions: [
+      "Adversarial Robustness Testing & Hardening: Training models to resist perturbed inputs (e.g., Fast Gradient Sign Method) that cause misclassifications.",
+      "Model Inversion & Data Extraction Defense: Implementing differential privacy and output perturbation to prevent adversaries from reconstructing training data.",
+      "Confidential Computing for Secure Inference: Utilizing Hardware Security Modules (HSMs) and Trusted Execution Environments (TEEs) to process data in encrypted memory.",
+      "AI/ML Supply Chain Vulnerability Scanning: Auditing third-party models, HuggingFace pipelines, and open-source dependencies for hidden malware or backdoors.",
+      "Threat Modeling for Machine Learning Systems: Applying STRIDE or ATT&CK frameworks specifically tailored to ML data pipelines, model APIs, and inference endpoints.",
+      "Model Watermarking & IP Protection: Embedding imperceptible cryptographic signatures into model weights to prove ownership and prevent unauthorized copying.",
+      "Prompt Injection Defense Mechanisms: Deploying input sanitization, classifiers, and LLM firewalls to block jailbreaks and indirect prompt injections.",
+      "Secure Federated Learning Architectures: Enabling distributed model training without exposing raw client data to the central server or other peers.",
+      "Homomorphic Encryption for Data Privacy: Allowing models to compute predictions on encrypted data, ensuring absolute privacy in highly regulated industries.",
+      "AI-Powered Security Operations Center (AI-SOC) Integration: Hardening the internal AI tools used by security teams against adversarial evasion attacks."
+    ],
+    capabilities: [
+      "Penetration Testing for Neural Networks",
+      "Differential Privacy Implementation & Tuning",
+      "Zero-Trust Architecture for ML APIs",
+      "Secure Model Serialization & Safe Deserialization",
+      "Hardware-Backed Trusted Execution Environment (TEE) Setup",
+      "Training Data Poisoning Detection",
+      "Anomaly-Based AI Threat Detection",
+      "Cryptographic Model Provenance Tracking",
+      "Secure Multi-Party Computation (SMPC)",
+      "Regulatory Compliance Mapping (NIST AI RMF, EU AI Act)"
+    ],
+    useCases: [
+      "Protecting proprietary LLM weights from theft by malicious insiders",
+      "Securing healthcare AI against patient data reconstruction (HIPAA compliance)",
+      "Defending autonomous drones against sensor spoofing and adversarial light patterns",
+      "Preventing prompt injection attacks on customer-facing banking chatbots",
+      "Securing AI models deployed in financial fraud detection from evasion attacks",
+      "Hardening biometric authentication systems against deepfake and adversarial presentation attacks",
+      "Protecting AI-generated intellectual property (e.g., proprietary art/audio models) with watermarking",
+      "Securing third-party ML model dependencies in enterprise software supply chains",
+      "Safe deployment of AI in classified government and defense environments",
+      "Preventing data poisoning in crowdsourced annotation and training datasets",
+      "Secure cross-institutional medical research collaboration without data sharing",
+      "Defending against model denial-of-service (DoS) attacks via pathological inputs",
+      "Securing edge AI devices in IoT botnets against physical and network tampering",
+      "Compliance with emerging AI privacy regulations (GDPR, EU AI Act)",
+      "Preventing generative AI models from leaking sensitive corporate secrets via memorization"
     ]
   },
   {
-    id: "ai-infrastructure-engineering",
-    title: "Category 4: AI Infrastructure Engineering",
-    description: "Design of massive GPU supercomputing facilities, InfiniBand/RoCEv2 fabrics, MIG/vGPU orchestration platforms, and self-healing telemetry.",
-    offerings: [
-      {
-        title: "4.1 Mega-Scale Data Center & Network Fabric Optimization",
-        subtitle: "(Primarily for 10,000+ GPU deployments)",
-        description: "End-to-end design and optimization of massive GPU supercomputing facilities, focusing on high-speed InfiniBand/RoCEv2 fabrics, GPUDirect Storage, advanced power/thermal management (including liquid cooling), and resilience at multi-megawatt scale for Blackwell-era clusters.",
-        keySituations: [
-          "Scaling to 10,000+ GPUs with efficiency collapse due to network contention or inter-switch latency.",
-          "Power and cooling constraints limiting rack density (60-120 kW/rack).",
-          "Low sustained utilization in hyperscale or sovereign AI training clusters.",
-          "Need for near-linear scaling and minimal downtime in national-scale AI infrastructure."
-        ],
-        keyStatistics: [
-          "Scaling efficiency: 95-97%+ in collective operations.",
-          "GPU utilization lift: 35-50% → 85-95%+.",
-          "Storage throughput: 2-8x improvement.",
-          "Power efficiency: 15-40% gains via dynamic profiles, liquid cooling, and DPUs.",
-          "Throughput increase in power-constrained environments: Up to 13%.",
-          "TCO reduction: 25-40%+ at scale.",
-          "Cluster downtime: <1-5% with asynchronous checkpointing.",
-          "Energy savings: 20-30%+ per workload."
-        ],
-        offeringValue: "Maximizes return on massive CapEx investments by eliminating bottlenecks and enabling saturated, reliable operation. Supports highest power densities while meeting strict energy envelopes.",
-        expectedOutcomes: [
-          "World-class, near-linear scaling AI supercomputers.",
-          "Significant CapEx deferral (30-50% fewer nodes/racks), OpEx reduction in power/cooling, and short-term utilization lifts.",
-          "Competitive infrastructure for hyperscalers and sovereign AI initiatives with superior FLOPS-per-watt and TCO."
-        ]
-      },
-      {
-        title: "4.2 Enterprise-Scale GPU Platform Transformation & Automation",
-        subtitle: "(For corporate data centers with hundreds to thousands of GPUs)",
-        description: "Company-wide GPU platform with topology-aware scheduling, secure multi-tenancy (MIG/vGPU), self-healing via DCGM telemetry, and unified governance for shared internal AI resources.",
-        keySituations: [
-          "Fragmented GPU usage across business units with high idle time and resource contention.",
-          "Frequent job failures disrupting R&D or production pipelines.",
-          "Need for secure, chargeback-enabled shared access without noisy neighbors.",
-          "Hybrid on-prem/cloud environments requiring consistent policies."
-        ],
-        keyStatistics: [
-          "Cluster utilization: 30-50% → 80-95%+.",
-          "Idle waste reduction: Down to ~1% in optimized environments.",
-          "Multi-tenant capacity: 3-3.5x+.",
-          "Downtime from failures: 70%+ reduction.",
-          "Provisioning time: Days → minutes.",
-          "Overall TCO improvement: 40-60% at enterprise scale.",
-          "Cost visibility: Per-team/per-workload unit economics."
-        ],
-        offeringValue: "Converts fragmented, inefficient GPU resources into a reliable internal AI platform, reducing engineer friction and enabling governed, high-utilization computing.",
-        expectedOutcomes: [
-          "Self-service, highly utilized enterprise GPU cloud.",
-          "Short-term cost relief, CapEx optimization through better packing, and sustained OpEx savings.",
-          "Faster AI adoption across departments with strong governance and security."
-        ]
-      }
+    id: "ai-infrastructure",
+    title: "Category 5: AI Infrastructure Engineering",
+    description: "Designing the foundational cloud-native, scalable, and automated systems that power enterprise AI.",
+    solutions: [
+      "End-to-End MLOps/LLMOps Pipeline Architecture: Building automated pipelines from data ingestion to model serving and monitoring.",
+      "Highly Available Scalable Vector Database Deployment: Architecting and tuning systems like Milvus, Pinecone, or Weaviate for enterprise-grade RAG workloads.",
+      "Kubernetes for AI (K8s) Workload Orchestration: Deploying specialized K8s operators (e.g., KubeRay, TorchElastic) for distributed training and inference.",
+      "Serverless GPU Provisioning & Auto-Scaling: Implementing scale-to-zero GPU architectures for sporadic batch inference workloads to optimize costs.",
+      "Event-Driven AI Microservices Design: Decoupling AI processing using Kafka, Pulsar, or AWS EventBridge for asynchronous, highly resilient pipelines.",
+      "Feature Store Architecture & Management: Building centralized feature repositories to ensure consistency between training and serving environments.",
+      "Unified Data Lakehouse for AI Training: Architecting Delta Lake or Apache Iceberg solutions to provide scalable, ACID-compliant data access for model training.",
+      "Infrastructure-as-Code (IaC) for AI Environments: Using Terraform and Pulumi to version-control and replicate complex GPU clusters and network fabrics.",
+      "Hybrid/Multi-Cloud AI Workload Routing: Designing architectures that seamlessly burst training workloads from on-prem to AWS/GCP/Azure based on cost and capacity.",
+      "Cost-Optimized Storage Tiering for ML Datasets: Implementing lifecycle policies to move frequently accessed training data to NVMe, and cold data to S3/Glacier."
+    ],
+    capabilities: [
+      "Cloud-Native AI Deployment & Containerization",
+      "GPU Cluster Provisioning Automation",
+      "High-Throughput Data Ingestion Engineering",
+      "Distributed Storage System Optimization (Lustre, GPFS)",
+      "Containerized Model Serving (Triton, vLLM, TGI)",
+      "CI/CD Pipeline Automation for Machine Learning",
+      "Infrastructure Cost Optimization (FinOps for AI)",
+      "Real-Time Streaming Data Integration (Kafka/Flink)",
+      "Multi-Cloud Architecture Design & Abstraction",
+      "Decentralized Compute Orchestration"
+    ],
+    useCases: [
+      "Building enterprise-scale internal ML platforms from scratch",
+      "Migrating on-premise HPC AI workloads to optimized cloud environments",
+      "Orchestrating millions of daily LLM inferences with automatic failover",
+      "Managing petabyte-scale image and text training datasets efficiently",
+      "Deploying real-time recommendation engines on Kubernetes with horizontal pod autoscaling",
+      "Setting up enterprise RAG infrastructure with highly available vector databases",
+      "Implementing serverless pipelines for nightly batch risk scoring",
+      "Creating event-driven architectures for real-time fraud detection and blocking",
+      "Automating GPU infrastructure provisioning for data science teams via self-service portals",
+      "Designing disaster recovery and business continuity for mission-critical AI systems",
+      "Building centralized feature stores to accelerate model development for 100+ data scientists",
+      "Optimizing cloud spend for sporadic, compute-heavy generative AI rendering tasks",
+      "Setting up edge-to-cloud infrastructure for federated IoT AI devices",
+      "Implementing data versioning (DVC) and lineage tracking for strict audit compliance",
+      "Architecting secure, multi-tenant AI development environments for distinct business units",
+      "Energy Optimization: Designing AI Data Center Power Usage Effectiveness (PUE) tracking systems that dynamically cap GPU power and schedule non-urgent training jobs during off-peak energy hours.",
+      "Energy Optimization: Implementing carbon-aware AI training pipelines that automatically route workloads to cloud regions with the highest availability of renewable energy sources.",
+      "I/O Optimization: Bypassing traditional POSIX file systems to engineer high-throughput I/O pipelines (using GDS - GPU Direct Storage) for training on billions of small, unstructured files (e.g., web scraping datasets).",
+      "I/O Optimization: Architecting NVMe-oF (NVMe over Fabric) storage clusters to eliminate I/O bottlenecks and reduce multi-TB model checkpointing times from hours to minutes.",
+      "Memory Optimization: Tuning unified memory architectures (e.g., Apple Silicon clusters or NVLink shared memory pools) to load massive 100B+ parameter models for inference without requiring aggressive quantization or pipeline parallelism."
     ]
   },
   {
-    id: "ai-trusted-reliability-engineering",
-    title: "Category 5: AI Trusted Reliability Engineering (AIRE)",
-    description: "End-to-end reliability engineering, NIST risk mapping, EU AI Act conformity audits, ISO 42001 system management, adversarial red teaming, and cross-framework safety guardrails.",
-    offerings: [
-      {
-        title: "5.1 NIST AI Risk Management & Governance System",
-        description: "Establishing formal AI governance frameworks, mapping intended use context and potential impact, implementing statistical risk measurement indices, and defining continuous mitigation treatments aligned with NIST AI RMF 1.0.",
-        keySituations: [
-          "Organizations lacking clear policies, ethics charters, or mapped accountabilities for AI systems.",
-          "Enterprise boards demanding standardized, independent risk audits of production ML models.",
-          "US federal procurement requiring alignment with NIST secure software framework guidelines."
-        ],
-        keyStatistics: [
-          "NIST compliance score: Promotes to 100% audit-readiness.",
-          "Governance setup time: Weeks instead of quarters using templates.",
-          "Identified risk blindspots: 90%+ mapping coverage across systems."
-        ],
-        offeringValue: "Establishes a solid, standardized foundation for enterprise AI governance that aligns engineering controls with corporate compliance policies.",
-        expectedOutcomes: [
-          "An active AI Risk Register, AI Governance Charter, and system RACI matrix.",
-          "Quantitative risk scoring dashboards integrated with operational monitoring."
-        ]
-      },
-      {
-        title: "5.2 EU AI Act Conformity Assessment & High-Risk Obligations",
-        description: "Comprehensive alignment pipelines for Articles 8–15 of the EU AI Act covering technical data governance, representativeness audits, automated log retention, and robust human-in-the-loop oversight systems.",
-        keySituations: [
-          "Credit scoring, lending, HR hiring, and medical diagnostics systems classified as high-risk under the EU AI Act.",
-          "Risk of severe regulatory penalties (up to 7% global turnover) due to unvetted or undocumented AI models.",
-          "Need to register high-risk models in the official EU database with a validated CE conformity mark."
-        ],
-        keyStatistics: [
-          "Bias detection accuracy: 99%+ statistical audit coverage.",
-          "Data provenance completeness: 100% traced lineage records.",
-          "Compliance readiness verification: Complete Articles 8-15 technical dossiers generated."
-        ],
-        offeringValue: "De-risks EU market access and guarantees compliance with the world's most stringent AI safety legislation.",
-        expectedOutcomes: [
-          "Ready-to-submit Articles 9–15 Technical Documentation Package.",
-          "Data representativeness verification report and data lineage maps.",
-          "CE conformity mark preparation package."
-        ]
-      },
-      {
-        title: "5.3 ISO 42001:2023 & ISO 23894 Management Systems (AIMS)",
-        description: "Implementing, auditing, and optimizing an Artificial Intelligence Management System (AIMS) under ISO 42001 and ISO 23894 guidance to establish continuous process controls.",
-        keySituations: [
-          "Enterprise customers requiring certifiable proof of AI management systems in procurement vendor checks.",
-          "Inconsistent internal procedures causing operational variance in model releases and validation.",
-          "Fragmented oversight across engineering, legal, security, and procurement departments."
-        ],
-        keyStatistics: [
-          "AIMS alignment: Full certification audit readiness.",
-          "Operational consistency: Standardized QA gates for 100% of internal AI initiatives.",
-          "Vendor compliance checks: Automated third-party model risk scoring frameworks."
-        ],
-        offeringValue: "Creates a universally recognized certifiable management framework for AI systems, demonstrating quality assurance to global buyers.",
-        expectedOutcomes: [
-          "ISO 42001 context analysis, leadership policy charter, and operational guidelines.",
-          "Management review templates and internal audit checkbooks."
-        ]
-      },
-      {
-        title: "5.4 Adversarial AI Red Teaming & Model Penetration Testing",
-        description: "Dynamic stress testing and security validation of production models against prompt injection, model extraction, data poisoning, demographic bias, and privacy leakage vectors.",
-        keySituations: [
-          "External-facing conversational applications exposed to jailbreaking and prompt injection threats.",
-          "Sensitive clinical or customer databases linked to LLMs via APIs without security gates.",
-          "Proprietary model weights or training pipelines vulnerable to extraction or poisoning attacks."
-        ],
-        keyStatistics: [
-          "Prompt injection mitigation: 99.8% capture rate at proxy gates.",
-          "Malicious payload detection: 99.9% block rate.",
-          "EDR detection lift: 35%+ improvement on polymorphic binary checks."
-        ],
-        offeringValue: "Exposes security and ethical flaws in a controlled sandbox environment before hostile actors exploit them in production.",
-        expectedOutcomes: [
-          "A comprehensive Threat Model, Vulnerability Register, and Red Team Findings report.",
-          "Custom adversarial test suites to run in CI/CD test gates."
-        ]
-      },
-      {
-        title: "5.5 Reliability Architecture, Guardrails & Real-Time Observability",
-        description: "Deployment of high-performance proxy gateways (guardrails), real-time drift, bias, and performance monitors, and cryptographically signed audit logging networks.",
-        keySituations: [
-          "Production models experiencing accuracy decay, hallucination, or demographic bias drift.",
-          "High-volume deployments lacking line-rate threat filters, SLA trackers, or incident alert triggers.",
-          "Audit anxiety from lack of immutable transaction histories."
-        ],
-        keyStatistics: [
-          "Added filter latency overhead: Under 15ms per request.",
-          "Drift detection: Real-time statistical alerts within 5 minutes of anomaly.",
-          "Incident MTTR: Reduced from hours to under 3 minutes through playbooks."
-        ],
-        offeringValue: "Guarantees runtime reliability, safety-first fail-safes, and continuous alignment under live traffic conditions.",
-        expectedOutcomes: [
-          "Live telemetry dashboards tracking drift, bias, accuracy, and SLA metrics.",
-          "Immutable, signed audit trail ledger integration.",
-          "Automatic incident response scripts and human escalation workflows."
-        ]
-      }
+    id: "energy-optimization-hyperscale",
+    title: "Category 6: Energy Optimization for Hyperscale AI Data Centers",
+    description: "Engineering sustainable, high-performance power ecosystems for multi-Gigawatt AI supercomputing campuses.",
+    solutions: [
+      "GPU Energy Optimization: Dynamic Per-GPU Power Capping & Shifting — Implementing granular, workload-aware power limits at the GPU level, shifting power to critical nodes during complex attention-mechanism calculations and capping during memory-bound phases.",
+      "GPU Energy Optimization: Ultra-High Density Direct-to-Chip (D2C) Liquid Cooling — Deploying cold-plate architectures capable of handling 100kW–120kW+ per rack, completely eliminating air-cooling bottlenecks for 1kW+ GPUs (e.g., Nvidia Blackwell).",
+      "GPU Energy Optimization: Voltage-Frequency (DVFS) Tuning for LLM Training — Customizing undervolting profiles that sacrifice marginal compute speed (1-2%) for massive power savings (10-15%) across tens of thousands of GPUs.",
+      "GPU Energy Optimization: GPU Idle-Power State Management — Engineering custom firmware and orchestration layers that aggressively force GPUs into ultra-low power states during data loading, checkpointing, and network waits.",
+      "Network Energy Optimization: SmartNIC/DPU Offloading for Switch Power Reduction — Migrating network processing, encryption, and load balancing to dedicated Data Processing Units (DPUs) to allow top-of-rack (ToR) and spine switches to enter low-power idle states.",
+      "Network Energy Optimization: Flattened Network Topology Design — Reducing the number of switch tiers (e.g., moving from 5-tier to 3-tier Clos fabrics) to halve the total number of optical transceivers and switches required, drastically cutting network power overhead.",
+      "Network Energy Optimization: Optical Transceiver Power Budgeting — Selecting and tuning co-packaged optics (CPO) and energy-proportional optical links that scale power consumption with actual bandwidth usage rather than drawing peak power at idle.",
+      "Facility & Grid Energy Optimization: AI-Predictive Free Cooling Optimization — Using machine learning to predict local weather patterns and AI workload heat generation, maximizing free cooling (economizer) usage and minimizing chiller compressor activation.",
+      "Facility & Grid Energy Optimization: Carbon-Aware & Geographic Workload Routing — Orchestrating LLM training jobs across a global fleet of data centers, routing workloads to regions where the grid is currently saturated with renewable energy (solar/wind).",
+      "Facility & Grid Energy Optimization: High-Efficiency Medium-Voltage DC Power Distribution — Bypassing multiple AC/DC conversion stages by delivering medium-voltage DC power directly to the GPU racks, eliminating up to 5% of total facility energy loss."
+    ],
+    capabilities: [
+      "Multi-GW Power Flow Modeling & Simulation",
+      "Computational Fluid Dynamics (CFD) for Hyper-Density Racks",
+      "AI/ML Workload Power Profiling & Forecasting",
+      "Liquid Cooling Loop Balancing & Fluid Dynamics Engineering",
+      "Network Fabric Power-to-Bandwidth Ratio Optimization",
+      "Hardware-Level GPU/FPGA DVFS Customization",
+      "Smart Grid Interconnection & Demand Response Engineering",
+      "Carbon Lifecycle Analysis (LCA) for AI Infrastructure",
+      "Real-Time PUE/WUE/PFUE Telemetry Architecture",
+      "Thermal-Mechanical Design & Vendor Agnostic Integration"
+    ],
+    useCases: [
+      "The 2GW Grid Interconnection Bottleneck: A hyperscaler is delayed by 3 years waiting for utility grid upgrades. Solution: We implement an islanded microgrid with 500MWh of battery storage and on-site solar, allowing phased deployment of 100,000 GPUs while waiting for the grid.",
+      "Mitigating Thermal Throttling in 100kW Racks: An LLM pre-training cluster repeatedly throttles during peak loads, losing 15% throughput. Solution: Retrofitted with D2C liquid cooling and rear-door heat exchangers, eliminating throttling and increasing sustained FLOPS by 18%.",
+      "Slashing Network Power Overhead in a 50,000 Node Cluster: The InfiniBand fabric consumes 20% of the total campus power. Solution: Flattened the network topology and implemented DPU offloading, reducing network power draw by 35% (saving megawatts) with zero impact on training latency.",
+      "Carbon-Aware Training for EU Compliance: A global AI company faces strict EU carbon reporting limits. Solution: Deployed a carbon-aware scheduler that pauses non-urgent fine-tuning jobs during peak grid carbon intensity, reducing the carbon footprint of the region's AI workloads by 40%.",
+      "DVFS Tuning for Multi-Billion Dollar Training Runs: During a massive foundational model training run, power costs are projected to exceed $50M. Solution: Applied custom DVFS profiling, reducing overall cluster power by 12% and saving nearly $6M in electricity costs with less than a 1% increase in total time-to-train.",
+      "Zero-Water Liquid Cooling in Arid Climates: A GW-scale campus in Arizona faces strict water usage restrictions, preventing traditional evaporative cooling. Solution: Designed a closed-loop D2C liquid cooling system with dry coolers, achieving a WUE of near-zero (0.1 L/kWh) while maintaining optimal GPU temperatures.",
+      "Waste Heat Monetization for Municipal Heating: A hyperscale campus in Northern Europe generates 150MW of continuous waste heat. Solution: Designed a heat-recovery interface connected to the city’s district heating network, generating $15M annually in recurring revenue while decarbonizing the local city grid.",
+      "Eliminating AC/DC Conversion Losses: A legacy AI facility is suffering from high PUE (1.6) due to inefficient power distribution. Solution: Engineered a transition to 400V DC direct power to the GPU racks, dropping facility PUE to 1.25 and saving 4MW of continuous power.",
+      "Predictive Cooling for Bursty AI Inference: An inference cluster experiences massive, unpredictable spikes in power draw, causing chillers to lag and waste energy. Solution: Implemented an AI-driven predictive DCIM system that reads the inference queue and pre-cools the facility 5 minutes ahead of demand, cutting cooling energy by 25%.",
+      "Optical Transceiver Idle-Power Optimization: A massive RPC (Remote Procedure Call) based distributed AI network wastes power on idle optical links. Solution: Engineered energy-proportional optical links that power down inactive lanes, saving 8MW of power across the campus network fabric during low-traffic hours."
+    ],
+    advisory: [
+      "GW-Scale Power & Capacity Strategy Advisory: End-to-end consulting for securing, designing, and managing multi-Gigawatt utility interconnections, including grid impact assessments and substation planning.",
+      "AI Thermal Renaissance & Cooling Transition Workshop: A strategic engagement to map the migration path from air-cooled AI clusters to high-density Direct-to-Chip (D2C) and immersion cooling architectures.",
+      "GPU & Network Fabric Energy Audit & Profiling: Deep-dive telemetry assessment to identify per-GPU, per-switch, and per-rack power waste, idle power draw, and thermal throttling events.",
+      "Sustainable AI & ESG Compliance Program: Development of strategies to achieve top-tier PFUE (Power Factor Usage Effectiveness), WUE (Water Usage Effectiveness), and Carbon-Aware Computing metrics for regulatory compliance (e.g., EU Energy Efficiency Directive).",
+      "AI-Driven Facility Operations (AFO) Implementation: Integration consulting for machine learning models that predictively control facility chillers, pumps, and power distribution based on real-time AI workload queues.",
+      "Waste Heat Recovery Monetization Strategy: Feasibility studies, partnership brokering, and financial modeling to convert excess GPU heat into revenue streams (district heating, agriculture, desalination).",
+      "Next-Gen Power Architecture & Microgrid Design: Engineering consulting for on-site energy generation, battery energy storage systems (BESS), and islanding capabilities to protect AI training from grid instability."
     ]
   }
 ];
 
-/* ─── Helper Functions ─────────────────────────────────────────── */
-
-function toId(s: string) {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
-
-/* ─── Rendering Components ────────────────────────────────────── */
-
-function DetailedOfferingSection({ data }: { data: OfferingDetail }) {
+function DetailedOfferingSection({ data }: { data: OfferingCategory }) {
+  const hasAdvisory = !!data.advisory;
   return (
-    <div id={toId(data.title)} className="py-24 border-b border-border/40 last:border-b-0 scroll-mt-36">
+    <div className="py-16 bg-background">
       <div className="mx-auto max-w-7xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h3 className="text-xl md:text-2xl lg:text-2.5xl font-semibold tracking-tight text-gradient mb-2">
-            {data.title}
-          </h3>
-          {data.subtitle && (
-            <p className="text-accent font-medium text-base md:text-lg">{data.subtitle}</p>
-          )}
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column */}
-          <div className="space-y-12">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow"></span>
-                1. Description
-              </h4>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                {data.description}
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Target className="h-5 w-5 text-accent animate-pulse-glow" />
-                2. Key Situations
-              </h4>
-              <ul className="space-y-3">
-                {data.keySituations.map((sit, i) => (
-                  <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed">
-                    <div className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 mt-2" />
-                    <span>{sit}</span>
-                  </li>
-                ))}
+        <div className={`grid gap-8 items-start ${hasAdvisory ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
+          
+          {/* Advisory Column (if present) */}
+          {hasAdvisory && (
+            <div className="rounded-2xl border border-border/40 bg-surface/10 p-6 shadow-sm hover:border-primary/25 transition-all duration-300">
+              <h3 className="text-lg font-bold text-foreground mb-4 pb-2 border-b border-border/30 flex items-center gap-2.5">
+                <Globe className="h-5 w-5 text-amber-500 animate-pulse-glow" />
+                Advisory Services
+              </h3>
+              <ul className="space-y-3.5">
+                {data.advisory!.map((adv, i) => {
+                  const parts = adv.split(":");
+                  return (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <span className="text-amber-500 mt-0.5 shrink-0 text-sm">→</span>
+                      <span className="text-muted-foreground text-sm leading-relaxed">
+                        {parts.length > 1 ? (
+                          <>
+                            <strong className="text-foreground font-semibold">{parts[0]}</strong>
+                            {":"}
+                            {parts.slice(1).join(":")}
+                          </>
+                        ) : (
+                          adv
+                        )}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Zap className="h-5 w-5 text-emerald-500" />
-                4. Offering Value and Benefits
-              </h4>
-              <p className="text-base text-muted-foreground border-l-2 border-emerald-500/50 pl-4 py-2 italic bg-emerald-500/5 rounded-r-lg leading-relaxed">
-                {data.offeringValue}
-              </p>
-            </motion.div>
+            </div>
+          )}
+          
+          {/* Solutions Column */}
+          <div className="rounded-2xl border border-border/40 bg-surface/10 p-6 shadow-sm hover:border-primary/25 transition-all duration-300">
+            <h3 className="text-lg font-bold text-foreground mb-4 pb-2 border-b border-border/30 flex items-center gap-2.5">
+              <Zap className="h-5 w-5 text-accent animate-pulse-glow" />
+              Technical Solutions
+            </h3>
+            <ul className="space-y-3.5">
+              {data.solutions.map((sol, i) => {
+                const hasSep = sol.includes(" — ");
+                const parts = hasSep ? sol.split(" — ") : sol.split(":");
+                return (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <span className="text-accent mt-0.5 shrink-0 text-sm">→</span>
+                    <span className="text-muted-foreground text-sm leading-relaxed">
+                      {parts.length > 1 ? (
+                        <>
+                          <strong className="text-foreground font-semibold">{parts[0]}</strong>
+                          {hasSep ? " — " : ":"}
+                          {parts.slice(1).join(hasSep ? " — " : ":")}
+                        </>
+                      ) : (
+                        sol
+                      )}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
-          {/* Right Column */}
-          <div className="space-y-12">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-2xl border border-border/60 bg-surface/40 p-8"
-            >
-              <h4 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
-                <BarChart3 className="h-5 w-5 text-primary" />
-                3. Key Statistics and Outcomes
-              </h4>
-              <ul className="space-y-4">
-                {data.keyStatistics.map((stat, i) => (
-                  <li key={i} className="flex gap-3 text-foreground font-medium text-sm leading-relaxed">
-                    <ChevronRight className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                    <span>{stat}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+          {/* Capabilities Column */}
+          <div className="rounded-2xl border border-border/40 bg-surface/10 p-6 shadow-sm hover:border-primary/25 transition-all duration-300">
+            <h3 className="text-lg font-bold text-foreground mb-4 pb-2 border-b border-border/30 flex items-center gap-2.5">
+              <Cpu className="h-5 w-5 text-blue-500" />
+              Core Capabilities
+            </h3>
+            <ul className="space-y-3.5">
+              {data.capabilities.map((cap, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <span className="text-blue-500 mt-0.5 shrink-0 text-sm">✓</span>
+                  <span className="text-muted-foreground text-sm leading-relaxed">{cap}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-accent" />
-                5. Expected Outcomes
-              </h4>
-              <ul className="space-y-4">
-                {data.expectedOutcomes.map((out, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                    <span className="text-muted-foreground text-sm leading-relaxed">{out}</span>
-                  </li>
-                ))}
+          {/* Use Cases Column */}
+          <div className="rounded-2xl border border-border/40 bg-surface/10 p-6 shadow-sm hover:border-primary/25 transition-all duration-300">
+            <h3 className="text-lg font-bold text-foreground mb-4 pb-2 border-b border-border/30 flex items-center gap-2.5">
+              <BarChart3 className="h-5 w-5 text-emerald-500" />
+              Production Use Cases
+            </h3>
+            {data.id === "ai-infrastructure" ? (
+              <div className="space-y-5">
+                <div>
+                  <h4 className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">Platform & Inference Operations</h4>
+                  <ul className="space-y-2">
+                    {data.useCases.slice(0, 15).map((uc, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-emerald-500 text-xs mt-1.5">●</span>
+                        <span className="text-muted-foreground text-sm leading-relaxed">{uc}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="border-t border-border/30 pt-3">
+                  <h4 className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">Energy Optimization</h4>
+                  <ul className="space-y-2">
+                    {data.useCases.slice(15, 17).map((uc, i) => {
+                      const cleanUc = uc.replace("Energy Optimization: ", "");
+                      return (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-emerald-500 text-xs mt-1.5">●</span>
+                          <span className="text-muted-foreground text-sm leading-relaxed">{cleanUc}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <div className="border-t border-border/30 pt-3">
+                  <h4 className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">I/O Optimization</h4>
+                  <ul className="space-y-2">
+                    {data.useCases.slice(17, 19).map((uc, i) => {
+                      const cleanUc = uc.replace("I/O Optimization: ", "");
+                      return (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-emerald-500 text-xs mt-1.5">●</span>
+                          <span className="text-muted-foreground text-sm leading-relaxed">{cleanUc}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <div className="border-t border-border/30 pt-3">
+                  <h4 className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">Memory Optimization</h4>
+                  <ul className="space-y-2">
+                    {data.useCases.slice(19, 20).map((uc, i) => {
+                      const cleanUc = uc.replace("Memory Optimization: ", "");
+                      return (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-emerald-500 text-xs mt-1.5">●</span>
+                          <span className="text-muted-foreground text-sm leading-relaxed">{cleanUc}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <ul className="space-y-3">
+                {data.useCases.map((uc, i) => {
+                  const parts = uc.split(":");
+                  return (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-emerald-500 text-xs mt-1.5">●</span>
+                      <span className="text-muted-foreground text-sm leading-relaxed">
+                        {parts.length > 1 ? (
+                          <>
+                            <strong className="text-foreground font-semibold">{parts[0]}</strong>
+                            {":"}
+                            {parts.slice(1).join(":")}
+                          </>
+                        ) : (
+                          uc
+                        )}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
-            </motion.div>
+            )}
           </div>
         </div>
       </div>
@@ -577,7 +488,6 @@ function DetailedOfferingSection({ data }: { data: OfferingDetail }) {
 }
 
 /* ─── Main Offerings Page Component ───────────────────────────── */
-
 
 function OfferingsPage() {
   return (
@@ -628,7 +538,7 @@ function OfferingsPage() {
               Core Technical Offerings & Engineering Pillars
             </h2>
             <p className="mt-3 text-base text-muted-foreground max-w-3xl leading-relaxed">
-              Deep-tech professional services focusing on optimization, performance acceleration, zero-trust cybersecurity, and mega-scale infrastructure engineering.
+              Deep tech professional services focused on optimization. Built on the pillars of Performance, Security, Scalability, Reliability, and Cost-Efficiency.
             </p>
           </div>
         </div>
@@ -649,11 +559,7 @@ function OfferingsPage() {
                   </p>
                 </div>
               </div>
-              <div>
-                {cat.offerings.map((data, index) => (
-                  <DetailedOfferingSection key={index} data={data} />
-                ))}
-              </div>
+              <DetailedOfferingSection data={cat} />
             </div>
           ))}
         </div>
