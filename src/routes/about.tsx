@@ -6,7 +6,7 @@ import { Insights } from "@/components/site/Insights";
 import { ContactForm } from "@/components/site/ContactForm";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTA } from "@/components/site/CTA";
-import { Mail, Phone, Globe } from "lucide-react";
+import { Mail, Phone, Globe, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -56,6 +56,67 @@ const teamMembers: TeamMember[] = [
   { initials: "HK", name: "HariKrishnan K", role: "AI Engineering (Intern)" },
   { initials: "PK", name: "Praveen Kumar R", role: "AI Engineering (Intern)" },
   { initials: "SS", name: "Santhosh S", role: "AI Engineering (Intern)" },
+];
+
+interface OfficeAddress {
+  city: string;
+  name?: string;
+  addressLines: string[];
+  email?: string;
+  phone?: string;
+}
+
+const globalOffices: OfficeAddress[] = [
+  {
+    city: "Tampa, US Office",
+    addressLines: [
+      "501 E Kennedy Blvd Suite 1400",
+      "Tampa, FL 33602, United States"
+    ],
+    email: "connect@trustgrid.ai",
+    phone: "+91 9513288612"
+  },
+  {
+    city: "Singapore Office",
+    addressLines: [
+      "5 Temasek Boulevard, 17th Floor",
+      "Singapore 038985"
+    ],
+    email: "connect@trustgrid.ai",
+    phone: "+65 6050 5235"
+  },
+  {
+    city: "Bengaluru, India HQ",
+    name: "TRUSTGRID.AI INNOVATION PVT LTD",
+    addressLines: [
+      "Suite : 32 , 235, BINNAMANGALA,",
+      "2nd Floor, 13th Cross Road,",
+      "Indira Nagar 2nd Stage, Hoysala Nagar,",
+      "Bengaluru – 560038 , India"
+    ]
+  },
+  {
+    city: "Mumbai Office",
+    addressLines: [
+      "WeWork, Raheja Platinum,",
+      "Road, off Andheri - Kurla Road,",
+      "Sag Baug, Marol, Andheri East,",
+      "Mumbai, Maharashtra 400059"
+    ],
+    email: "cs@trustgrid.in",
+    phone: "+91 9513088612"
+  },
+  {
+    city: "Bangalore Office",
+    addressLines: [
+      "WeWork, 13th floor, Tin Factory,",
+      "Salarpuria Magnificia, 78, Old Madras Rd,",
+      "next to KR Puram, Mahadevapura,",
+      "Bengaluru, Karnataka 560016"
+    ],
+    email: "cs@trustgrid.in",
+    phone: "+91 9513088612"
+  }
 ];
 
 function AboutPage() {
@@ -184,6 +245,89 @@ function AboutPage() {
                 </p>
               </div>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Offices Section */}
+      <section className="py-24 border-t border-border/40 bg-background">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeading
+            eyebrow="Presence"
+            title="Global Operations & Offices"
+            description="Our engineering clusters and offices operate in key international hubs to serve global enterprises."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+            {globalOffices.map((office, idx) => (
+              <div 
+                key={idx} 
+                className="premium-card p-6 flex flex-col justify-between hover:border-primary/30 transition-all duration-300 group"
+              >
+                <div>
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-accent mb-3 flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-accent shrink-0" />
+                    {office.city}
+                  </h3>
+                  {office.name && (
+                    <p className="text-xs font-semibold text-foreground/90 mb-2 font-mono leading-relaxed">
+                      {office.name}
+                    </p>
+                  )}
+                  <div className="space-y-1 text-sm text-muted-foreground leading-relaxed">
+                    {office.addressLines.map((line, i) => (
+                      <p key={i}>{line}</p>
+                    ))}
+                  </div>
+                </div>
+
+                {(office.email || office.phone) && (
+                  <div className="border-t border-border/40 mt-5 pt-4 space-y-1.5 text-xs">
+                    {office.email && (
+                      <p className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                        <Mail className="h-3.5 w-3.5 text-muted-foreground/50 group-hover:text-accent transition-colors" />
+                        {office.email}
+                      </p>
+                    )}
+                    {office.phone && (
+                      <p className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                        <Phone className="h-3.5 w-3.5 text-muted-foreground/50 group-hover:text-accent transition-colors" />
+                        {office.phone}
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* General Contacts Card */}
+            <div className="premium-card p-6 flex flex-col justify-between bg-gradient-to-br from-primary/5 to-transparent border-primary/20 hover:border-primary/40 transition-all duration-300">
+              <div>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-accent mb-4 flex items-center gap-2">
+                  <Globe className="h-4 w-4 text-accent shrink-0" />
+                  General Inquiries
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                  For corporate partnerships, vendor relations, and global business enquiries.
+                </p>
+              </div>
+
+              <div className="space-y-3.5">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60 mb-1">Email Us</p>
+                  <a href="mailto:connect@trustgrid.ai" className="text-sm font-semibold text-foreground hover:text-accent transition-colors">
+                    connect@trustgrid.ai
+                  </a>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60 mb-1">Call Us</p>
+                  <div className="space-y-1">
+                    <p className="text-sm font-semibold text-foreground">+91 9513288612 (IN)</p>
+                    <p className="text-sm font-semibold text-foreground">+65 6050 5235 (SG)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
