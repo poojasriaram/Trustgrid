@@ -5,7 +5,7 @@
 
 // ─── Configuration ────────────────────────────────────────────
 export const ANALYTICS_CONFIG = {
-  ENDPOINT: 'https://script.google.com/macros/s/AKfycbxD-Z1pKI9kXAdlnoH6x3eMFL7KjqUg4QYa13ruoeXghugzZ7Hw1CGEdHE8YVSPuMIc/exec',
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbwNj7AXcGar2BnCrtMikJzJBgopRDc8avl_OnwF4YKsRnQvBjFj4ZsR-8Uwjm7883l7/exec',
   BATCH_INTERVAL_MS: 8000,  // Send events every 8 seconds
   MAX_BATCH_SIZE: 30,       // Max events per batch
   ENABLED: true,
