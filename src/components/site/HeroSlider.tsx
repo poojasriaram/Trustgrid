@@ -487,10 +487,10 @@ export function HeroSlider({
             {/* Problem */}
             <div className="p-4 md:p-5">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="h-3.5 w-3.5 text-red-500 shrink-0" />
-                <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-red-500 font-mono">The Problem</span>
+                <AlertTriangle className="h-4 w-4 text-red-500 shrink-0" />
+                <span className="text-xs font-extrabold uppercase tracking-[0.15em] text-red-500 font-mono">The Problem</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+              <p className="text-sm sm:text-base md:text-lg text-slate-800 leading-relaxed font-bold">
                 {slide.problem}
               </p>
             </div>
@@ -498,10 +498,10 @@ export function HeroSlider({
             {/* Outcome */}
             <div className="p-4 md:p-5">
               <div className="flex items-center gap-2 mb-2">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-emerald-600 font-mono">The Outcome</span>
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                <span className="text-xs font-extrabold uppercase tracking-[0.15em] text-emerald-600 font-mono">The Outcome</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-900 leading-relaxed font-semibold">
+              <p className="text-sm sm:text-base md:text-lg text-slate-900 leading-relaxed font-extrabold">
                 {slide.outcome}
               </p>
             </div>
