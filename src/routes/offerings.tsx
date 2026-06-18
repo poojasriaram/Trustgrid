@@ -311,6 +311,35 @@ const offeringCategories: OfferingCategory[] = [
   }
 ];
 
+const getInfrastructureCategory = (uc: string) => {
+  if (uc.startsWith("Energy Optimization: ")) {
+    return {
+      category: "Energy Optimization",
+      text: uc.replace("Energy Optimization: ", ""),
+      badgeClass: "bg-amber-50/70 text-amber-700 border-amber-200/50"
+    };
+  }
+  if (uc.startsWith("I/O Optimization: ")) {
+    return {
+      category: "I/O Optimization",
+      text: uc.replace("I/O Optimization: ", ""),
+      badgeClass: "bg-violet-50/70 text-violet-700 border-violet-200/50"
+    };
+  }
+  if (uc.startsWith("Memory Optimization: ")) {
+    return {
+      category: "Memory Optimization",
+      text: uc.replace("Memory Optimization: ", ""),
+      badgeClass: "bg-blue-50/70 text-blue-700 border-blue-200/50"
+    };
+  }
+  return {
+    category: "Platform & Ops",
+    text: uc,
+    badgeClass: "bg-indigo-50/70 text-indigo-700 border-indigo-200/50"
+  };
+};
+
 function DetailedOfferingSection({ data }: { data: OfferingCategory }) {
   const hasAdvisory = !!data.advisory;
 
@@ -424,30 +453,40 @@ function DetailedOfferingSection({ data }: { data: OfferingCategory }) {
           </div>
 
           {data.id === "ai-infrastructure" ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { title: "Platform & Inference Operations", items: data.useCases.slice(0, 15) },
-                { title: "Energy Optimization", items: data.useCases.slice(15, 17), prefix: "Energy Optimization: " },
-                { title: "I/O Optimization", items: data.useCases.slice(17, 19), prefix: "I/O Optimization: " },
-                { title: "Memory Optimization", items: data.useCases.slice(19, 20), prefix: "Memory Optimization: " },
-              ].map((section, sidx) => (
-                <div key={sidx} className="p-5 border border-border bg-surface/15 rounded-2xl space-y-4 shadow-sm">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-accent font-display border-b border-border/40 pb-2">
-                    {section.title}
-                  </h4>
-                  <ul className="space-y-3">
-                    {section.items.map((uc, i) => {
-                      const cleanUc = section.prefix ? uc.replace(section.prefix, "") : uc;
-                      return (
-                        <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground leading-relaxed">
-                          <span className="text-emerald-500 font-bold shrink-0 mt-0.5">•</span>
-                          <span>{cleanUc}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {data.useCases.map((uc, i) => {
+                const { category, text, badgeClass } = getInfrastructureCategory(uc);
+                const parts = text.split(":");
+                const hasLabel = parts.length > 1 && parts[0].length < 60;
+                const title = hasLabel ? parts[0] : "";
+                const body = hasLabel ? parts.slice(1).join(":") : text;
+
+                return (
+                  <div
+                    key={i}
+                    className="flex flex-col justify-between p-5 rounded-2xl border border-border bg-surface/15 hover:bg-surface-elevated/45 hover:border-emerald-500/20 transition-all duration-200 shadow-sm"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-emerald-500 text-base font-bold shrink-0">•</span>
+                        <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${badgeClass}`}>
+                          {category}
+                        </span>
+                      </div>
+                      <div className="text-xs md:text-sm leading-relaxed text-muted-foreground pt-1">
+                        {hasLabel ? (
+                          <>
+                            <strong className="text-foreground font-semibold font-display block mb-1">{title}</strong>
+                            {body}
+                          </>
+                        ) : (
+                          text
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
