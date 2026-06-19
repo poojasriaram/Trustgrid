@@ -9,7 +9,9 @@ const slides = [
     title: "Data Center & Performance Engineering",
     description: "Optimize multi-node fabrics, NCCL/RoCEv2 networks, and CUDA kernels to maximize hardware utilization and achieve linear scale up to 10,000+ GPUs.",
     tag: "NVIDIA Blackwell & InfiniBand",
-    iconColor: "text-blue-500",
+    accentColor: "#60a5fa",
+    glowColor: "rgba(96,165,250,0.18)",
+    borderColor: "rgba(96,165,250,0.3)",
   },
   {
     icon: Brain,
@@ -17,7 +19,9 @@ const slides = [
     title: "Domain-Specific Models & Knowledge Systems",
     description: "Fine-tune open-weights models (LoRA/DPO), compress models using FP8/INT4 quantization, and build multi-hop RAG systems with enterprise knowledge graphs.",
     tag: "Llama, Mistral & pgvector",
-    iconColor: "text-indigo-500",
+    accentColor: "#a78bfa",
+    glowColor: "rgba(167,139,250,0.18)",
+    borderColor: "rgba(167,139,250,0.3)",
   },
   {
     icon: Bot,
@@ -25,7 +29,9 @@ const slides = [
     title: "Multi-Agent Orchestration & Tool Gating",
     description: "Orchestrate specialized agent fleets (LangGraph/CrewAI) with persistent memory, Model Context Protocol (MCP) tool integrations, and human-in-the-loop gating.",
     tag: "LangGraph, CrewAI & MCP",
-    iconColor: "text-violet-500",
+    accentColor: "#c084fc",
+    glowColor: "rgba(192,132,252,0.18)",
+    borderColor: "rgba(192,132,252,0.3)",
   },
   {
     icon: ShieldCheck,
@@ -33,13 +39,15 @@ const slides = [
     title: "Zero-Trust Security Mesh & Sandboxing",
     description: "Secure model inference and agent execution with MicroVM / WASM sandboxes, protect against prompt injection, and audit decision lineage for SOC2/FedRAMP.",
     tag: "Zero-Trust & SOC2 Compliance",
-    iconColor: "text-emerald-500",
+    accentColor: "#34d399",
+    glowColor: "rgba(52,211,153,0.18)",
+    borderColor: "rgba(52,211,153,0.3)",
   },
 ];
 
 export function MovingSlides() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  const [direction, setDirection] = useState(0);
 
   const slideNext = () => {
     setDirection(1);
@@ -58,17 +66,17 @@ export function MovingSlides() {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 120 : -120,
-      opacity: 0
+      x: direction > 0 ? 80 : -80,
+      opacity: 0,
     }),
     center: {
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 120 : -120,
-      opacity: 0
-    })
+      x: direction < 0 ? 80 : -80,
+      opacity: 0,
+    }),
   };
 
   const slide = slides[currentIndex];
@@ -76,11 +84,25 @@ export function MovingSlides() {
 
   return (
     <div className="w-full mt-10 md:mt-12 relative">
-      <div className="relative h-[250px] sm:h-[200px] md:h-[180px] lg:h-[160px] w-full overflow-hidden rounded-xl border border-border/80 bg-card/65 backdrop-blur-sm px-8 py-6 flex items-center shadow-md">
-        {/* Subtle slide grid accent overlay */}
-        <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/[0.015] via-transparent to-primary/[0.015] pointer-events-none" />
-        
+      <div
+        className="relative overflow-hidden rounded-2xl px-8 py-6 flex items-center"
+        style={{
+          height: "clamp(150px, 22vw, 190px)",
+          background: "linear-gradient(135deg, rgba(10,14,40,0.95) 0%, rgba(15,20,55,0.98) 100%)",
+          border: `1px solid ${slide.borderColor}`,
+          boxShadow: `0 0 32px ${slide.glowColor}, inset 0 1px 0 rgba(255,255,255,0.05)`,
+          transition: "border-color 0.4s ease, box-shadow 0.4s ease",
+        }}
+      >
+        {/* Ambient glow behind icon */}
+        <div
+          className="absolute top-0 left-0 w-64 h-full pointer-events-none"
+          style={{
+            background: `radial-gradient(ellipse 55% 80% at 8% 50%, ${slide.glowColor} 0%, transparent 70%)`,
+            transition: "background 0.4s ease",
+          }}
+        />
+
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={currentIndex}
@@ -89,51 +111,98 @@ export function MovingSlides() {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.28, ease: "easeInOut" }}
             className="grid md:grid-cols-[1fr_auto] gap-6 items-center w-full relative z-10"
           >
             <div className="flex gap-4 md:gap-5 items-start">
-              <div className={`h-10 w-10 rounded-lg border shrink-0 grid place-items-center bg-primary/10 border-primary/20 ${slide.iconColor}`}>
+              {/* Icon badge */}
+              <div
+                className="h-11 w-11 rounded-xl shrink-0 grid place-items-center"
+                style={{
+                  background: `${slide.glowColor}`,
+                  border: `1px solid ${slide.borderColor}`,
+                  color: slide.accentColor,
+                  boxShadow: `0 0 16px ${slide.glowColor}`,
+                }}
+              >
                 <IconComponent className="h-5 w-5" />
               </div>
+
               <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-accent bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-md">
-                    {slide.category}
-                  </span>
-                </div>
-                <h3 className="mt-2.5 text-sm md:text-base font-semibold text-foreground tracking-tight leading-snug">
+                {/* Category badge */}
+                <span
+                  className="text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-md"
+                  style={{
+                    color: slide.accentColor,
+                    background: slide.glowColor,
+                    border: `1px solid ${slide.borderColor}`,
+                  }}
+                >
+                  {slide.category}
+                </span>
+
+                {/* Title */}
+                <h3
+                  className="mt-2 text-sm md:text-base font-bold tracking-tight leading-snug"
+                  style={{ color: "#f1f5f9" }}
+                >
                   {slide.title}
                 </h3>
-                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed max-w-3xl">
+
+                {/* Description */}
+                <p
+                  className="mt-1.5 text-xs leading-relaxed max-w-3xl"
+                  style={{ color: "rgba(203,213,225,0.8)" }}
+                >
                   {slide.description}
                 </p>
               </div>
             </div>
 
-            {/* Tag section on the right */}
+            {/* Stack tag — right side */}
             <div className="hidden md:flex flex-col items-end shrink-0">
-              <span className="text-[9px] font-mono font-semibold uppercase tracking-widest text-muted-foreground/85 mb-1">
+              <span
+                className="text-[9px] font-mono font-semibold uppercase tracking-widest mb-1.5"
+                style={{ color: "rgba(148,163,184,0.7)" }}
+              >
                 Platform Core Stack
               </span>
-              <span className="rounded-md bg-surface border border-border/80 px-2.5 py-1 text-[10px] font-bold text-foreground/80 shadow-sm">
+              <span
+                className="rounded-lg px-3 py-1.5 text-[10px] font-bold"
+                style={{
+                  color: slide.accentColor,
+                  background: slide.glowColor,
+                  border: `1px solid ${slide.borderColor}`,
+                  boxShadow: `0 0 10px ${slide.glowColor}`,
+                }}
+              >
                 {slide.tag}
               </span>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Arrows */}
+        {/* Nav arrows */}
         <button
           onClick={slidePrev}
-          className="absolute left-1.5 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full border border-border/80 bg-card/90 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-surface shadow-sm transition-colors cursor-pointer z-20"
+          className="absolute left-2 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer z-20"
+          style={{
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            color: "rgba(203,213,225,0.6)",
+          }}
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-3.5 w-3.5" />
         </button>
         <button
           onClick={slideNext}
-          className="absolute right-1.5 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full border border-border/80 bg-card/90 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-surface shadow-sm transition-colors cursor-pointer z-20"
+          className="absolute right-2 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer z-20"
+          style={{
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            color: "rgba(203,213,225,0.6)",
+          }}
           aria-label="Next slide"
         >
           <ChevronRight className="h-3.5 w-3.5" />
@@ -141,18 +210,30 @@ export function MovingSlides() {
       </div>
 
       {/* Indicators */}
-      <div className="flex justify-center gap-1.5 mt-3">
-        {slides.map((_, i) => (
+      <div className="flex justify-center gap-2 mt-3">
+        {slides.map((s, i) => (
           <button
             key={i}
             onClick={() => {
               setDirection(i > currentIndex ? 1 : -1);
               setCurrentIndex(i);
             }}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === currentIndex ? "w-5 bg-accent" : "w-1.5 bg-border/80 hover:bg-border"
-            }`}
             aria-label={`Go to slide ${i + 1}`}
+            className="rounded-full transition-all duration-300 cursor-pointer"
+            style={
+              i === currentIndex
+                ? {
+                    width: "20px",
+                    height: "5px",
+                    background: s.accentColor,
+                    boxShadow: `0 0 8px ${s.glowColor}`,
+                  }
+                : {
+                    width: "5px",
+                    height: "5px",
+                    background: "rgba(255,255,255,0.2)",
+                  }
+            }
           />
         ))}
       </div>

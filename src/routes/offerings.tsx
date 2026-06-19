@@ -533,7 +533,7 @@ function OfferingsPage() {
       <HeroSlider type="reliability" />
 
       {/* Grouped sticky category navigation */}
-      <div className="sticky top-16 z-30 bg-background/90 backdrop-blur-md border-b border-border/40 py-4">
+      <div className="sticky top-14 z-30 bg-background/90 backdrop-blur-md border-b border-border/40 py-4">
         <div className="mx-auto max-w-7xl px-6">
           
           {/* Engineering Pillars Row */}

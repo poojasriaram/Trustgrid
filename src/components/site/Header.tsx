@@ -931,11 +931,11 @@ export function Header() {
       `}</style>
 
       <header className="sticky top-0 z-50 border-b border-border/20 bg-background/20 backdrop-blur-xl">
-        <div className="w-full flex h-20 items-center justify-between px-6 md:px-8 xl:px-[calc(2rem+1.5cm)]">
+        <div className="max-w-screen-2xl mx-auto w-full flex h-14 items-center justify-between px-6 md:px-8 xl:px-12">
 
           {/* Brand */}
           <Link to="/" className="flex items-center group mr-6 shrink-0">
-            <img src="/logo.png" alt="TrustGrid.AI Logo" className="h-14 w-auto object-contain" />
+            <img src="/logo.png" alt="TrustGrid.AI Logo" className="h-8 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}

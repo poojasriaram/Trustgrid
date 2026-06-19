@@ -918,7 +918,7 @@ function LlmOpsPage() {
       </section>
 
       {/* Sticky nav */}
-      <nav className="border-b border-border/40 bg-background/80 backdrop-blur sticky top-16 z-30">
+      <nav className="border-b border-border/40 bg-background/80 backdrop-blur sticky top-14 z-30">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex gap-1 overflow-x-auto py-3 scrollbar-none">
             {llmOfferings.map((o) => (
