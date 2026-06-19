@@ -177,10 +177,11 @@ export function Footer() {
         <div className="pt-8 border-t border-border/30 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs text-muted-foreground">
             <span>© {new Date().getFullYear()} TrustGrid.AI. All rights reserved.</span>
-            <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-foreground transition-colors">Security</a>
-            <a href="#" className="hover:text-foreground transition-colors">Cookies</a>
+            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link to="/security" className="hover:text-foreground transition-colors">Security</Link>
+            <Link to="/copyright" className="hover:text-foreground transition-colors">Copyright & Trademarks</Link>
+            <Link to="/cookies" className="hover:text-foreground transition-colors">Cookies</Link>
             <a 
               href="/sitemap.xml" 
               target="_blank" 

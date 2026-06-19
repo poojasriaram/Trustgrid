@@ -10,9 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as OfferingsRouteImport } from './routes/offerings'
 import { Route as MultiAgentSystemsRouteImport } from './routes/multi-agent-systems'
@@ -20,6 +23,8 @@ import { Route as LongMemoryAiSystemsRouteImport } from './routes/long-memory-ai
 import { Route as LlmopsServicesRouteImport } from './routes/llmops-services'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GpuPerformanceEngineeringRouteImport } from './routes/gpu-performance-engineering'
+import { Route as CopyrightRouteImport } from './routes/copyright'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CapabilitiesRouteImport } from './routes/capabilities'
@@ -37,6 +42,11 @@ const UseCasesRoute = UseCasesRouteImport.update({
   path: '/use-cases',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -50,6 +60,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlatformRoute = PlatformRouteImport.update({
@@ -88,6 +108,16 @@ const GpuPerformanceEngineeringRoute =
     path: '/gpu-performance-engineering',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CopyrightRoute = CopyrightRouteImport.update({
+  id: '/copyright',
+  path: '/copyright',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -156,6 +186,8 @@ export interface FileRoutesByFullPath {
   '/capabilities': typeof CapabilitiesRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/copyright': typeof CopyrightRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
   '/industries': typeof IndustriesRoute
   '/llmops-services': typeof LlmopsServicesRoute
@@ -163,9 +195,12 @@ export interface FileRoutesByFullPath {
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
   '/offerings': typeof OfferingsRoute
   '/platform': typeof PlatformRoute
+  '/privacy': typeof PrivacyRoute
+  '/security': typeof SecurityRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
 }
@@ -180,6 +215,8 @@ export interface FileRoutesByTo {
   '/capabilities': typeof CapabilitiesRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/copyright': typeof CopyrightRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
   '/industries': typeof IndustriesRoute
   '/llmops-services': typeof LlmopsServicesRoute
@@ -187,9 +224,12 @@ export interface FileRoutesByTo {
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
   '/offerings': typeof OfferingsRoute
   '/platform': typeof PlatformRoute
+  '/privacy': typeof PrivacyRoute
+  '/security': typeof SecurityRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
 }
@@ -205,6 +245,8 @@ export interface FileRoutesById {
   '/capabilities': typeof CapabilitiesRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/copyright': typeof CopyrightRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
   '/industries': typeof IndustriesRoute
   '/llmops-services': typeof LlmopsServicesRoute
@@ -212,9 +254,12 @@ export interface FileRoutesById {
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
   '/offerings': typeof OfferingsRoute
   '/platform': typeof PlatformRoute
+  '/privacy': typeof PrivacyRoute
+  '/security': typeof SecurityRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
 }
@@ -231,6 +276,8 @@ export interface FileRouteTypes {
     | '/capabilities'
     | '/case-studies'
     | '/contact'
+    | '/cookies'
+    | '/copyright'
     | '/gpu-performance-engineering'
     | '/industries'
     | '/llmops-services'
@@ -238,9 +285,12 @@ export interface FileRouteTypes {
     | '/multi-agent-systems'
     | '/offerings'
     | '/platform'
+    | '/privacy'
+    | '/security'
     | '/services'
     | '/sitemap.xml'
     | '/solutions'
+    | '/terms'
     | '/use-cases'
     | '/admin/analytics'
   fileRoutesByTo: FileRoutesByTo
@@ -255,6 +305,8 @@ export interface FileRouteTypes {
     | '/capabilities'
     | '/case-studies'
     | '/contact'
+    | '/cookies'
+    | '/copyright'
     | '/gpu-performance-engineering'
     | '/industries'
     | '/llmops-services'
@@ -262,9 +314,12 @@ export interface FileRouteTypes {
     | '/multi-agent-systems'
     | '/offerings'
     | '/platform'
+    | '/privacy'
+    | '/security'
     | '/services'
     | '/sitemap.xml'
     | '/solutions'
+    | '/terms'
     | '/use-cases'
     | '/admin/analytics'
   id:
@@ -279,6 +334,8 @@ export interface FileRouteTypes {
     | '/capabilities'
     | '/case-studies'
     | '/contact'
+    | '/cookies'
+    | '/copyright'
     | '/gpu-performance-engineering'
     | '/industries'
     | '/llmops-services'
@@ -286,9 +343,12 @@ export interface FileRouteTypes {
     | '/multi-agent-systems'
     | '/offerings'
     | '/platform'
+    | '/privacy'
+    | '/security'
     | '/services'
     | '/sitemap.xml'
     | '/solutions'
+    | '/terms'
     | '/use-cases'
     | '/admin/analytics'
   fileRoutesById: FileRoutesById
@@ -304,6 +364,8 @@ export interface RootRouteChildren {
   CapabilitiesRoute: typeof CapabilitiesRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
+  CopyrightRoute: typeof CopyrightRoute
   GpuPerformanceEngineeringRoute: typeof GpuPerformanceEngineeringRoute
   IndustriesRoute: typeof IndustriesRoute
   LlmopsServicesRoute: typeof LlmopsServicesRoute
@@ -311,9 +373,12 @@ export interface RootRouteChildren {
   MultiAgentSystemsRoute: typeof MultiAgentSystemsRoute
   OfferingsRoute: typeof OfferingsRoute
   PlatformRoute: typeof PlatformRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SecurityRoute: typeof SecurityRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SolutionsRoute: typeof SolutionsRoute
+  TermsRoute: typeof TermsRoute
   UseCasesRoute: typeof UseCasesRoute
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
 }
@@ -325,6 +390,13 @@ declare module '@tanstack/react-router' {
       path: '/use-cases'
       fullPath: '/use-cases'
       preLoaderRoute: typeof UseCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions': {
@@ -346,6 +418,20 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/platform': {
@@ -395,6 +481,20 @@ declare module '@tanstack/react-router' {
       path: '/gpu-performance-engineering'
       fullPath: '/gpu-performance-engineering'
       preLoaderRoute: typeof GpuPerformanceEngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copyright': {
+      id: '/copyright'
+      path: '/copyright'
+      fullPath: '/copyright'
+      preLoaderRoute: typeof CopyrightRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -488,6 +588,8 @@ const rootRouteChildren: RootRouteChildren = {
   CapabilitiesRoute: CapabilitiesRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
+  CopyrightRoute: CopyrightRoute,
   GpuPerformanceEngineeringRoute: GpuPerformanceEngineeringRoute,
   IndustriesRoute: IndustriesRoute,
   LlmopsServicesRoute: LlmopsServicesRoute,
@@ -495,9 +597,12 @@ const rootRouteChildren: RootRouteChildren = {
   MultiAgentSystemsRoute: MultiAgentSystemsRoute,
   OfferingsRoute: OfferingsRoute,
   PlatformRoute: PlatformRoute,
+  PrivacyRoute: PrivacyRoute,
+  SecurityRoute: SecurityRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SolutionsRoute: SolutionsRoute,
+  TermsRoute: TermsRoute,
   UseCasesRoute: UseCasesRoute,
   AdminAnalyticsRoute: AdminAnalyticsRoute,
 }
