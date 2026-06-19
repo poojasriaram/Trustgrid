@@ -548,18 +548,18 @@ export function SectionLink({
 
 function HomeDropdown() {
   return (
-    <div className="nav-dropdown w-[660px]">
-      <div className="grid grid-cols-2 gap-x-12 gap-y-4.5">
+    <div className="nav-dropdown w-[680px]">
+      <div className="grid grid-cols-2 gap-x-12 gap-y-3">
         {homeItems.map((item) => (
           <SectionLink
             key={item.href + item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+            className="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
           >
-            <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
+            <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-xs">
               →
             </span>
-            <span className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-tight font-sans tracking-wide">
+            <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-normal tracking-wide">
               {item.label}
             </span>
           </SectionLink>
@@ -571,27 +571,27 @@ function HomeDropdown() {
 
 function OfferingsDropdown() {
   return (
-    <div className="nav-dropdown w-[1420px] max-w-[95vw]">
+    <div className="nav-dropdown w-[1460px] max-w-[95vw]">
       <div className="grid grid-cols-6 gap-x-10 gap-y-6">
         {offeringsCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
+              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
             >
               {cat.title}
             </SectionLink>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1.5">
               {cat.items.map((item) => (
                 <SectionLink
                   key={item.href + item.label}
                   href={item.href}
-                  className="flex items-start gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px] mt-0.5">
+                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
                     →
                   </span>
-                  <span className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -606,25 +606,25 @@ function OfferingsDropdown() {
 
 function IndustriesDropdown() {
   return (
-    <div className="nav-dropdown w-[1180px] max-w-[95vw]">
+    <div className="nav-dropdown w-[1220px] max-w-[95vw]">
       <div className="grid grid-cols-4 gap-x-12 gap-y-10">
         {industrySegments.map((segment) => (
           <div key={segment.title} className="flex flex-col">
             <SectionLink
               href="/industries"
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
+              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
             >
               {segment.title}
             </SectionLink>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1.5">
               {segment.items.map((item) => (
                 <SectionLink
                   key={item.label}
                   href={item.href}
-                  className="flex items-start gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
                   <item.icon className="h-3.5 w-3.5 text-slate-500 group-hover/item:text-blue-600 transition-colors shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -639,27 +639,27 @@ function IndustriesDropdown() {
 
 function SolutionsDropdown() {
   return (
-    <div className="nav-dropdown w-[1420px] max-w-[95vw]">
+    <div className="nav-dropdown w-[1460px] max-w-[95vw]">
       <div className="grid grid-cols-6 gap-x-10 gap-y-6">
         {solutionsCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
+              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
             >
               {cat.title}
             </SectionLink>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1.5">
               {cat.items.map((item) => (
                 <SectionLink
                   key={item.href + item.label}
                   href={item.href}
-                  className="flex items-start gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px] mt-0.5">
+                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
                     →
                   </span>
-                  <span className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -674,27 +674,27 @@ function SolutionsDropdown() {
 
 function CapabilitiesDropdown() {
   return (
-    <div className="nav-dropdown w-[1240px] max-w-[95vw]">
+    <div className="nav-dropdown w-[1280px] max-w-[95vw]">
       <div className="grid grid-cols-5 gap-x-10 gap-y-6">
         {capabilitiesCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
+              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
             >
               {cat.title}
             </SectionLink>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1.5">
               {cat.items.map((item) => (
                 <SectionLink
                   key={item.href + item.label}
                   href={item.href}
-                  className="flex items-start gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px] mt-0.5">
+                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
                     →
                   </span>
-                  <span className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -709,27 +709,27 @@ function CapabilitiesDropdown() {
 
 function UseCasesDropdown() {
   return (
-    <div className="nav-dropdown w-[1240px] max-w-[95vw]">
+    <div className="nav-dropdown w-[1280px] max-w-[95vw]">
       <div className="grid grid-cols-5 gap-x-10 gap-y-6">
         {useCasesCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
+              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
             >
               {cat.title}
             </SectionLink>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1.5">
               {cat.items.map((item) => (
                 <SectionLink
                   key={item.href + item.label}
                   href={item.href}
-                  className="flex items-center gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">
+                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
                     →
                   </span>
-                  <span className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -744,27 +744,27 @@ function UseCasesDropdown() {
 
 function PlatformDropdown() {
   return (
-    <div className="nav-dropdown w-[960px] max-w-[95vw]">
+    <div className="nav-dropdown w-[1000px] max-w-[95vw]">
       <div className="grid grid-cols-3 gap-x-12 gap-y-6">
         {platformCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
+              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
             >
               {cat.title}
             </SectionLink>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1.5">
               {cat.items.map((item) => (
                 <SectionLink
                   key={item.href + item.label}
                   href={item.href}
-                  className="flex items-center gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">
+                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
                     →
                   </span>
-                  <span className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -779,18 +779,18 @@ function PlatformDropdown() {
 
 function AboutDropdown() {
   return (
-    <div className="nav-dropdown w-[260px]">
-      <div className="flex flex-col gap-y-3.5">
+    <div className="nav-dropdown w-[280px]">
+      <div className="flex flex-col gap-y-1.5">
         {aboutItems.map((item) => (
           <SectionLink
             key={item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+            className="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
           >
-            <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
+            <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-xs">
               →
             </span>
-            <span className="text-xs font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-tight font-sans tracking-wide">
+            <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-normal tracking-wide">
               {item.label}
             </span>
           </SectionLink>
@@ -912,14 +912,16 @@ export function Header() {
       {/* Global dropdown styles */}
       <style>{`
         .nav-dropdown {
-          background: oklch(1.0 0 0 / 0.995);
-          backdrop-filter: blur(24px);
-          -webkit-backdrop-filter: blur(24px);
-          border: 1px solid var(--color-border);
-          border-radius: 1.25rem;
-          box-shadow: 0 20px 48px -10px oklch(0.12 0.015 250 / 0.08), 0 0 0 1px oklch(0.45 0.18 260 / 0.02);
-          padding: 2.25rem 2.5rem;
-          letter-spacing: 0.025em;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(15, 23, 42, 0.08);
+          border-radius: 1rem;
+          box-shadow: 
+            0 20px 40px -15px rgba(15, 23, 42, 0.12), 
+            0 0 0 1px rgba(15, 23, 42, 0.04);
+          padding: 2rem 2.25rem;
+          letter-spacing: 0.01em;
         }
         @keyframes dropdown-in {
           from { opacity: 0; transform: translateY(-6px) scale(0.98); }
