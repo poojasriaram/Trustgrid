@@ -2,12 +2,60 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 
 const layers = [
-  { name: "Reflex Layer", time: "< 1 μs", desc: "Hardware-level inference. CUDA kernels, tensor cores, RDMA fabric.", color: "from-blue-500/40 to-blue-500/0" },
-  { name: "Perception Layer", time: "1 μs – 100 ms", desc: "Real-time signal interpretation. Vision, speech, sensor fusion.", color: "from-cyan-500/40 to-cyan-500/0" },
-  { name: "Interaction Layer", time: "100 ms – 1 s", desc: "Conversational AI, copilots, low-latency agent responses.", color: "from-sky-500/40 to-sky-500/0" },
-  { name: "Operation Layer", time: "1 s – 5 min", desc: "Agentic workflows. Tool-using agents execute multi-step tasks.", color: "from-indigo-500/40 to-indigo-500/0" },
-  { name: "Analysis Layer", time: "5 min – 1 hr", desc: "Long-context analysis. Research agents, deep reasoning, planning.", color: "from-violet-500/40 to-violet-500/0" },
-  { name: "Strategy Layer", time: "1 hr – Days", desc: "Autonomous enterprise operations. Self-improving agent fleets.", color: "from-fuchsia-500/40 to-fuchsia-500/0" },
+  {
+    name: "Reflex Layer",
+    time: "< 1 μs",
+    desc: "Hardware-level inference. CUDA kernels, tensor cores, RDMA fabric.",
+    gradient: "from-blue-600 to-indigo-600",
+    bgGlow: "rgba(59,130,246,0.06)",
+    badgeStyle: "text-blue-700 bg-blue-50/70 border-blue-200/60",
+    glowColor: "group-hover:border-blue-500/80"
+  },
+  {
+    name: "Perception Layer",
+    time: "1 μs – 100 ms",
+    desc: "Real-time signal interpretation. Vision, speech, sensor fusion.",
+    gradient: "from-cyan-500 to-blue-600",
+    bgGlow: "rgba(6,182,212,0.06)",
+    badgeStyle: "text-cyan-700 bg-cyan-50/70 border-cyan-200/60",
+    glowColor: "group-hover:border-cyan-500/80"
+  },
+  {
+    name: "Interaction Layer",
+    time: "100 ms – 1 s",
+    desc: "Conversational AI, copilots, low-latency agent responses.",
+    gradient: "from-sky-500 to-indigo-500",
+    bgGlow: "rgba(14,165,233,0.06)",
+    badgeStyle: "text-sky-700 bg-sky-50/70 border-sky-200/60",
+    glowColor: "group-hover:border-sky-500/80"
+  },
+  {
+    name: "Operation Layer",
+    time: "1 s – 5 min",
+    desc: "Agentic workflows. Tool-using agents execute multi-step tasks.",
+    gradient: "from-indigo-600 to-violet-600",
+    bgGlow: "rgba(79,70,229,0.06)",
+    badgeStyle: "text-indigo-700 bg-indigo-50/70 border-indigo-200/60",
+    glowColor: "group-hover:border-indigo-500/80"
+  },
+  {
+    name: "Analysis Layer",
+    time: "5 min – 1 hr",
+    desc: "Long-context analysis. Research agents, deep reasoning, planning.",
+    gradient: "from-violet-600 to-fuchsia-600",
+    bgGlow: "rgba(139,92,246,0.06)",
+    badgeStyle: "text-violet-700 bg-violet-50/70 border-violet-200/60",
+    glowColor: "group-hover:border-violet-500/80"
+  },
+  {
+    name: "Strategy Layer",
+    time: "1 hr – Days",
+    desc: "Autonomous enterprise operations. Self-improving agent fleets.",
+    gradient: "from-fuchsia-600 to-pink-600",
+    bgGlow: "rgba(217,70,239,0.06)",
+    badgeStyle: "text-fuchsia-700 bg-fuchsia-50/70 border-fuchsia-200/60",
+    glowColor: "group-hover:border-fuchsia-500/80"
+  },
 ];
 
 export function Landscape() {
@@ -22,8 +70,9 @@ export function Landscape() {
         />
 
         <div className="mt-16 relative">
-          {/* Horizontal Track Line connecting the nodes (desktop only) */}
-          <div className="absolute left-8 right-8 top-5 h-0.5 bg-gradient-to-r from-primary/60 via-accent/40 to-border/30 hidden md:block" />
+          {/* Horizontal Track Line guides (desktop only) */}
+          <div className="absolute left-8 right-8 top-5 h-0.5 bg-slate-200/65 hidden lg:block" />
+          <div className="absolute left-8 right-8 top-5 h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 via-indigo-500 to-fuchsia-500 bg-[length:200%_auto] animate-gradient-flow hidden lg:block opacity-65" />
           
           <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-6 relative z-10">
             {layers.map((l, i) => (
@@ -36,21 +85,36 @@ export function Landscape() {
                 className="flex flex-col items-stretch group"
               >
                 {/* Node counter */}
-                <div className="mb-6 flex items-center justify-center lg:justify-start">
-                  <div className="h-10 w-10 rounded-full bg-card border border-border/80 shadow-sm flex items-center justify-center text-xs font-mono font-bold text-accent group-hover:border-primary/50 group-hover:scale-110 transition-all duration-300 relative z-20">
+                <div className="mb-8 flex items-center justify-center lg:justify-start">
+                  <div className="h-10 w-10 rounded-full bg-card border border-border/80 shadow-sm flex items-center justify-center text-xs font-mono font-bold text-slate-500 transition-all duration-500 relative z-20 group-hover:border-transparent group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_15px_-3px_rgba(59,130,246,0.3)]">
+                    <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${l.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[-1]`} />
                     0{i + 1}
                   </div>
                 </div>
 
+                {/* Vertical Connection Line (desktop only) */}
+                <div className="hidden lg:flex lg:justify-start w-10 h-8 -mt-8 mb-4">
+                  <div className={`w-0.5 h-full ml-[19px] border-l border-dashed border-border/80 transition-colors duration-300 ${l.glowColor}`} />
+                </div>
+
                 {/* Layer Card */}
                 <div className="premium-card p-5 h-full relative overflow-hidden flex flex-col justify-between">
-                  <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Top indicator bar matching the gradient */}
+                  <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${l.gradient} opacity-40 group-hover:opacity-100 transition-opacity duration-300`} />
+                  
+                  {/* Layer-specific hover radial glow */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: `radial-gradient(circle at top, ${l.bgGlow}, transparent 70%)`
+                    }}
+                  />
                   
                   <div className="relative z-10">
-                    <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-accent bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-md">
+                    <span className={`text-[9.5px] font-mono font-bold uppercase tracking-widest border px-2 py-0.5 rounded-md ${l.badgeStyle}`}>
                       {l.time}
                     </span>
-                    <h3 className="mt-4 text-sm font-semibold text-foreground tracking-tight">
+                    <h3 className="mt-4 text-sm font-semibold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
                       {l.name}
                     </h3>
                     <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
