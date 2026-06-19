@@ -366,7 +366,7 @@ function IndustriesPage() {
       />
 
       {/* Grouped sticky category navigation */}
-      <div className="sticky top-14 z-30 bg-background/90 backdrop-blur-md border-b border-border/40 py-4">
+      <div className="sticky top-16 z-30 bg-background/90 backdrop-blur-md border-b border-border/40 py-4">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/80 w-full sm:w-auto sm:mr-3">
