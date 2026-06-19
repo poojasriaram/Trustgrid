@@ -329,8 +329,8 @@ export function Chatbot() {
             <div className="flex items-center justify-between border-b border-border/40 bg-muted/30 px-5 py-4">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-accent/30 bg-accent/10 text-accent">
-                    <Terminal className="h-5 w-5" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white">
+                    <img src="/logo.png" alt="TrustGrid Logo" className="h-7 w-auto object-contain" />
                   </div>
                   <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-surface bg-green-500 animate-pulse-glow" />
                 </div>
@@ -372,8 +372,8 @@ export function Chatbot() {
                   }`}
                 >
                   {msg.sender === "bot" && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-accent/20 bg-accent/5 text-accent">
-                      <Bot className="h-4 w-4" />
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white">
+                      <img src="/logo.png" alt="TrustGrid Logo" className="h-5.5 w-auto object-contain" />
                     </div>
                   )}
 
@@ -417,8 +417,8 @@ export function Chatbot() {
               {/* Streaming Text Message */}
               {streamingMessageId && (
                 <div className="flex gap-3 justify-start">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-accent/20 bg-accent/5 text-accent">
-                    <Bot className="h-4 w-4" />
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white">
+                    <img src="/logo.png" alt="TrustGrid Logo" className="h-5.5 w-auto object-contain" />
                   </div>
                   <div className="max-w-[82%] rounded-xl px-4 py-3 border border-border/60 bg-surface rounded-tl-none">
                     {formatMessageText(streamingText)}
@@ -430,10 +430,10 @@ export function Chatbot() {
               {/* Typing dots */}
               {isTyping && (
                 <div className="flex gap-3 justify-start">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-accent/20 bg-accent/5 text-accent">
-                    <Bot className="h-4 w-4" />
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white">
+                    <img src="/logo.png" alt="TrustGrid Logo" className="h-5.5 w-auto object-contain" />
                   </div>
-                  <div className="rounded-xl px-4 py-3 border border-border/40 bg-surface rounded-tl-none">
+                  <div className="rounded-xl px-4 py-3 border border-border-border/40 bg-surface rounded-tl-none">
                     <div className="flex items-center gap-1.5 py-1">
                       <div className="h-2 w-2 rounded-full bg-accent/60 animate-bounce" style={{ animationDelay: "0ms" }} />
                       <div className="h-2 w-2 rounded-full bg-accent/60 animate-bounce" style={{ animationDelay: "150ms" }} />
@@ -566,7 +566,11 @@ export function Chatbot() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-2xl glow-primary border border-primary/30 cursor-pointer relative"
+        className={`flex h-14 w-14 items-center justify-center rounded-full shadow-2xl cursor-pointer relative border transition-colors ${
+          isOpen
+            ? "bg-primary text-primary-foreground border-primary/30 glow-primary"
+            : "bg-white hover:bg-slate-50 text-slate-800 border-slate-200"
+        }`}
         aria-label="Toggle chatbot"
       >
         <AnimatePresence mode="wait">
@@ -587,11 +591,11 @@ export function Chatbot() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -45, opacity: 0 }}
               transition={{ duration: 0.15 }}
-              className="relative"
+              className="relative flex items-center justify-center"
             >
-              <MessageSquare className="h-6 w-6" />
+              <img src="/logo.png" alt="TrustGrid Logo" className="h-9 w-auto object-contain" />
               {/* Pulsing notification badge */}
-              <span className="absolute -top-1 -right-1 h-3.5 w-3.5 rounded-full border-2 border-primary bg-accent animate-pulse-glow" />
+              <span className="absolute -top-1.5 -right-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500 animate-pulse-glow" />
             </motion.div>
           )}
         </AnimatePresence>
