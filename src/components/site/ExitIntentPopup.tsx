@@ -192,8 +192,8 @@ export function ExitIntentPopup() {
             className="fixed inset-0 z-[1000] flex items-center justify-center px-4 pointer-events-none"
           >
             <div className="relative w-full max-w-xl pointer-events-auto">
-              {/* Card - Site Theme Matching (Light Premium White/Ice Blue) */}
-              <div className="relative rounded-2xl overflow-hidden bg-[#fafbfe] border border-primary/15 shadow-2xl p-7 md:p-9">
+              {/* Card - Site Theme Matching */}
+              <div className="relative rounded-2xl overflow-hidden bg-surface border border-primary/15 shadow-2xl p-7 md:p-9">
                 {/* Top Glowing Gradient Bar */}
                 <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-primary via-accent to-secondary" />
 
