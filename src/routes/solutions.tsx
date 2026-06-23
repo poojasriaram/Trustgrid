@@ -596,7 +596,7 @@ function SolutionsPage() {
                               return (
                                 <div
                                   key={ptIdx}
-                                  className={`premium-card p-5.5 bg-white flex flex-col justify-between rounded-xl border border-border/80 ${theme.borderHover} ${theme.glowHover} transition-all duration-300 relative overflow-hidden group`}
+                                  className={`premium-card p-5.5 bg-card flex flex-col justify-between rounded-xl border border-border/80 ${theme.borderHover} ${theme.glowHover} transition-all duration-300 relative overflow-hidden group`}
                                 >
                                   {/* Colored top accent line on hover */}
                                   <div className={`absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-current to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-300 ${theme.accent}`} />

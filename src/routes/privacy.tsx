@@ -26,7 +26,7 @@ function PrivacyPage() {
       />
 
       <div className="bg-background py-16 px-6 md:px-8">
-        <div className="max-w-4xl mx-auto bg-white border border-border/40 rounded-2xl p-8 md:p-12 shadow-sm space-y-10">
+        <div className="max-w-4xl mx-auto bg-card border border-border/40 rounded-2xl p-8 md:p-12 shadow-sm space-y-10">
           
           <section className="space-y-4">
             <h2 className="text-xl font-bold text-foreground tracking-tight font-display border-b border-border/30 pb-3">

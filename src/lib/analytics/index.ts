@@ -10,6 +10,8 @@ export const ANALYTICS_CONFIG = {
   MAX_BATCH_SIZE: 30,       // Max events per batch
   ENABLED: true,
   DEBUG: true,              // Enable to verify in browser console
+  // Microsoft Clarity Project ID - configure VITE_CLARITY_ID in your .env file
+  CLARITY_ID: import.meta.env.VITE_CLARITY_ID || 'xbezb8qsva',
 };
 
 // ─── Event Queue ──────────────────────────────────────────────

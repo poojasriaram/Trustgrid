@@ -390,7 +390,7 @@ function DetailedOfferingSection({ data }: { data: OfferingCategory }) {
               return (
                 <div
                   key={i}
-                  className="premium-card p-6 bg-white border border-border/80 hover:border-accent/25 hover:shadow-[0_12px_24px_-8px_rgba(var(--primary),0.03)] rounded-xl relative overflow-hidden group transition-all duration-300 flex flex-col justify-between"
+                  className="premium-card p-6 bg-card border border-border/80 hover:border-accent/25 hover:shadow-[0_12px_24px_-8px_rgba(var(--primary),0.03)] rounded-xl relative overflow-hidden group transition-all duration-300 flex flex-col justify-between"
                 >
                   <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div>
@@ -425,7 +425,7 @@ function DetailedOfferingSection({ data }: { data: OfferingCategory }) {
                 return (
                   <div
                     key={i}
-                    className="premium-card p-6 bg-white border border-border/80 hover:border-amber-500/25 hover:shadow-[0_12px_24px_-8px_rgba(245,158,11,0.03)] rounded-xl relative overflow-hidden group transition-all duration-300 flex flex-col justify-between"
+                    className="premium-card p-6 bg-card border border-border/80 hover:border-amber-500/25 hover:shadow-[0_12px_24px_-8px_rgba(245,158,11,0.03)] rounded-xl relative overflow-hidden group transition-all duration-300 flex flex-col justify-between"
                   >
                     <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div>

@@ -13,6 +13,7 @@ import { Footer } from "@/components/site/Footer";
 import { Chatbot } from "@/components/site/Chatbot";
 import { initAnalytics } from "@/lib/analytics/init";
 import { ExitIntentPopup } from "@/components/site/ExitIntentPopup";
+import { CookieConsent } from "@/components/site/CookieConsent";
 
 function NotFoundComponent() {
   return (
@@ -98,6 +99,7 @@ function RootComponent() {
         <Footer />
         <Chatbot />
         <ExitIntentPopup />
+        <CookieConsent />
       </div>
     </QueryClientProvider>
   );
