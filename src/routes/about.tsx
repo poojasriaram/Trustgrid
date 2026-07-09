@@ -40,7 +40,7 @@ const teamMembers: TeamMember[] = [
   { initials: "R", name: "Ritin", role: "Senior AI Architect" },
   { initials: "V", name: "Viswanath", role: "Sr DevOps Engineer" },
   { initials: "SK", name: "Subashini Kaushik", role: "AI Engineer - LLM / RAG" },
-  { initials: "SP", name: "Sonu Priyadharshini", role: "Chief Financial Controller" },
+  { initials: "SP", name: "Sonu Priyadharshini", role: "Chief Financial Officer ( CFO)" },
   { initials: "TBH", name: "To be hired", role: "HR Manager" },
   { initials: "NH", name: "Neha Hebber", role: "FinTech Platform Engineer (IIT Bombay)" },
   { initials: "SI", name: "Swathi Iyer", role: "IIT Madras - BTech" },
@@ -51,6 +51,9 @@ const teamMembers: TeamMember[] = [
   { initials: "AN", name: "Aswathi Nair", role: "Corporate Counsel" },
   { initials: "A", name: "Annapoorani", role: "Automation Engineering (Intern)" },
   { initials: "P", name: "Poojasri", role: "AI Engineering (Intern)" },
+  { initials: "HK", name: "HariKrishnan K", role: "AI Engineering (Intern)" },
+  { initials: "PK", name: "Praveen Kumar R", role: "AI Engineering (Intern)" },
+  { initials: "SS", name: "Santhosh S", role: "AI Engineering (Intern)" },
 ];
 
 interface OfficeAddress {
