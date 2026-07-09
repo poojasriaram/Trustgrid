@@ -215,8 +215,8 @@ export function ExitIntentPopup() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[999] bg-black/40 backdrop-blur-md"
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-[999] bg-black/60 backdrop-blur-xl"
             onClick={() => setVisible(false)}
           />
 
@@ -231,7 +231,7 @@ export function ExitIntentPopup() {
           >
             <div className="relative w-full max-w-2xl pointer-events-auto">
               {/* Card - Site Theme Matching */}
-              <div className="relative rounded-2xl overflow-hidden bg-surface border border-primary/15 shadow-2xl p-7 md:p-9">
+              <div className="relative rounded-[2rem] overflow-hidden bg-background/80 backdrop-blur-3xl border border-white/10 shadow-[0_0_80px_-15px_rgba(59,130,246,0.3)] p-8 md:p-10">
                 {/* Radial Glow Effect */}
                 <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -258,10 +258,10 @@ export function ExitIntentPopup() {
                       exit={{ opacity: 0 }}
                       className="text-center py-6"
                     >
-                      <div className="mx-auto w-14 h-14 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mb-5 animate-pulse-glow">
-                        <Sparkles className="h-6 w-6 text-primary" />
+                      <div className="mx-auto w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/40 flex items-center justify-center mb-6 shadow-[0_0_40px_-10px_rgba(59,130,246,0.4)] animate-bounce">
+                        <Sparkles className="h-8 w-8 text-primary" />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground font-display">
+                      <h3 className="text-2xl md:text-3xl font-extrabold text-foreground font-display bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
                         We're on it! 🚀
                       </h3>
                       <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-md mx-auto">
@@ -307,7 +307,7 @@ export function ExitIntentPopup() {
                             <button
                               key={opt.id}
                               onClick={() => setSelectedOption(opt)}
-                              className="group relative flex flex-col items-start p-5 rounded-2xl bg-background/50 border border-border hover:border-primary/40 hover:bg-primary/[0.02] shadow-md hover:shadow-lg transition-all text-left cursor-pointer overflow-hidden min-h-[160px] justify-between h-full"
+                              className="group relative flex flex-col items-start p-6 rounded-2xl bg-surface/30 backdrop-blur-md border border-white/5 hover:border-primary/50 hover:bg-gradient-to-br hover:from-primary/10 hover:to-transparent shadow-lg hover:shadow-[0_8px_30px_-10px_rgba(59,130,246,0.3)] hover:-translate-y-1.5 transition-all duration-500 text-left cursor-pointer overflow-hidden min-h-[170px] justify-between h-full"
                             >
                               <div className="w-full">
                                 <div className="flex items-center justify-between gap-2 mb-4 w-full">

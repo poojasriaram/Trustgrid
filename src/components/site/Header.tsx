@@ -1187,9 +1187,9 @@ export function Header() {
       `}</style>
 
       <header className="sticky top-0 z-50 border-b border-border/20 bg-background/20 backdrop-blur-xl">
-        <div className="max-w-screen-2xl mx-auto w-full flex h-16 items-center justify-between px-6 md:px-8 xl:px-12">
+        <div className="max-w-screen-2xl mx-auto w-full flex h-16 items-center justify-between px-6 md:px-8 xl:px-12 gap-6 lg:gap-8">
           {/* Brand */}
-          <Link to="/" className="flex items-center group mr-6 shrink-0">
+          <Link to="/" className="flex items-center group shrink-0">
             <img
               src="/logo.png"
               alt="TrustGrid.AI Logo"
@@ -1198,7 +1198,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-5">
+          <nav className="hidden xl:flex flex-1 items-center justify-center gap-4 xl:gap-5 shrink-0">
             <NavItem label="Home" to="/" icon={Home}>
               <HomeDropdown />
             </NavItem>
@@ -1226,16 +1226,7 @@ export function Header() {
           </nav>
 
           {/* Action + Hamburger */}
-          <div className="flex items-center gap-3">
-            <Link to="/contact" className="hidden xl:block">
-              <Button
-                size="default"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-500/20 transition-all cursor-pointer"
-              >
-                Book Strategy Session
-              </Button>
-            </Link>
-
+          <div className="flex items-center gap-3 shrink-0">
             <button
               className="xl:hidden p-2 text-foreground"
               onClick={() => setMobileOpen((v) => !v)}
@@ -1244,6 +1235,21 @@ export function Header() {
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
+        </div>
+
+        {/* Sub-Header / Announcement Banner */}
+        <div className="hidden md:flex w-full bg-blue-600/5 border-b border-border/30 py-2.5 px-6 xl:px-12 items-center justify-between backdrop-blur-md">
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+            <p className="text-xs font-semibold tracking-wide text-foreground/80">
+              Transform your enterprise AI architecture. Explore our GPU & LLM optimization frameworks.
+            </p>
+          </div>
+          <Link to="/contact" className="group">
+            <Button size="sm" variant="ghost" className="h-7 text-[11px] text-blue-500 hover:text-blue-400 hover:bg-blue-500/10 font-bold uppercase tracking-widest px-3 border border-blue-500/20 rounded-full transition-all duration-300">
+              Book Strategy Session <ChevronRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu */}
