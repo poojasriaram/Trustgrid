@@ -50,7 +50,7 @@ const teamMembers: TeamMember[] = [
   { initials: "SS", name: "Soumya S", role: "Company Secretary & Advisor" },
   { initials: "AN", name: "Aswathi Nair", role: "Corporate Counsel" },
   { initials: "A", name: "Annapoorani", role: "Automation Engineering (Intern)" },
-  { initials: "P", name: "Poojasri", role: "Ai/ML Engineer" },
+  { initials: "P", name: "Poojasri", role: "AI/ML ENGINEER" },
 ];
 
 interface OfficeAddress {
