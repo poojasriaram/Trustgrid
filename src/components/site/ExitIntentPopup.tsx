@@ -231,13 +231,13 @@ export function ExitIntentPopup() {
           >
             <div className="relative w-full max-w-2xl pointer-events-auto">
               {/* Card - Site Theme Matching */}
-              <div className="relative rounded-[2.5rem] overflow-hidden bg-background/70 backdrop-blur-[40px] border border-white/20 shadow-[0_0_100px_-20px_rgba(59,130,246,0.4)] p-8 md:p-10">
+              <div className="relative rounded-[2rem] overflow-hidden bg-background/80 backdrop-blur-3xl border border-white/10 shadow-[0_0_80px_-15px_rgba(59,130,246,0.3)] p-8 md:p-10">
                 {/* Radial Glow Effect */}
-                <div className="absolute -top-32 -left-32 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none animate-pulse duration-3000" />
-                <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none animate-pulse duration-3000 delay-1000" />
+                <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Top Glowing Gradient Bar */}
-                <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-primary via-accent to-secondary opacity-80" />
+                <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-primary via-accent to-secondary" />
 
                 {/* Close Button */}
                 <button

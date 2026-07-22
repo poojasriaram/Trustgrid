@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Cpu, Brain, ShieldCheck, Shield, Layers, CheckCircle2, type LucideIcon } from "lucide-react";
+import { Cpu, Brain, ShieldCheck, Shield, Layers, CheckCircle2, Radio, Thermometer, Car, Wifi, Wrench, Bot, Anchor, Building2, Mountain, PlaneTakeoff, Navigation, AlertCircle, Network, Handshake, type LucideIcon } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionTemplate, type SectionData } from "@/components/site/SectionTemplate";
 import { CTA } from "@/components/site/CTA";
@@ -572,6 +572,263 @@ const capabilitiesData: SectionData[] = [
 ];
 
 
+/* ─── Engineering Domains Data ─────────────────────────────────────────── */
+
+interface EngineeringDomain {
+  id: string;
+  domain: string;
+  icon: LucideIcon;
+  color: string;
+  bgColor: string;
+  borderColor: string;
+  applicationAreas: string[];
+}
+
+const engineeringDomains: EngineeringDomain[] = [
+  {
+    id: "microwave-engineering",
+    domain: "Microwave Engineering",
+    icon: Radio,
+    color: "text-violet-400",
+    bgColor: "bg-violet-500/10",
+    borderColor: "border-violet-500/30",
+    applicationAreas: ["RF Systems", "Signal Processing", "Antenna Design"]
+  },
+  {
+    id: "thermal-engineering",
+    domain: "Thermal Engineering",
+    icon: Thermometer,
+    color: "text-orange-400",
+    bgColor: "bg-orange-500/10",
+    borderColor: "border-orange-500/30",
+    applicationAreas: ["Heat Transfer Optimization", "Energy Systems", "HVAC"]
+  },
+  {
+    id: "automotive-engineering",
+    domain: "Automotive Engineering",
+    icon: Car,
+    color: "text-blue-400",
+    bgColor: "bg-blue-500/10",
+    borderColor: "border-blue-500/30",
+    applicationAreas: ["Autonomous Systems", "EV Design", "Predictive Maintenance"]
+  },
+  {
+    id: "wireless-technologies",
+    domain: "Wireless Technologies",
+    icon: Wifi,
+    color: "text-cyan-400",
+    bgColor: "bg-cyan-500/10",
+    borderColor: "border-cyan-500/30",
+    applicationAreas: ["5G / 6G / 7G Networks", "IoT", "Satellite Communication"]
+  },
+  {
+    id: "mechanical-engineering",
+    domain: "Mechanical Engineering",
+    icon: Wrench,
+    color: "text-slate-400",
+    bgColor: "bg-slate-500/10",
+    borderColor: "border-slate-500/30",
+    applicationAreas: ["CAD/CAE", "Structural Analysis", "Digital Twins"]
+  },
+  {
+    id: "robotics",
+    domain: "Robotics",
+    icon: Bot,
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-500/10",
+    borderColor: "border-emerald-500/30",
+    applicationAreas: ["Industrial Automation", "Autonomous Drones", "Swarm Systems"]
+  },
+  {
+    id: "marine-engineering",
+    domain: "Marine Engineering",
+    icon: Anchor,
+    color: "text-teal-400",
+    bgColor: "bg-teal-500/10",
+    borderColor: "border-teal-500/30",
+    applicationAreas: ["Autonomous Vessels", "Underwater Systems"]
+  },
+  {
+    id: "construction-engineering",
+    domain: "Construction Engineering",
+    icon: Building2,
+    color: "text-amber-400",
+    bgColor: "bg-amber-500/10",
+    borderColor: "border-amber-500/30",
+    applicationAreas: ["Smart Infrastructure", "BIM-AI Integration", "Safety Analytics"]
+  },
+  {
+    id: "mining-engineering",
+    domain: "Mining Engineering",
+    icon: Mountain,
+    color: "text-stone-400",
+    bgColor: "bg-stone-500/10",
+    borderColor: "border-stone-500/30",
+    applicationAreas: ["Predictive Geology", "Autonomous Equipment", "Safety AI"]
+  },
+  {
+    id: "drones-aerospace",
+    domain: "Drones & Aerospace",
+    icon: PlaneTakeoff,
+    color: "text-sky-400",
+    bgColor: "bg-sky-500/10",
+    borderColor: "border-sky-500/30",
+    applicationAreas: ["UAV Design", "Flight Systems", "Aerospace AI"]
+  },
+  {
+    id: "avionics",
+    domain: "Avionics",
+    icon: Navigation,
+    color: "text-indigo-400",
+    bgColor: "bg-indigo-500/10",
+    borderColor: "border-indigo-500/30",
+    applicationAreas: ["Flight Control Systems", "Navigation", "Embedded AI"]
+  },
+  {
+    id: "mission-critical-systems",
+    domain: "Mission-Critical Systems",
+    icon: AlertCircle,
+    color: "text-red-400",
+    bgColor: "bg-red-500/10",
+    borderColor: "border-red-500/30",
+    applicationAreas: ["Fault-Tolerant Systems", "Real-Time Safety Systems"]
+  },
+  {
+    id: "telecom",
+    domain: "Telecom",
+    icon: Network,
+    color: "text-fuchsia-400",
+    bgColor: "bg-fuchsia-500/10",
+    borderColor: "border-fuchsia-500/30",
+    applicationAreas: ["Network Optimization", "Edge Computing", "Future Telecom Infrastructure"]
+  },
+];
+
+function EngineeringDomainsSection() {
+  return (
+    <section className="border-t border-border/40 bg-surface/5 py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.55 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent mb-5">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />
+            Engineering Reach
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gradient font-display mb-4">
+            Cross-Industry Engineering Application Domains
+          </h2>
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            TrustGrid.AI's capabilities extend across the world's most technically demanding engineering disciplines — delivering AI-native optimization, reliability, and intelligence to each sector.
+          </p>
+        </motion.div>
+
+        {/* Domain Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-12">
+          {engineeringDomains.map((domain, index) => {
+            const Icon = domain.icon;
+            return (
+              <motion.div
+                key={domain.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.45, delay: index * 0.04 }}
+                className={`group relative rounded-2xl border ${domain.borderColor} bg-card/60 backdrop-blur-sm p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden`}
+              >
+                {/* Background glow on hover */}
+                <div className={`absolute inset-0 ${domain.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
+
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl ${domain.bgColor} border ${domain.borderColor} mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className={`h-5 w-5 ${domain.color}`} />
+                  </div>
+
+                  {/* Domain Title */}
+                  <h3 className={`text-sm font-bold text-foreground mb-3 group-hover:${domain.color} transition-colors duration-300`}>
+                    {domain.domain}
+                  </h3>
+
+                  {/* Application Areas */}
+                  <div className="space-y-1.5">
+                    {domain.applicationAreas.map((area, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <span className={`mt-1.5 h-1 w-1 rounded-full ${domain.color} shrink-0 opacity-80`} />
+                        <span className="text-xs text-muted-foreground leading-relaxed">{area}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Partnership Objective Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="relative rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 via-accent/5 to-transparent overflow-hidden p-8 md:p-10"
+        >
+          {/* Background decorative shimmer */}
+          <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-56 h-56 bg-accent/5 blur-[80px] rounded-full pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col md:flex-row md:items-start gap-6">
+            {/* Icon */}
+            <div className="shrink-0">
+              <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-primary/15 border border-primary/30 shadow-inner">
+                <Handshake className="h-7 w-7 text-primary" />
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent mb-4">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Partnership Objective
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-gradient font-display mb-3">
+                🤝 TrustGrid.AI in Cross-Industry Engineering
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-4xl">
+                TrustGrid.AI's mission is to integrate its high-performance AI orchestration, GPU virtualization, MLOps automation, and AI cybersecurity capabilities into these cross-industry engineering application domains. By partnering with domain-expert companies, system integrators, and research institutions, TrustGrid.AI enables partners and customers to deploy{" "}
+                <span className="font-semibold text-foreground">secure, fault-tolerant, and optimized AI systems</span>{" "}
+                across microwave, thermal, automotive, wireless, mechanical, robotics, marine, construction, mining, aerospace, avionics, mission-critical, and telecom engineering disciplines.
+              </p>
+
+              {/* Key benefits row */}
+              <div className="mt-6 grid sm:grid-cols-3 gap-4">
+                {[
+                  { label: "AI-Native Integration", desc: "Embed AI at every layer of the engineering stack" },
+                  { label: "Sector-Specific Compliance", desc: "Fault-tolerant, real-time, and safety-certified systems" },
+                  { label: "Co-Development Channels", desc: "Joint engineering & technology partnership programs" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-primary/5 border border-primary/10">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-xs font-bold text-foreground mb-0.5">{item.label}</p>
+                      <p className="text-[11px] text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function CapabilitiesList() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 space-y-16">
@@ -783,6 +1040,9 @@ function CapabilitiesPage() {
           ))}
         </div>
       </div>
+
+      {/* Cross-Industry Engineering Application Domains & Partnership Objective */}
+      <EngineeringDomainsSection />
 
       <CTA />
     </>
