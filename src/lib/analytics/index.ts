@@ -11,7 +11,7 @@ export const ANALYTICS_CONFIG = {
   ENABLED: true,
   DEBUG: true,              // Enable to verify in browser console
   // Microsoft Clarity Project ID - configure VITE_CLARITY_ID in your .env file
-  CLARITY_ID: import.meta.env.VITE_CLARITY_ID || 'xbezb8qsva',
+  CLARITY_ID: import.meta.env.VITE_CLARITY_ID || 'xqw8z6nneh',
 };
 
 // ─── Event Queue ──────────────────────────────────────────────
