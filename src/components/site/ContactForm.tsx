@@ -110,52 +110,64 @@ export function ContactForm() {
       className="rounded-xl border border-border/60 bg-surface/40 backdrop-blur p-6 md:p-10 space-y-5"
     >
       <div className="grid md:grid-cols-2 gap-5">
-        <Field label="Full Name" error={errors.name?.message}>
-          <Input {...register("name")} className="bg-background border-border" placeholder="Jane Doe" />
+        <Field label="Full Name" htmlId="contact-name" error={errors.name?.message}>
+          <Input id="contact-name" autoComplete="name" {...register("name")} className="bg-background border-border" placeholder="Jane Doe" />
         </Field>
-        <Field label="Company" error={errors.company?.message}>
-          <Input {...register("company")} className="bg-background border-border" placeholder="Acme Corp" />
+        <Field label="Company" htmlId="contact-company" error={errors.company?.message}>
+          <Input id="contact-company" autoComplete="organization" {...register("company")} className="bg-background border-border" placeholder="Acme Corp" />
         </Field>
-        <Field label="Work Email" error={errors.email?.message}>
-          <Input {...register("email")} type="email" className="bg-background border-border" placeholder="jane@acme.com" />
+        <Field label="Work Email" htmlId="contact-email" error={errors.email?.message}>
+          <Input id="contact-email" type="email" autoComplete="email" {...register("email")} className="bg-background border-border" placeholder="jane@acme.com" />
         </Field>
-        <Field label="Phone" error={errors.phone?.message}>
-          <Input {...register("phone")} className="bg-background border-border" placeholder="+1 555 000 0000" />
+        <Field label="Phone" htmlId="contact-phone" error={errors.phone?.message}>
+          <Input id="contact-phone" type="tel" autoComplete="tel" {...register("phone")} className="bg-background border-border" placeholder="+1 555 000 0000" />
         </Field>
-
       </div>
-      <Field label="Project Description" error={errors.description?.message}>
+      <Field label="Project Description" htmlId="contact-description" error={errors.description?.message}>
         <Textarea
+          id="contact-description"
           {...register("description")}
           className="bg-background border-border min-h-32"
           placeholder="Describe your AI initiative, current infrastructure, timeline, and success criteria."
         />
       </Field>
-      <Button
-        type="submit"
-        size="lg"
-        disabled={submitting}
-        className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium glow-primary group w-full md:w-auto"
-      >
-        {submitting ? "Submitting..." : "Schedule Enterprise Consultation"}
-        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-      </Button>
+      
+      <div className="space-y-4 pt-2">
+        <Button
+          type="submit"
+          size="lg"
+          disabled={submitting}
+          className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium glow-primary group w-full md:w-auto"
+        >
+          {submitting ? "Submitting..." : "Schedule Architecture Review"}
+          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Button>
+
+        {/* Enterprise Trust Signals Bar */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-2 text-[11px] text-muted-foreground border-t border-border/30">
+          <span className="flex items-center gap-1">🔒 SOC 2 Type II Certified</span>
+          <span className="flex items-center gap-1">🛡️ Zero-Trust Data Privacy</span>
+          <span className="flex items-center gap-1">⚡ 24-Hour Enterprise SLA</span>
+        </div>
+      </div>
     </form>
   );
 }
 
 function Field({
   label,
+  htmlId,
   error,
   children,
 }: {
   label: string;
+  htmlId?: string;
   error?: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="space-y-1.5">
-      <Label className="text-xs uppercase tracking-wider text-muted-foreground">
+      <Label htmlFor={htmlId} className="text-xs uppercase tracking-wider text-muted-foreground">
         {label}
       </Label>
       {children}

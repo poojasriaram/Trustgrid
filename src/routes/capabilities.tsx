@@ -837,11 +837,12 @@ function CapabilitiesList() {
         return (
           <motion.div
             key={category.id}
+            id={category.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: index * 0.05 }}
-            className="premium-card p-6 md:p-8 bg-card border border-border/60 rounded-xl shadow-sm relative overflow-hidden"
+            className="premium-card p-6 md:p-8 bg-card border border-border/60 rounded-xl shadow-sm relative overflow-hidden scroll-mt-28"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.01] to-transparent pointer-events-none" />
             

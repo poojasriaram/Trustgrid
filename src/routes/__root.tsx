@@ -87,11 +87,28 @@ function RootComponent() {
   useEffect(() => {
     // Initialize analytics tracking (fire-and-forget)
     initAnalytics().catch(() => {});
+
+    // Hash scroll observer for anchor navigation
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace("#", "");
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 120);
+      }
+    };
+    handleHashScroll();
+    window.addEventListener("hashchange", handleHashScroll);
+    return () => window.removeEventListener("hashchange", handleHashScroll);
   }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-dvh flex-col bg-background">
+      <div className="flex min-h-dvh flex-col bg-background pb-14 md:pb-0">
         <Header />
         <main className="flex-1">
           <Outlet />
@@ -100,6 +117,20 @@ function RootComponent() {
         <Chatbot />
         <ExitIntentPopup />
         <CookieConsent />
+
+        {/* Mobile Floating CTA Bar for Enterprise Lead Conversion */}
+        <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur border-t border-border/60 p-3 flex items-center justify-between gap-3 shadow-elevated">
+          <div className="flex flex-col">
+            <span className="text-xs font-bold text-foreground">TrustGrid.AI</span>
+            <span className="text-[10px] text-muted-foreground">SOC 2 & Zero-Trust Ready</span>
+          </div>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-xs font-semibold text-primary-foreground shadow hover:bg-primary/90 transition-colors shrink-0"
+          >
+            Schedule Session →
+          </Link>
+        </div>
       </div>
     </QueryClientProvider>
   );
