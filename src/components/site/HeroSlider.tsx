@@ -1147,7 +1147,7 @@ export function HeroSlider({
           >
             <img
               src={slide.image}
-              alt=""
+              alt="TrustGrid.AI Enterprise AI Infrastructure"
               className="w-full h-full object-cover object-center opacity-30 filter grayscale-[10%]"
               draggable={false}
             />

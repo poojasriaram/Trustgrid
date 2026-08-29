@@ -83,9 +83,9 @@ export function CTA() {
                 Download industry insights
               </p>
             </div>
-            <Link to="/about" className="w-full">
+            <Link to="/case-studies" className="w-full">
               <button className="w-full py-3 border border-border hover:border-primary/50 bg-transparent text-foreground/90 hover:bg-surface/50 font-bold rounded-xl text-xs transition-all cursor-pointer">
-                Download
+                Explore Case Studies
               </button>
             </Link>
           </div>

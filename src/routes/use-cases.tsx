@@ -1450,10 +1450,29 @@ function UseCasesPage() {
   const [cyberGroup, setCyberGroup] = useState("All Domains");
 
   useEffect(() => {
+    const categoryHashMap: Record<string, string> = {
+      "gpu-optimization": "GPU Optimization",
+      "llm-optimization": "LLM Optimization",
+      "ai-trust-reliability": "AI Trust & Reliability Engineering",
+      "ai-cybersecurity": "Cybersecurity & Sovereign AI",
+      "ai-infrastructure": "AI Infrastructure Engineering",
+    };
+
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash) {
         const id = hash.replace("#", "");
+
+        if (categoryHashMap[id]) {
+          setActiveCategory(categoryHashMap[id]);
+          setTimeout(() => {
+            const el = document.getElementById("use-cases-list") || document.getElementById(id);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }, 100);
+          return;
+        }
 
         if (id.startsWith("cybersecurity") || id.startsWith("uc-")) {
           setCyberSearch("");
@@ -1506,7 +1525,7 @@ function UseCasesPage() {
         description="See how our GPU optimization, network automation, and AI infrastructure solutions accelerate outcomes for the world's most demanding enterprises."
       />
 
-      <div className="py-20 bg-background border-b border-border/40 relative">
+      <div id="use-cases-list" className="py-20 bg-background border-b border-border/40 relative scroll-mt-28">
         {/* Glow decorative effects */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
