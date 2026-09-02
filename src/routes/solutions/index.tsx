@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/site/PageHero";
 import { CTA } from "@/components/site/CTA";
@@ -561,18 +561,75 @@ export function SolutionsPage() {
               return (
                 <div key={cat.id} id={cat.id} className="pt-16 border-t border-border/40 first:border-t-0 first:pt-0 scroll-mt-20">
                   {/* Category Header (Top, full-width) */}
-                  <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
-                    <div className={`h-11 w-11 rounded-xl border grid place-items-center shrink-0 shadow-sm transition-colors duration-300 ${theme.iconBox}`}>
-                      <CatIcon className="h-5.5 w-5.5" />
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                    <div className="flex flex-col md:flex-row md:items-center gap-4">
+                      <div className={`h-11 w-11 rounded-xl border grid place-items-center shrink-0 shadow-sm transition-colors duration-300 ${theme.iconBox}`}>
+                        <CatIcon className="h-5.5 w-5.5" />
+                      </div>
+                      <div>
+                        <span className={`text-base font-mono font-bold tracking-widest uppercase block transition-colors duration-300 ${theme.eyebrow}`}>
+                          {cat.subtitle}
+                        </span>
+                        <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight font-display">
+                          {cat.title}
+                        </h3>
+                      </div>
                     </div>
-                    <div>
-                      <span className={`text-base font-mono font-bold tracking-widest uppercase block transition-colors duration-300 ${theme.eyebrow}`}>
-                        {cat.subtitle}
-                      </span>
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight font-display">
-                        {cat.title}
-                      </h3>
-                    </div>
+
+                    {cat.id === "free-space-optics" && (
+                      <Link
+                        to="/solutions/free-space-optics"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs shadow-md transition-all shrink-0 w-fit"
+                      >
+                        <span>Explore FSO Solutions Deep-Dive</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
+                    {cat.id === "gpu-optimization" && (
+                      <Link
+                        to="/gpu-performance-engineering"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-blue-500/30 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 font-bold text-xs transition-all shrink-0 w-fit"
+                      >
+                        <span>GPU Engineering Solutions</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
+                    {cat.id === "llm-optimization" && (
+                      <Link
+                        to="/llmops-services"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 font-bold text-xs transition-all shrink-0 w-fit"
+                      >
+                        <span>LLMOps & RAG Services</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
+                    {cat.id === "ai-trust-reliability" && (
+                      <Link
+                        to="/agentops-services"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-bold text-xs transition-all shrink-0 w-fit"
+                      >
+                        <span>AgentOps & Reliability</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
+                    {cat.id === "ai-cybersecurity" && (
+                      <Link
+                        to="/ai-security"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 font-bold text-xs transition-all shrink-0 w-fit"
+                      >
+                        <span>AI Security Mesh</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
+                    {cat.id === "ai-infrastructure" && (
+                      <Link
+                        to="/ai-infrastructure-engineering"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 font-bold text-xs transition-all shrink-0 w-fit"
+                      >
+                        <span>AI Infrastructure Services</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
                   </div>
 
                   {/* Subcategories Stack */}

@@ -1193,6 +1193,177 @@ function FSOFormSection() {
   );
 }
 
+/* ─── FSO CALCULATOR WIDGET ─────────────────────────────────────────────────── */
+
+function FsoCalculatorWidget() {
+  const [distance, setDistance] = useState("1km");
+  const [speed, setSpeed] = useState("10G");
+  const [fog, setFog] = useState("moderate");
+
+  const metrics = useMemo(() => {
+    let savings = "$450,000";
+    let sla = "99.999%";
+    let latency = "< 0.5 ms";
+    let time = "2 Days";
+
+    if (distance === "300m") {
+      savings = "$220,000";
+      time = "1 Day";
+    } else if (distance === "3km") {
+      savings = "$750,000";
+      time = "3 Days";
+    } else if (distance === "5km") {
+      savings = "$1,200,000+";
+      time = "3 Days";
+    }
+
+    if (fog === "dense") {
+      sla = "99.99% (with Carrier RF Backup)";
+    } else if (fog === "low") {
+      sla = "99.9999%";
+    }
+
+    return { savings, sla, latency, time };
+  }, [distance, speed, fog]);
+
+  return (
+    <section className="py-16 bg-surface/30 border-y border-border/40 text-left">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-5 space-y-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs uppercase tracking-wider font-semibold text-primary">
+              <Gauge className="w-3.5 h-3.5" /> Interactive Link Estimator
+            </span>
+            <h2 className="text-3xl font-bold text-foreground font-display leading-tight">
+              FSO Link Budget & ROI Feasibility Calculator
+            </h2>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Adjust your target line-of-sight distance, optical bandwidth requirements, and microclimate profile to project link availability, CAPEX savings, and deployment turnaround.
+            </p>
+
+            <div className="space-y-4 pt-2">
+              <div>
+                <label className="text-xs font-semibold text-foreground uppercase tracking-wider block mb-2">
+                  Path Distance Range:
+                </label>
+                <div className="grid grid-cols-4 gap-2">
+                  {[
+                    { id: "300m", label: "< 300m" },
+                    { id: "1km", label: "300m–1km" },
+                    { id: "3km", label: "1km–3km" },
+                    { id: "5km", label: "3km–5km+" },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => setDistance(item.id)}
+                      className={`py-2 px-2 text-xs font-bold rounded-lg border transition-all ${
+                        distance === item.id
+                          ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                          : "bg-background/80 border-border text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-foreground uppercase tracking-wider block mb-2">
+                  Target Optical Throughput:
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { id: "1G", label: "1 Gbps Full-Duplex" },
+                    { id: "10G", label: "10 Gbps Native" },
+                    { id: "40G", label: "40 Gbps Array" },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => setSpeed(item.id)}
+                      className={`py-2 px-2 text-xs font-bold rounded-lg border transition-all ${
+                        speed === item.id
+                          ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                          : "bg-background/80 border-border text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-foreground uppercase tracking-wider block mb-2">
+                  Local Microclimate Profile:
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { id: "low", label: "Low Fog (Clear)" },
+                    { id: "moderate", label: "Moderate Metro Fog" },
+                    { id: "dense", label: "Dense Coastal Fog" },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => setFog(item.id)}
+                      className={`py-2 px-2 text-xs font-bold rounded-lg border transition-all ${
+                        fog === item.id
+                          ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                          : "bg-background/80 border-border text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 bg-card/80 border border-border/80 rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+            <div className="absolute -right-10 -bottom-10 w-60 h-60 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="text-xs font-extrabold uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
+              <Zap className="w-4 h-4" /> Projected Engineering Benchmark
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4 mb-6">
+              <div className="p-4 rounded-xl bg-surface/80 border border-border/50">
+                <div className="text-xs text-muted-foreground font-medium mb-1">Civil Trenching Savings</div>
+                <div className="text-2xl font-black text-emerald-400 font-display">{metrics.savings}</div>
+                <div className="text-[10px] text-muted-foreground mt-1">Bypasses municipal right-of-way fees</div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-surface/80 border border-border/50">
+                <div className="text-xs text-muted-foreground font-medium mb-1">Modeled Link Availability</div>
+                <div className="text-2xl font-black text-primary font-display">{metrics.sla}</div>
+                <div className="text-[10px] text-muted-foreground mt-1">Engineered optical link margin</div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-surface/80 border border-border/50">
+                <div className="text-xs text-muted-foreground font-medium mb-1">Time To Operational Link</div>
+                <div className="text-2xl font-black text-foreground font-display">{metrics.time}</div>
+                <div className="text-[10px] text-muted-foreground mt-1">vs 12-18 months for leased fiber</div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-surface/80 border border-border/50">
+                <div className="text-xs text-muted-foreground font-medium mb-1">RF Spectrum License Fees</div>
+                <div className="text-2xl font-black text-cyan-400 font-display">$0 / Year</div>
+                <div className="text-[10px] text-muted-foreground mt-1">100% Unregulated Optical Spectrum</div>
+              </div>
+            </div>
+
+            <a href="#fso-form">
+              <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs shadow-lg py-3 rounded-xl">
+                Pre-Fill Feasibility Audit Request <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── MAIN PAGE COMPONENT ─────────────────────────────────────────────────── */
 
 export function FreeSpaceOpticsPage() {
@@ -1209,6 +1380,9 @@ export function FreeSpaceOpticsPage() {
         }
         description="High-speed wireless optical connectivity without cables. We deliver turnkey FSO strategy, site survey engineering, optical network design, precision deployment, and continuous 24/7 telemetry optimization."
       />
+
+      {/* Calculator Widget */}
+      <FsoCalculatorWidget />
 
       {/* Main Offerings Stack */}
       <div className="bg-background">

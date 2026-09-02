@@ -72,6 +72,7 @@ const homeItems = [
 ];
 
 const coreOfferingsItems = [
+  { label: "Free Space Optics (FSO)", href: "/solutions/free-space-optics" },
   { label: "GPU Optimization", href: "/offerings#gpu-optimization" },
   { label: "LLM Optimization", href: "/offerings#llm-optimization" },
   { label: "AI Trust & Reliability Engineering", href: "/offerings#ai-trust-reliability" },
@@ -200,6 +201,7 @@ const solutionsItems = [
 ];
 
 const capabilitiesItems = [
+  { label: "Free Space Optics (FSO)", href: "/solutions/free-space-optics" },
   { label: "GPU Optimization", href: "/capabilities#gpu-optimization" },
   { label: "LLM Optimization", href: "/capabilities#llm-optimization" },
   { label: "AI Trust & Reliability Engineering", href: "/capabilities#ai-trust-reliability" },
@@ -209,6 +211,7 @@ const capabilitiesItems = [
 ];
 
 const useCasesItems = [
+  { label: "Free Space Optics (FSO)", href: "/solutions/free-space-optics" },
   { label: "GPU Optimization Use Cases", href: "/use-cases#gpu-optimization" },
   { label: "LLM Optimization Use Cases", href: "/use-cases#llm-optimization" },
   { label: "AI Trust & Reliability Use Cases", href: "/use-cases#ai-trust-reliability" },
@@ -235,6 +238,18 @@ const aboutItems = [
 ];
 
 const offeringsCategories = [
+  {
+    title: "Free Space Optics (FSO)",
+    href: "/solutions/free-space-optics",
+    description: "High-speed wireless optical connectivity without cables for enterprise sites.",
+    cta: { text: "Evaluate FSO for your enterprise?", buttonText: "Talk to Expert", href: "/solutions/free-space-optics#fso-form" },
+    items: [
+      { label: "FSO Strategy & Site Survey", href: "/solutions/free-space-optics", subtext: "3D LiDAR line-of-sight & feasibility survey" },
+      { label: "FSO Network Architecture", href: "/solutions/free-space-optics", subtext: "Point-to-point & sub-50ms failover design" },
+      { label: "Turnkey FSO Deployment", href: "/solutions/free-space-optics", subtext: "Sub-milliradian optical alignment & mounting" },
+      { label: "FSO Telemetry & Optimization", href: "/solutions/free-space-optics", subtext: "24/7 link monitoring & auto-recalibration" },
+    ],
+  },
   {
     title: "GPU Optimization",
     href: "/offerings#gpu-optimization",
@@ -407,6 +422,18 @@ const solutionsCategories = [
 
 const capabilitiesCategories = [
   {
+    title: "Free Space Optics (FSO)",
+    href: "/solutions/free-space-optics",
+    description: "Optical wireless transmission, LiDAR pathing, and active auto-tracking.",
+    cta: { text: "Need optical wireless advisory?", buttonText: "Contact Us", href: "/solutions/free-space-optics#fso-form" },
+    items: [
+      { label: "3D LiDAR Path Geometry Modeling", href: "/solutions/free-space-optics", subtext: "Precision path clearance & elevation maps" },
+      { label: "Microclimate Attenuation Link Budget", href: "/solutions/free-space-optics", subtext: "Fog, rain & solar glare resilience" },
+      { label: "Active Sub-Milliradian Auto-Tracking", href: "/solutions/free-space-optics", subtext: "Dynamic beam alignment under wind sway" },
+      { label: "Zero-RF Spectrum Physical Security", href: "/solutions/free-space-optics", subtext: "Air-gapped directional laser physics" },
+    ],
+  },
+  {
     title: "GPU Optimization",
     href: "/capabilities#gpu-optimization",
     description: "Deep engineering capabilities in GPU performance tuning.",
@@ -474,6 +501,18 @@ const capabilitiesCategories = [
 ];
 
 const useCasesCategories = [
+  {
+    title: "Free Space Optics (FSO)",
+    href: "/solutions/free-space-optics",
+    description: "Enterprise deployment scenarios for wireless optical connectivity.",
+    cta: { text: "Have a campus interconnect project?", buttonText: "Request Survey", href: "/solutions/free-space-optics#fso-form" },
+    items: [
+      { label: "Enterprise Campus Interconnect", href: "/solutions/free-space-optics", subtext: "Connecting high-rise buildings across public roads" },
+      { label: "Data Center Interconnect (DCI)", href: "/solutions/free-space-optics", subtext: "Direct aerial 10Gbps optical links" },
+      { label: "100% Fiber Path Diversity", href: "/solutions/free-space-optics", subtext: "Dig-proof secondary optical fallback" },
+      { label: "Industrial & Manufacturing Complex", href: "/solutions/free-space-optics", subtext: "EMI-free connectivity across active rail lines" },
+    ],
+  },
   {
     title: "GPU Optimization",
     href: "/use-cases#gpu-optimization",
@@ -849,7 +888,7 @@ interface MenuItem {
 
 interface MenuCategory {
   title: string;
-  href: string;
+  href?: string;
   description?: string;
   items: MenuItem[];
   cta?: {

@@ -26,6 +26,32 @@ interface OfferingCategory {
 
 const offeringCategories: OfferingCategory[] = [
   {
+    id: "free-space-optics",
+    title: "Free Space Optics (FSO)",
+    description: "High-speed wireless optical connectivity without cables for enterprise sites, campuses, and data centers.",
+    solutions: [
+      "FSO Strategy & 3D LiDAR Feasibility: Evaluating line-of-sight path geometry, distance constraints, structural stability, and atmospheric microclimate profiles.",
+      "Point-to-Point Optical Architecture: Designing multi-gigabit wireless optical network topologies with sub-millisecond propagation latency and sub-50ms carrier failover.",
+      "Turnkey Deployment & Alignment: Precision rooftop and mast mounting, sub-milliradian optical head alignment, and Class 1 eye-safe certification.",
+      "Proactive Telemetry & Monitoring: Continuous 24/7 tracking of optical receive power (RSSI), atmospheric attenuation, and thermal drift with automated motor realignment."
+    ],
+    capabilities: [
+      "3D LiDAR Path Geometry Modeling & Line-of-Sight Validation",
+      "Atmospheric Fog, Rain & Solar Glare Resilience Profiling",
+      "Sub-Milliradian Laser Beam Alignment & Active Auto-Tracking",
+      "Carrier-Grade Dynamic Failover (BGP / LACP / OSPF)",
+      "Zero-RF Spectrum License & Air-Gapped Optical Security",
+      "Continuous RSSI Telemetry & Remote Head Recalibration"
+    ],
+    useCases: [
+      "Enterprise campus building-to-building interconnect across public roads",
+      "Data center interconnect (DCI) direct aerial optical links",
+      "100% physically diverse secondary optical backup bypassing dig-ins",
+      "Industrial manufacturing complex connectivity across active rail lines",
+      "Rapid disaster recovery and temporary event optical link deployment"
+    ]
+  },
+  {
     id: "gpu-optimization",
     title: "Category 1: GPU Optimization",
     description: "Maximizing compute throughput, memory bandwidth, and interconnect efficiency for high-performance AI workloads.",

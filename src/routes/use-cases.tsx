@@ -82,6 +82,92 @@ interface UseCase {
 
 const useCasesData: UseCase[] = [
   {
+    id: "fso-campus-interconnect",
+    title: "Free Space Optics (FSO) Enterprise Campus Interconnect",
+    category: "Free Space Optics",
+    tagline: "High-speed 10Gbps aerial wireless optical links bypassing 14-month fiber trenching permit delays.",
+    challengeBrief:
+      "A global financial enterprise needed to connect two corporate towers separated by a 6-lane urban highway. Municipal permits for civil fiber trenching exceeded 14 months with quotes over $750,000, while microwave RF lacked required bandwidth and security.",
+    challengeDetailed1:
+      "Municipal right-of-way restrictions prohibited street excavation and underground fiber laying across the busy city thoroughfare, causing a 14+ month infrastructure bottleneck for the enterprise's real-time trading and data replication.",
+    challengeDetailed2:
+      "Traditional microwave RF solutions were rejected due to spectrum congestion, licensed frequency costs, susceptibility to radio interference, and physical interception risks on sensitive financial communications.",
+    solutionBrief:
+      "We engineered and deployed a dual 10Gbps point-to-point Free Space Optics (FSO) wireless link across the 1.2km aerial path with sub-milliradian auto-tracking and sub-50ms carrier failover.",
+    solutionDetailed1:
+      "High-precision 3D LiDAR path geometry validated zero line-of-sight obstructions. Dual Class 1 eye-safe optical transceivers were mounted on structural rooftop parapets with active motorized auto-tracking mounts to absorb building wind sway.",
+    solutionDetailed2:
+      "Direct SFP+ switch binding delivered 10Gbps full-duplex uncompressed throughput with sub-millisecond optical propagation latency, zero RF spectrum fees, and air-gapped physical data security.",
+    hardwareConfig: [
+      "Dual Enterprise 10Gbps Free Space Optics (FSO) Optical Transceivers",
+      "Sub-Milliradian Active Motorized Beam Auto-Tracking Mounts",
+      "IP67 Weather-Hardened Optical Enclosures with Thermal Lenses",
+      "Direct SFP+ / QSFP28 Fiber Patch Integration with Core Switches",
+      "Sub-50ms Dynamic LACP / BGP Carrier Failover Routers",
+    ],
+    techStack: [
+      { name: "Free Space Optics (FSO)", category: "Physical Transmission" },
+      { name: "3D LiDAR Path Geometry", category: "Feasibility Modeling" },
+      { name: "Sub-50ms BGP/LACP", category: "Failover Logic" },
+      { name: "Class 1 Eye-Safe Laser", category: "Hardware Safety" },
+      { name: "SNMP / REST Telemetry", category: "Link Monitoring" },
+    ],
+    capabilities: [
+      {
+        title: "Sub-milliradian auto-tracking beam alignment",
+        description:
+          "Motorized optical head re-centering compensating for thermal expansion and high-rise structural sway under severe wind loads.",
+      },
+      {
+        title: "100% License-free optical spectrum",
+        description:
+          "Operates in unregulated optical light frequencies, eliminating recurring spectrum licensing fees and municipal permit delays.",
+      },
+    ],
+    outcomes: [
+      {
+        title: "Deployment Time Reduced",
+        metric: "4 Days",
+        description: "Bypassed 14+ month municipal fiber permit delay and went live in 96 hours.",
+      },
+      {
+        title: "CAPEX Savings Achieved",
+        metric: "-88% Cost",
+        description: "Saved over $665,000 compared to civil fiber trenching quotes.",
+      },
+      {
+        title: "Optical Bandwidth Speed",
+        metric: "10 Gbps",
+        description: "Delivered 10Gbps full-duplex uncompressed throughput with sub-millisecond latency.",
+      },
+    ],
+    timeline: [
+      {
+        phase: "Phase 1",
+        duration: "Day 1",
+        title: "3D LiDAR Line-of-Sight & Structural Survey",
+        details: "Path clearance validation, mounting inspection, and microclimate link margin modeling.",
+      },
+      {
+        phase: "Phase 2",
+        duration: "Day 2–3",
+        title: "Turnkey Mounting & Sub-Milliradian Alignment",
+        details: "Mechanical mounting, outdoor PoE setup, coarse scope alignment, and fine RSSI tuning.",
+      },
+      {
+        phase: "Phase 3",
+        duration: "Day 4",
+        title: "Integration & BERT Acceptance Testing",
+        details: "24-hour Bit Error Rate Testing, switch port binding, and handoff of NOC telemetry dashboard.",
+      },
+    ],
+    metricsSummary: [
+      { label: "Deployment Time", value: "4 Days", sublabel: "vs 14+ months for fiber" },
+      { label: "CAPEX Saved", value: "$665K+", sublabel: "-88% cost reduction" },
+      { label: "Link Speed", value: "10 Gbps", sublabel: "Sub-ms optical propagation" },
+    ],
+  },
+  {
     id: "sovereign-ai",
     title: "Sovereign AI Initiatives",
     category: "AI Infrastructure Engineering",

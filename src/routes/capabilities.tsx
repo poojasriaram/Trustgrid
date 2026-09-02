@@ -27,6 +27,39 @@ interface MatrixCategory {
 
 const matrixCategories: MatrixCategory[] = [
   {
+    id: "free-space-optics",
+    title: "Free Space Optics (FSO)",
+    icon: Radio,
+    emoji: "📡",
+    description: "High-speed wireless optical connectivity without cables for enterprise sites, campuses, and data centers.",
+    capabilities: [
+      {
+        capability: "3D LiDAR Line-of-Sight Path Geometry Modeling",
+        description: "High-precision LiDAR clearance and elevation analysis ensuring zero physical optical obstructions.",
+        outcomes: "100% path accuracy, eliminating unexpected line-of-sight surprises prior to deployment.",
+        relevance: "Critical for enterprise campuses connecting buildings across public roads or third-party properties."
+      },
+      {
+        capability: "Microclimate Attenuation & Link Budget Engineering",
+        description: "Historical fog, rain, dust, and solar glare modeling to design weather-resilient optical margins.",
+        outcomes: "Establishes 99.999% SLA availability confidence tailored to regional microclimates.",
+        relevance: "Essential for coastal, river-adjacent, or fog-heavy urban deployments."
+      },
+      {
+        capability: "Active Sub-Milliradian Auto-Tracking Beam Alignment",
+        description: "Motorized optical head re-centering compensating for thermal building sway and high wind loads.",
+        outcomes: "Maintains optimal RSSI power without manual physical re-alignment truck rolls.",
+        relevance: "Indispensable for high-rise rooftop mounts subject to environmental expansion and wind sway."
+      },
+      {
+        capability: "Sub-50ms Carrier-Grade Dynamic Failover Logic",
+        description: "Automated LACP/BGP/OSPF switching between primary FSO link and secondary RF or fiber routes.",
+        outcomes: "Seamless, zero-drop network availability during severe atmospheric degradation events.",
+        relevance: "Mandatory for mission-critical financial, healthcare, and data center interconnects."
+      }
+    ]
+  },
+  {
     id: "gpu-optimization",
     title: "GPU Optimization",
     icon: Cpu,
