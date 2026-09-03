@@ -89,6 +89,7 @@ const footerCols = [
     links: [
       { href: "/about", label: "About TrustGrid.AI" },
       { href: "/about#teams", label: "Leadership & Teams" },
+      { href: "/about#careers-hackathons", label: "Careers & Hackathons" },
       { href: "/about#presence", label: "Global Presence" },
       { href: "/about#case-studies", label: "Case Studies" },
       { href: "/about#insights", label: "Insights & Blog" },

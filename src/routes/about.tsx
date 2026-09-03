@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Metrics } from "@/components/site/Metrics";
 import { CaseStudies } from "@/components/site/CaseStudies";
@@ -6,7 +6,7 @@ import { Insights } from "@/components/site/Insights";
 import { ContactForm } from "@/components/site/ContactForm";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTA } from "@/components/site/CTA";
-import { Mail, Phone, Globe, MapPin, Target, Eye, Wrench, Activity, Users, Cpu, Shield, Zap, TrendingUp, Anchor, CheckCircle, Leaf, Lock, Server, Database, BarChart } from "lucide-react";
+import { Mail, Phone, Globe, MapPin, Target, Eye, Wrench, Activity, Users, Cpu, Shield, Zap, TrendingUp, Anchor, CheckCircle, Leaf, Lock, Server, Database, BarChart, ExternalLink, Trophy, Sparkles, ArrowRight, ShieldAlert, Code2 } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -433,6 +433,145 @@ function AboutPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Careers, Hackathons & AI Innovation Labs Section */}
+        <section id="careers-hackathons" className="py-24 border-t border-border/30 bg-surface/10 relative overflow-hidden scroll-mt-20">
+          <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" />
+          <div className="mx-auto max-w-7xl px-6 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary mb-4 backdrop-blur-md">
+                <Trophy className="w-3.5 h-3.5 text-accent" /> Innovation Labs & Careers
+              </span>
+              <h2 className="text-3xl md:text-4.5xl font-extrabold tracking-tight text-foreground font-display mb-4">
+                Careers, Hackathons & Open Innovation
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                We empower top-tier engineering talent and student researchers to solve real-world industrial challenges through hackathons, open research labs, and high-impact engineering careers.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Card 1: Featured Hackathon Project - Crowd Safety Predictor */}
+              <div className="group relative flex flex-col justify-between p-8 rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/10 via-card/80 to-card/60 backdrop-blur-2xl hover:border-primary/60 hover:shadow-2xl transition-all duration-300 shadow-xl">
+                <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <ShieldAlert className="w-32 h-32 text-primary" />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/20 border border-primary/40 text-[10px] uppercase font-mono font-bold text-primary mb-5">
+                    <Sparkles className="w-3 h-3" /> Featured Hackathon Project
+                  </div>
+                  <h3 className="text-xl font-extrabold text-foreground mb-3 font-display">
+                    Crowd Safety Predictor
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-6">
+                    An AI-powered computer vision & crowd telemetry application designed during our AI Hackathon series to predict overcrowding, thermal stress, and emergency safety hazards in real-time.
+                  </p>
+
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>Real-time Density & Spatial Telemetry</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>Early Incident & Stampede Prevention</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>Live Multi-Camera Stream Analytics</span>
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="https://crowd-safety-predictor.vercel.app/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full mt-4"
+                >
+                  <button className="w-full py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs rounded-xl shadow-lg hover:shadow-primary/20 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <span>Launch Crowd Safety Predictor</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </button>
+                </a>
+              </div>
+
+              {/* Card 2: Enterprise AI Hackathons */}
+              <div className="group relative flex flex-col justify-between p-8 rounded-3xl border border-border/60 bg-card/60 backdrop-blur-xl hover:border-accent/40 hover:bg-card/90 transition-all duration-300 shadow-lg">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-[10px] uppercase font-mono font-bold text-accent mb-5">
+                    <Code2 className="w-3 h-3" /> Global Hackathon Series
+                  </div>
+                  <h3 className="text-xl font-extrabold text-foreground mb-3 font-display">
+                    Enterprise AI Hackathons
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-6">
+                    We sponsor and host frontier AI hackathons across premier institutions (IITs, global tech hubs) to push the boundaries of computer vision, GPU kernels, and autonomous LLM agents.
+                  </p>
+
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>$50,000+ Prize Pools & Industry Grants</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>Mentorship from Principal AI Architects</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>Fast-track hiring into TrustGrid Labs</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Link to="/contact" search={{ subject: "Hackathon Partnership & Sponsorship" }} className="w-full mt-4">
+                  <button className="w-full py-3.5 border border-border hover:border-primary/50 bg-surface/50 hover:bg-surface text-foreground font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <span>Sponsor or Join Next Hackathon</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </Link>
+              </div>
+
+              {/* Card 3: Careers & Talent Pipeline */}
+              <div className="group relative flex flex-col justify-between p-8 rounded-3xl border border-border/60 bg-card/60 backdrop-blur-xl hover:border-accent/40 hover:bg-card/90 transition-all duration-300 shadow-lg">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-[10px] uppercase font-mono font-bold text-violet-400 mb-5">
+                    <Users className="w-3 h-3" /> Join TrustGrid.AI
+                  </div>
+                  <h3 className="text-xl font-extrabold text-foreground mb-3 font-display">
+                    Careers & Fellowships
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-6">
+                    We are hiring elite engineers, researchers, and systems architects passionate about building zero-trust AI infrastructure, optical wireless networks, and high-throughput GPU clusters.
+                  </p>
+
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-violet-400 shrink-0" />
+                      <span>AI/ML Systems & CUDA Engineers</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-violet-400 shrink-0" />
+                      <span>LLMOps & RAG Pipeline Architects</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                      <CheckCircle className="w-4 h-4 text-violet-400 shrink-0" />
+                      <span>Research Internships & Fellowships</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Link to="/contact" search={{ subject: "Career Application: TrustGrid Engineering" }} className="w-full mt-4">
+                  <button className="w-full py-3.5 border border-border hover:border-primary/50 bg-surface/50 hover:bg-surface text-foreground font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <span>Explore Roles & Apply Now</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
