@@ -487,7 +487,7 @@ function AboutPage() {
                 </div>
 
                 <a
-                  href="https://crowd-safety-predictor.vercel.app/login"
+                  href="https://crowd-safety-predictor.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full mt-4"
