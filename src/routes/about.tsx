@@ -30,6 +30,7 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   { initials: "BV", name: "Balaji Venkatraman", role: "Director Growth" },
+  { initials: "PR", name: "Pranav PR", role: "Operating Director" },
   { initials: "LS", name: "Lavanya Seshadri", role: "Engineering Head" },
   { initials: "VK", name: "Vignesh KS", role: "Product Lead" },
   { initials: "DK", name: "Dinesh Kumar", role: "Lead AI Engineer" },
@@ -48,6 +49,7 @@ const teamMembers: TeamMember[] = [
   { initials: "CL", name: "Chintiya Liu", role: "Industry Consultant" },
   { initials: "KP", name: "Kallol Pal", role: "Technology Advisor" },
   { initials: "SS", name: "Soumya S", role: "Company Secretary & Advisor" },
+  { initials: "SKN", name: "Shaji K Namath", role: "Advisor" },
   { initials: "AN", name: "Aswathi Nair", role: "Corporate Counsel" },
   { initials: "A", name: "Annapoorani", role: "Automation Engineering (Intern)" },
   { initials: "P", name: "Poojasri", role: "AI/ML ENGINEER" },
